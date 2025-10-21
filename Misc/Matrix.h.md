@@ -84,7 +84,16 @@ data:
     \ Input Output ---------------------\n    friend ostream &operator << (ostream\
     \ &out, const Matrix &a) {\n        for (auto &mat : a.matrix) {\n           \
     \ for (auto &x : mat) {\n                out << x << \" \";\n            }\n \
-    \           out << '\\n';\n        }\n        return out;\n    }\n};\n"
+    \           out << '\\n';\n        }\n        return out;\n    }\n};\n\n// void\
+    \ reverse_shape(vector<vector<int>> &v){\n//     int n = v.size();\n//     int\
+    \ m = v[0].size();\n//     for (int i = 0; i < n; ++i) {\n//         for (int\
+    \ j = 0; j < m / 2; ++j) {\n//             swap(v[i][j], v[i][m - 1 - j]);\n//\
+    \         }\n//     }\n// }\n\n// void transpose(vector<vector<int>> &v){\n//\
+    \     int n = v.size();\n//     int m = v[0].size();\n//     vector<vector<int>>\
+    \ res(m, vector<int>(n));\n//     for (int i = 0; i < n; ++i) {\n//         for\
+    \ (int j = 0; j < m; ++j) {\n//             res[j][i] = v[i][j];\n//         }\n\
+    //     }\n//     res.swap(v);\n// }\n\n// void rotate(vector<vector<int>>& matrix)\
+    \ {\n//     transpose(matrix);\n//     reverse_shape(matrix);\n// }\n"
   code: "#include \"../template.h\"\n\n// AC: https://cses.fi/problemset/task/1722/\n\
     \ntemplate<typename T>\nstruct Matrix {\n    vector<vector<T>> matrix;\n\n   \
     \ Matrix() = default;\n\n    Matrix(int32_t _row, int32_t _col): matrix(_row,\
@@ -148,13 +157,22 @@ data:
     \ Input Output ---------------------\n    friend ostream &operator << (ostream\
     \ &out, const Matrix &a) {\n        for (auto &mat : a.matrix) {\n           \
     \ for (auto &x : mat) {\n                out << x << \" \";\n            }\n \
-    \           out << '\\n';\n        }\n        return out;\n    }\n};"
+    \           out << '\\n';\n        }\n        return out;\n    }\n};\n\n// void\
+    \ reverse_shape(vector<vector<int>> &v){\n//     int n = v.size();\n//     int\
+    \ m = v[0].size();\n//     for (int i = 0; i < n; ++i) {\n//         for (int\
+    \ j = 0; j < m / 2; ++j) {\n//             swap(v[i][j], v[i][m - 1 - j]);\n//\
+    \         }\n//     }\n// }\n\n// void transpose(vector<vector<int>> &v){\n//\
+    \     int n = v.size();\n//     int m = v[0].size();\n//     vector<vector<int>>\
+    \ res(m, vector<int>(n));\n//     for (int i = 0; i < n; ++i) {\n//         for\
+    \ (int j = 0; j < m; ++j) {\n//             res[j][i] = v[i][j];\n//         }\n\
+    //     }\n//     res.swap(v);\n// }\n\n// void rotate(vector<vector<int>>& matrix)\
+    \ {\n//     transpose(matrix);\n//     reverse_shape(matrix);\n// }"
   dependsOn:
   - template.h
   isVerificationFile: false
   path: Misc/Matrix.h
   requiredBy: []
-  timestamp: '2025-06-20 02:19:32+07:00'
+  timestamp: '2025-10-21 17:34:50+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Misc/Matrix.h
