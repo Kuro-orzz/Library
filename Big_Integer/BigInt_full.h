@@ -332,6 +332,15 @@ public:
         }
         return res;
     }
+    friend BigInt pow(const BigInt &a, const BigInt &b) {
+        BigInt x(a), y(b), res(1);
+        while (y != 0) {
+            if (y[0] % 2 == 1) res = res * x;
+            x = x * x;
+            y /= 2;
+        }
+        return res;
+    }
 
     friend BigInt __gcd(const BigInt &a, const BigInt &b) {
         if (b == 0) return a;

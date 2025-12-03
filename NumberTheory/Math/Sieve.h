@@ -54,3 +54,15 @@ vector<int> sieve_sum_divisors(int n) {
     }
     return sumDiv;
 }
+
+vector<vector<int>> sieve__prime_divisors(int n) {
+    vector<int> prime = sieve(n);
+    vector<vector<int>> div(n+1);
+    for (int i = 2; i <= n; i++) {
+        if (!prime[i]) continue;
+        for (int j = i; j <= n; j += i) {
+            div[j].push_back(i);
+        }
+    }
+    return div;
+}
