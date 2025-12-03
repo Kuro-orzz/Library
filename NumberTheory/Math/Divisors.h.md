@@ -68,8 +68,12 @@ data:
     }\n\nvector<int> sieve_sum_divisors(int n) {\n    vector<int> sumDiv(n+1, 0);\n\
     \    for (int i = 1; i*i <= n; i++) {\n        for (int j = i; j <= n; j += i)\
     \ {\n            sumDiv[j] += i;\n            if (i*i != j) sumDiv[j] += j/i;\n\
-    \        }\n    }\n    return sumDiv;\n}\n#line 4 \"NumberTheory/Math/Divisors.h\"\
-    \n\nusing u128 = __uint128_t;\n\n// sum of all divisor [1, n]\n// https://usaco.guide/problems/cses-1082-sum-of-divisors/solution\n\
+    \        }\n    }\n    return sumDiv;\n}\n\nvector<vector<int>> sieve__prime_divisors(int\
+    \ n) {\n    vector<int> prime = sieve(n);\n    vector<vector<int>> div(n+1);\n\
+    \    for (int i = 2; i <= n; i++) {\n        if (!prime[i]) continue;\n      \
+    \  for (int j = i; j <= n; j += i) {\n            div[j].push_back(i);\n     \
+    \   }\n    }\n    return div;\n}\n#line 4 \"NumberTheory/Math/Divisors.h\"\n\n\
+    using u128 = __uint128_t;\n\n// sum of all divisor [1, n]\n// https://usaco.guide/problems/cses-1082-sum-of-divisors/solution\n\
     ll sum_of_divisor(ll n) {\n    ll res = 0, i = 1;\n    while (i <= n) {\n    \
     \    ll l = i;\n        ll r = n / (n / i);\n        ll val = n / l;\n       \
     \ ll csc = (u128)(r - l + 1) * (l + r) / 2 % MOD;\n        res = (res + csc *\
@@ -106,7 +110,7 @@ data:
   isVerificationFile: false
   path: NumberTheory/Math/Divisors.h
   requiredBy: []
-  timestamp: '2025-07-18 00:55:12+07:00'
+  timestamp: '2025-12-04 02:05:35+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: NumberTheory/Math/Divisors.h

@@ -179,6 +179,9 @@ data:
   - icon: ':warning:'
     path: String/Kmp.h
     title: String/Kmp.h
+  - icon: ':heavy_check_mark:'
+    path: String/Manacher.h
+    title: String/Manacher.h
   - icon: ':warning:'
     path: String/Problem/Kmp.cpp
     title: String/Problem/Kmp.cpp
@@ -328,6 +331,9 @@ data:
     path: Sample/Many_A_plus_B_128bit.test.cpp
     title: Sample/Many_A_plus_B_128bit.test.cpp
   - icon: ':heavy_check_mark:'
+    path: String/Yosupo/Enumerate_Palindromes.test.cpp
+    title: String/Yosupo/Enumerate_Palindromes.test.cpp
+  - icon: ':heavy_check_mark:'
     path: String/Yosupo/Z_Algorithm.test.cpp
     title: String/Yosupo/Z_Algorithm.test.cpp
   - icon: ':heavy_check_mark:'
@@ -434,6 +440,7 @@ data:
   - String/Trie/Trie_array_ver.h
   - String/Trie/Trie.h
   - String/Kmp.h
+  - String/Manacher.h
   - String/Problem/Rolling_Hash2.cpp
   - String/Problem/Rolling_Hash1.cpp
   - String/Problem/Kmp.cpp
@@ -479,6 +486,7 @@ data:
   - Graph/Aizu/aizu_grl_1_c_floyd_warshall.test.cpp
   - Graph/Aizu/aizu_grl_1_a_dijkstra.test.cpp
   - Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
+  - String/Yosupo/Enumerate_Palindromes.test.cpp
   - String/Yosupo/Z_Algorithm.test.cpp
   - Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
   - Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp

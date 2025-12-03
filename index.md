@@ -213,6 +213,9 @@ data:
     - icon: ':warning:'
       path: String/Kmp.h
       title: String/Kmp.h
+    - icon: ':heavy_check_mark:'
+      path: String/Manacher.h
+      title: String/Manacher.h
     - icon: ':warning:'
       path: String/Rolling_Hash.h
       title: String/Rolling_Hash.h
@@ -395,6 +398,9 @@ data:
       title: Sample/Many_A_plus_B_128bit.test.cpp
   - name: String/Yosupo
     pages:
+    - icon: ':heavy_check_mark:'
+      path: String/Yosupo/Enumerate_Palindromes.test.cpp
+      title: String/Yosupo/Enumerate_Palindromes.test.cpp
     - icon: ':heavy_check_mark:'
       path: String/Yosupo/Z_Algorithm.test.cpp
       title: String/Yosupo/Z_Algorithm.test.cpp

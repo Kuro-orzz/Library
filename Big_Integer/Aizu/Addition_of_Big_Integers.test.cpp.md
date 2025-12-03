@@ -174,36 +174,40 @@ data:
     \ b, BigInt(mod)); }\n    friend BigInt pow(const BigInt &a, const BigInt &b,\
     \ const BigInt &mod) {\n        BigInt x(a), y(b), res(1);\n        while (y !=\
     \ 0) {\n            if (y[0] % 2 == 1) res = res * x % mod;\n            x = x\
-    \ * x % mod;\n            y /= 2;\n        }\n        return res;\n    }\n\n \
-    \   friend BigInt __gcd(const BigInt &a, const BigInt &b) {\n        if (b ==\
-    \ 0) return a;\n        return __gcd(b, a % b);\n    }\n\n    friend BigInt __lcm(const\
-    \ BigInt &a, const BigInt &b) {\n        return a / __gcd(a, b) * b;\n    }\n\n\
-    \    // safe sqrt for long long and BigInt\n    friend BigInt sqrt(const BigInt\
-    \ &a1) {\n        BigInt a = a1;\n        while (a.digit.empty() || a.size() %\
-    \ 2 == 1) {\n            a.digit.push_back(0);\n        }\n\n        int n = a.size();\n\
-    \        int firstDigit = (int) sqrt((double) a[n - 1] * BASE + a[n - 2]);\n \
-    \       int norm = BASE / (firstDigit + 1);\n        a = a * norm * norm;\n  \
-    \      while (a.digit.empty() || a.size() % 2 == 1) {\n            a.digit.push_back(0);\n\
-    \        }\n\n        BigInt r = 1ll * a[n - 1] * BASE + a[n - 2];\n        firstDigit\
-    \ = (int) sqrt((double) a[n - 1] * BASE + a[n - 2]);\n        int q = firstDigit;\n\
-    \        BigInt res;\n\n        for (int j = n / 2 - 1; j >= 0; j--) {\n     \
-    \       for (; ; --q) {\n                BigInt r1 = (r - (res * 2 * BigInt(BASE)\
-    \ + q) * q) * BigInt(BASE) * BigInt(BASE);\n                r1 += (j > 0 ? 1ll\
-    \ * a[2 * j - 1] * BASE + a[2 * j - 2] : 0);\n                if (r1 >= 0) {\n\
-    \                    r = r1;\n                    break;\n                }\n\
-    \            }\n            res *= BASE;\n            res += q;\n\n          \
-    \  if (j > 0) {\n                int d1 = res.size() + 2 < r.size() ? r[res.size()\
-    \ + 2] : 0;\n                int d2 = res.size() + 1 < r.size() ? r[res.size()\
-    \ + 1] : 0;\n                int d3 = res.size() < r.size() ? r[res.size()] :\
-    \ 0;\n                q = (1ll * d1 * BASE * BASE + 1ll * d2 * BASE + d3) / (firstDigit\
-    \ * 2);\n            }\n        }\n\n        res.trim();\n        return res /\
-    \ norm;\n    }\n\n    // ---------------------- Input Output ---------------------\n\
-    \    /* only use for decimal number */\n    void read(const string &s) {\n   \
-    \     sign = (s[0] == '-' ? -1 : 1);\n        digit.clear();\n        int pos\
-    \ = (s[0] == '-' ? 1 : 0);\n        for (int i = (int)s.size() - 1; i >= pos;\
-    \ i -= BASE_DIGITS) {\n            int x = 0;\n            int k = max(pos, i\
-    \ - BASE_DIGITS + 1);\n            for (int j = k; j <= i; j++) {\n          \
-    \      x = x * 10 + (s[j] - '0');\n            }\n            digit.push_back(x);\n\
+    \ * x % mod;\n            y /= 2;\n        }\n        return res;\n    }\n   \
+    \ friend BigInt pow(const BigInt &a, const BigInt &b) {\n        BigInt x(a),\
+    \ y(b), res(1);\n        while (y != 0) {\n            if (y[0] % 2 == 1) res\
+    \ = res * x;\n            x = x * x;\n            y /= 2;\n        }\n       \
+    \ return res;\n    }\n\n    friend BigInt __gcd(const BigInt &a, const BigInt\
+    \ &b) {\n        if (b == 0) return a;\n        return __gcd(b, a % b);\n    }\n\
+    \n    friend BigInt __lcm(const BigInt &a, const BigInt &b) {\n        return\
+    \ a / __gcd(a, b) * b;\n    }\n\n    // safe sqrt for long long and BigInt\n \
+    \   friend BigInt sqrt(const BigInt &a1) {\n        BigInt a = a1;\n        while\
+    \ (a.digit.empty() || a.size() % 2 == 1) {\n            a.digit.push_back(0);\n\
+    \        }\n\n        int n = a.size();\n        int firstDigit = (int) sqrt((double)\
+    \ a[n - 1] * BASE + a[n - 2]);\n        int norm = BASE / (firstDigit + 1);\n\
+    \        a = a * norm * norm;\n        while (a.digit.empty() || a.size() % 2\
+    \ == 1) {\n            a.digit.push_back(0);\n        }\n\n        BigInt r =\
+    \ 1ll * a[n - 1] * BASE + a[n - 2];\n        firstDigit = (int) sqrt((double)\
+    \ a[n - 1] * BASE + a[n - 2]);\n        int q = firstDigit;\n        BigInt res;\n\
+    \n        for (int j = n / 2 - 1; j >= 0; j--) {\n            for (; ; --q) {\n\
+    \                BigInt r1 = (r - (res * 2 * BigInt(BASE) + q) * q) * BigInt(BASE)\
+    \ * BigInt(BASE);\n                r1 += (j > 0 ? 1ll * a[2 * j - 1] * BASE +\
+    \ a[2 * j - 2] : 0);\n                if (r1 >= 0) {\n                    r =\
+    \ r1;\n                    break;\n                }\n            }\n        \
+    \    res *= BASE;\n            res += q;\n\n            if (j > 0) {\n       \
+    \         int d1 = res.size() + 2 < r.size() ? r[res.size() + 2] : 0;\n      \
+    \          int d2 = res.size() + 1 < r.size() ? r[res.size() + 1] : 0;\n     \
+    \           int d3 = res.size() < r.size() ? r[res.size()] : 0;\n            \
+    \    q = (1ll * d1 * BASE * BASE + 1ll * d2 * BASE + d3) / (firstDigit * 2);\n\
+    \            }\n        }\n\n        res.trim();\n        return res / norm;\n\
+    \    }\n\n    // ---------------------- Input Output ---------------------\n \
+    \   /* only use for decimal number */\n    void read(const string &s) {\n    \
+    \    sign = (s[0] == '-' ? -1 : 1);\n        digit.clear();\n        int pos =\
+    \ (s[0] == '-' ? 1 : 0);\n        for (int i = (int)s.size() - 1; i >= pos; i\
+    \ -= BASE_DIGITS) {\n            int x = 0;\n            int k = max(pos, i -\
+    \ BASE_DIGITS + 1);\n            for (int j = k; j <= i; j++) {\n            \
+    \    x = x * 10 + (s[j] - '0');\n            }\n            digit.push_back(x);\n\
     \        }\n        trim();\n    }\n\n    friend istream &operator >> (istream\
     \ &in, BigInt &a) {\n        string s; in >> s;\n        a.read(s);\n        return\
     \ in;\n    }\n\n    friend ostream &operator << (ostream &out, const BigInt &a)\
@@ -222,7 +226,7 @@ data:
   isVerificationFile: true
   path: Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
   requiredBy: []
-  timestamp: '2025-10-07 00:37:04+07:00'
+  timestamp: '2025-12-04 02:05:35+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp

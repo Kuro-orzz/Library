@@ -60,7 +60,11 @@ data:
     }\n\nvector<int> sieve_sum_divisors(int n) {\n    vector<int> sumDiv(n+1, 0);\n\
     \    for (int i = 1; i*i <= n; i++) {\n        for (int j = i; j <= n; j += i)\
     \ {\n            sumDiv[j] += i;\n            if (i*i != j) sumDiv[j] += j/i;\n\
-    \        }\n    }\n    return sumDiv;\n}\n#line 6 \"NumberTheory/Yosupo/Enumerate_primes.test.cpp\"\
+    \        }\n    }\n    return sumDiv;\n}\n\nvector<vector<int>> sieve__prime_divisors(int\
+    \ n) {\n    vector<int> prime = sieve(n);\n    vector<vector<int>> div(n+1);\n\
+    \    for (int i = 2; i <= n; i++) {\n        if (!prime[i]) continue;\n      \
+    \  for (int j = i; j <= n; j += i) {\n            div[j].push_back(i);\n     \
+    \   }\n    }\n    return div;\n}\n#line 6 \"NumberTheory/Yosupo/Enumerate_primes.test.cpp\"\
     \n\nvoid solve() {\n    int n, a, b; cin >> n >> a >> b;\n    ll cnt_pi = Meissel(n);\n\
     \    \n    int lim = 1e6;\n    vector<int> need;\n    int i = 0;\n    while (a*i\
     \ + b <= n && (int)need.size() < lim) {\n        need.push_back(a*i+b);\n    \
@@ -101,7 +105,7 @@ data:
   isVerificationFile: true
   path: NumberTheory/Yosupo/Enumerate_primes.test.cpp
   requiredBy: []
-  timestamp: '2025-10-07 00:37:04+07:00'
+  timestamp: '2025-12-04 02:05:35+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: NumberTheory/Yosupo/Enumerate_primes.test.cpp
