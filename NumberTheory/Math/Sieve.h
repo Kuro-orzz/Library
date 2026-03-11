@@ -55,6 +55,19 @@ vector<int> sieve_sum_divisors(int n) {
     return sumDiv;
 }
 
+vector<int> segmentSieveDivisors(int l, int r){
+    vector<int> div(r-l+1, 0);
+    for(ll i = 1; i*i <= r; i++){
+        ll lim = max(i*i, (l+i-1)/i*i);
+        for(ll j = lim; j <= r; j += i) {
+            div[j-l] += 2;
+        }
+        if (i * i >= l) div[i*i-l]--;
+    }
+    if (l == 0) div[0] = 0;
+    return div;
+}
+
 vector<vector<int>> sieve__prime_divisors(int n) {
     vector<int> prime = sieve(n);
     vector<vector<int>> div(n+1);
