@@ -54,8 +54,8 @@ data:
   timestamp: '2025-05-22 01:34:28+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - DataStructure/Yosupo/Static_range_sum.test.cpp
   - Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
+  - DataStructure/Yosupo/Static_range_sum.test.cpp
 documentation_of: DataStructure/Fenwick/Fenwick.h
 layout: document
 redirect_from:

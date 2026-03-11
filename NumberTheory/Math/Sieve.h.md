@@ -44,11 +44,15 @@ data:
     \ n) {\n    vector<int> sumDiv(n+1, 0);\n    for (int i = 1; i*i <= n; i++) {\n\
     \        for (int j = i; j <= n; j += i) {\n            sumDiv[j] += i;\n    \
     \        if (i*i != j) sumDiv[j] += j/i;\n        }\n    }\n    return sumDiv;\n\
-    }\n\nvector<vector<int>> sieve__prime_divisors(int n) {\n    vector<int> prime\
-    \ = sieve(n);\n    vector<vector<int>> div(n+1);\n    for (int i = 2; i <= n;\
-    \ i++) {\n        if (!prime[i]) continue;\n        for (int j = i; j <= n; j\
-    \ += i) {\n            div[j].push_back(i);\n        }\n    }\n    return div;\n\
-    }\n"
+    }\n\nvector<int> segmentSieveDivisors(int l, int r){\n    vector<int> div(r-l+1,\
+    \ 0);\n    for(ll i = 1; i*i <= r; i++){\n        ll lim = max(i*i, (l+i-1)/i*i);\n\
+    \        for(ll j = lim; j <= r; j += i) {\n            div[j-l] += 2;\n     \
+    \   }\n        if (i * i >= l) div[i*i-l]--;\n    }\n    if (l == 0) div[0] =\
+    \ 0;\n    return div;\n}\n\nvector<vector<int>> sieve__prime_divisors(int n) {\n\
+    \    vector<int> prime = sieve(n);\n    vector<vector<int>> div(n+1);\n    for\
+    \ (int i = 2; i <= n; i++) {\n        if (!prime[i]) continue;\n        for (int\
+    \ j = i; j <= n; j += i) {\n            div[j].push_back(i);\n        }\n    }\n\
+    \    return div;\n}\n"
   code: "#include \"../../template.h\"\n\nvector<int> sieve(int n) {\n    vector<int>\
     \ nt(n+1, 1);\n    nt[0] = nt[1] = 0;\n    for (int i = 2; i * i <= n; i++) {\n\
     \        if (!nt[i]) continue;\n        for (int j = i * i; j <= n; j += i)\n\
@@ -67,17 +71,22 @@ data:
     \  vector<int> sumDiv(n+1, 0);\n    for (int i = 1; i*i <= n; i++) {\n       \
     \ for (int j = i; j <= n; j += i) {\n            sumDiv[j] += i;\n           \
     \ if (i*i != j) sumDiv[j] += j/i;\n        }\n    }\n    return sumDiv;\n}\n\n\
-    vector<vector<int>> sieve__prime_divisors(int n) {\n    vector<int> prime = sieve(n);\n\
-    \    vector<vector<int>> div(n+1);\n    for (int i = 2; i <= n; i++) {\n     \
-    \   if (!prime[i]) continue;\n        for (int j = i; j <= n; j += i) {\n    \
-    \        div[j].push_back(i);\n        }\n    }\n    return div;\n}"
+    vector<int> segmentSieveDivisors(int l, int r){\n    vector<int> div(r-l+1, 0);\n\
+    \    for(ll i = 1; i*i <= r; i++){\n        ll lim = max(i*i, (l+i-1)/i*i);\n\
+    \        for(ll j = lim; j <= r; j += i) {\n            div[j-l] += 2;\n     \
+    \   }\n        if (i * i >= l) div[i*i-l]--;\n    }\n    if (l == 0) div[0] =\
+    \ 0;\n    return div;\n}\n\nvector<vector<int>> sieve__prime_divisors(int n) {\n\
+    \    vector<int> prime = sieve(n);\n    vector<vector<int>> div(n+1);\n    for\
+    \ (int i = 2; i <= n; i++) {\n        if (!prime[i]) continue;\n        for (int\
+    \ j = i; j <= n; j += i) {\n            div[j].push_back(i);\n        }\n    }\n\
+    \    return div;\n}"
   dependsOn:
   - template.h
   isVerificationFile: false
   path: NumberTheory/Math/Sieve.h
   requiredBy:
   - NumberTheory/Math/Divisors.h
-  timestamp: '2025-12-04 02:05:35+07:00'
+  timestamp: '2026-03-11 20:37:03+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - NumberTheory/Yosupo/Enumerate_primes.test.cpp

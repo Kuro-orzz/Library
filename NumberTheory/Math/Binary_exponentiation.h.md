@@ -55,8 +55,8 @@ data:
   path: NumberTheory/Math/Binary_exponentiation.h
   requiredBy:
   - NumberTheory/Math/Divisors.h
-  - NumberTheory/Math/Primality_test.h
   - NumberTheory/Math/MillerRabin.h
+  - NumberTheory/Math/Primality_test.h
   timestamp: '2025-07-18 00:55:12+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

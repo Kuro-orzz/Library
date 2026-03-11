@@ -80,8 +80,8 @@ data:
   timestamp: '2025-05-08 02:01:24+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - DataStructure/Yosupo/Range_affine_range_sum.test.cpp
   - DataStructure/Yosupo/Range_affine_point_get.test.cpp
+  - DataStructure/Yosupo/Range_affine_range_sum.test.cpp
 documentation_of: DataStructure/SegTree/Affline.h
 layout: document
 redirect_from:
