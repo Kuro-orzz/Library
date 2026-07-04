@@ -87,14 +87,14 @@ data:
   isVerificationFile: false
   path: DataStructure/DSU/Dsu.h
   requiredBy:
-  - Graph/Mst/Prim.h
   - Graph/Mst/Kruskal.h
+  - Graph/Mst/Prim.h
   timestamp: '2025-06-07 01:24:49+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
-  - DataStructure/Yosupo/Union_find.test.cpp
   - DataStructure/Yosupo/Unionfind_with_potential.test.cpp
+  - DataStructure/Yosupo/Union_find.test.cpp
 documentation_of: DataStructure/DSU/Dsu.h
 layout: document
 redirect_from:
