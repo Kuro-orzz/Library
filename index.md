@@ -165,8 +165,8 @@ data:
       path: Misc/Matrix.h
       title: Misc/Matrix.h
     - icon: ':warning:'
-      path: Misc/Modint.h
-      title: Misc/Modint.h
+      path: Misc/ModInt.h
+      title: Misc/ModInt.h
     - icon: ':warning:'
       path: Misc/Prefix_sum.h
       title: Misc/Prefix_sum.h

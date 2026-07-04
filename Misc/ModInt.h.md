@@ -4,7 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: template.h
     title: template.h
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: NumberTheory/Math/Combination.h
+    title: NumberTheory/Math/Combination.h
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: h
@@ -20,7 +23,7 @@ data:
     \  ios_base::sync_with_stdio(false);cin.tie(NULL);\n    // cin.exceptions(cin.failbit);\n\
     \    // int t; cin >> t;\n    // while(t--)\n        solve();\n    cerr << \"\\\
     nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC << \"ms\" << '\\n';\n    return\
-    \ 0;\n}\n#line 2 \"Misc/Modint.h\"\n\ntemplate <int32_t mod>\nstruct ModInt {\n\
+    \ 0;\n}\n#line 2 \"Misc/ModInt.h\"\n\ntemplate <int32_t mod>\nstruct ModInt {\n\
     \    int32_t x;\n\n    ModInt(): x(0) {}\n    ModInt(int32_t _x): x(_x % mod)\
     \ { x = x < 0 ? x + mod : x; }\n\n    ModInt &operator += (const ModInt &p) {\n\
     \        x += p.x;\n        if (x >= mod) x -= mod;\n        return *this;\n \
@@ -119,19 +122,20 @@ data:
     \ &p) { \n        int32_t t;\n        in >> t;\n        p = ModInt<mod>(t);\n\
     \        return in;\n    }\n    \n    friend ostream &operator << (ostream &out,\
     \ const ModInt &p) { return out << p.x; }\n\n    int32_t get() const { return\
-    \ x; }\n    static constexpr int32_t get_mod() { return mod; }\n};"
+    \ x; }\n    static constexpr int32_t get_mod() { return mod; }\n};\n"
   dependsOn:
   - template.h
   isVerificationFile: false
-  path: Misc/Modint.h
-  requiredBy: []
-  timestamp: '2025-06-11 15:37:14+07:00'
+  path: Misc/ModInt.h
+  requiredBy:
+  - NumberTheory/Math/Combination.h
+  timestamp: '2026-07-04 22:16:55+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Misc/Modint.h
+documentation_of: Misc/ModInt.h
 layout: document
 redirect_from:
-- /library/Misc/Modint.h
-- /library/Misc/Modint.h.html
-title: Misc/Modint.h
+- /library/Misc/ModInt.h
+- /library/Misc/ModInt.h.html
+title: Misc/ModInt.h
 ---

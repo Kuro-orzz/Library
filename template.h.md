@@ -138,8 +138,8 @@ data:
     path: Misc/Matrix.h
     title: Misc/Matrix.h
   - icon: ':warning:'
-    path: Misc/Modint.h
-    title: Misc/Modint.h
+    path: Misc/ModInt.h
+    title: Misc/ModInt.h
   - icon: ':warning:'
     path: Misc/Prefix_sum.h
     title: Misc/Prefix_sum.h
@@ -152,6 +152,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/CheckPrime.h
     title: NumberTheory/Math/CheckPrime.h
+  - icon: ':warning:'
+    path: NumberTheory/Math/Combination.h
+    title: NumberTheory/Math/Combination.h
   - icon: ':warning:'
     path: NumberTheory/Math/Divisors.h
     title: NumberTheory/Math/Divisors.h
@@ -394,6 +397,7 @@ data:
   - NumberTheory/Math/Factorial.h
   - NumberTheory/Math/MillerRabin.h
   - NumberTheory/Math/CheckPrime.h
+  - NumberTheory/Math/Combination.h
   - NumberTheory/Math/Primality_test.h
   - NumberTheory/Math/Sieve.h
   - NumberTheory/Math/Binary_exponentiation.h
@@ -444,9 +448,9 @@ data:
   - Misc/Compress.h
   - Misc/Deque.h
   - Misc/MITM.h
-  - Misc/Modint.h
   - Misc/Formula.h
   - Misc/LIS.h
+  - Misc/ModInt.h
   - Misc/Prefix_sum.h
   - Misc/Matrix.h
   - Misc/Small_to_large.h

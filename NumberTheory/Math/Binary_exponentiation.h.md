@@ -6,6 +6,9 @@ data:
     title: template.h
   _extendedRequiredBy:
   - icon: ':warning:'
+    path: NumberTheory/Math/Combination.h
+    title: NumberTheory/Math/Combination.h
+  - icon: ':warning:'
     path: NumberTheory/Math/Divisors.h
     title: NumberTheory/Math/Divisors.h
   - icon: ':heavy_check_mark:'
@@ -56,6 +59,7 @@ data:
   requiredBy:
   - NumberTheory/Math/Divisors.h
   - NumberTheory/Math/MillerRabin.h
+  - NumberTheory/Math/Combination.h
   - NumberTheory/Math/Primality_test.h
   timestamp: '2025-07-18 00:55:12+07:00'
   verificationStatus: LIBRARY_ALL_AC
