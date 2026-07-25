@@ -1,6 +1,7 @@
 #include "../../template.h"
 #include "Binary_exponentiation.h"
 
+
 bool test(ll a, ll n, ll k, ll m) {
     ll mod = binPow(a, m, n);
     if (mod == 1 || mod == n - 1) return true;

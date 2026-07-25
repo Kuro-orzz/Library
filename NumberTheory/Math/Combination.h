@@ -1,6 +1,7 @@
 #include "../../template.h"
 #include "../../Misc/ModInt.h"
 #include "Binary_exponentiation.h"
+#include "Extended_euclid.h"
 
 // This modint only work for MOD is prime cuz using modulo inverse
 using mint = ModInt<MOD>;
@@ -41,13 +42,14 @@ void preprocess() {
     for (int i = 1; i < N; i++) {
         fact[i] = fact[i-1] * i % MOD;
     }
+    // slow version
     invFact[0] = invFact[1] = 1;
     inv[1] = 1;
     for(int i = 2; i < N; i++) {
         inv[i] = MOD - (ll)(MOD/i) * inv[MOD%i] % MOD;
         invFact[i] = invFact[i-1] * inv[i] % MOD;
     }
-    // Optional
+    // Optimize version
     // invFact[N-1] = binPow(fact[N-1], MOD-2, MOD);
     // for (int i = N-2; i >= 0; i--) {
     //     invFact[i] = invFact[i+1] * (i + 1) % MOD;
@@ -57,9 +59,16 @@ void preprocess() {
 // m must be prime
 // fermat's little theorem a^(m-2) ≡ a^(-1)
 ll inverse1(ll a, ll m) { return binPow(a, m-2, m); }
-// m coprime to a, gcd(a, m) = 1
+// m must be prime
 // base on extended euclid trick
 ll inverse2(ll a, ll m) { return a <= 1 ? a : m-m/a * inverse2(m % a, m) % m; }
+// m coprime to a, gcd(a, m) = 1
+// extended euclid trick
+ll inverse3(ll a, ll m) {
+    ll x, y;
+    extended2(a, m, x, y);
+    return (x % m + m) % m;
+}
 
 ll comb(int n, int k) {
     if (k < 0 || k > n) return 0;

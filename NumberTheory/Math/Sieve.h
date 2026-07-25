@@ -11,12 +11,24 @@ vector<int> sieve(int n) {
     return nt;
 }
 
-vector<int> segmentSieve(int l, int r){
+vector<int> segmentSieve(ll l, ll r){
+    ll sq = sqrtl(r);
+    while (sq * sq > r) sq--;
+    while (sq+1 <= r/(sq+1)) sq++;
+    vector<int> small(sq+1, 1);
+    for (ll i = 2; i*i <= sq; i++) {
+        if (!small[i]) continue;
+        for (ll j = i*i; j <= sq; j += i) {
+            small[j] = 0;
+        }
+    }
     vector<int> prime(r-l+1, 1);
-    for(ll p = 2; p*p <= r; p++){
+    for(ll p = 2; p <= sq; p++){
+        if (!small[p]) continue;
         ll lim = max(p*p, (l+p-1)/p*p);
-        for(ll j = lim; j <= r; j += p)
-            if (j-l >= 0) prime[j-l] = 0;
+        for(ll j = lim; j <= r; j += p) {
+            prime[j-l] = 0;
+        }
     }
     if (l == 0) prime[0] = 0;
     if (l == 0 && r > l) prime[1] = 0;
@@ -35,9 +47,9 @@ vector<int> listPrime(int l, int r) {
 
 vector<int> sieve_count_divisors(int n) {
     vector<int> divisors(n+1, 0);
-    for (int i = 1; i*i <= n; i++) {
-        for (int j = i; j <= n; j += i) {
-            divisors[j]++;
+    for (ll i = 1; i*i <= n; i++) {
+        for (ll j = i*i; j <= n; j += i) {
+            divisors[j] += 2;
         }
         divisors[i*i]--;
     }
@@ -47,7 +59,7 @@ vector<int> sieve_count_divisors(int n) {
 vector<int> sieve_sum_divisors(int n) {
     vector<int> sumDiv(n+1, 0);
     for (int i = 1; i*i <= n; i++) {
-        for (int j = i; j <= n; j += i) {
+        for (int j = i*i; j <= n; j += i) {
             sumDiv[j] += i;
             if (i*i != j) sumDiv[j] += j/i;
         }
@@ -68,7 +80,7 @@ vector<int> segmentSieveDivisors(int l, int r){
     return div;
 }
 
-vector<vector<int>> sieve__prime_divisors(int n) {
+vector<vector<int>> sieve_prime_divisors(int n) {
     vector<int> prime = sieve(n);
     vector<vector<int>> div(n+1);
     for (int i = 2; i <= n; i++) {

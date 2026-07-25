@@ -38,3 +38,22 @@ int factmod(int n, int p) {
     return res;
 }
 // use for small prime p
+
+
+// Optimize version using static to cache
+ll factmod(ll n, ll p) {
+    static ll lastp = -1;
+    static vector<ll> f;
+    if (p != lastp) {
+        lastp = p;
+        f.assign(p, 1);
+        for (ll i = 1; i < p; i++) f[i] = f[i-1] * i % p;
+    }
+    ll res = 1;
+    while (n > 1) {
+        if ((n/p) % 2) res = p - res;
+        res = res * f[n % p] % p;
+        n /= p;
+    }
+    return res;
+}

@@ -23,7 +23,7 @@ ll sum_of_divisor(ll n) {
 // AC: https://codeforces.com/gym/100753 (Probblem F)
 int count_divisor(ll n) {
     if (n == 1) return 1;
-    vector<int> prime = listPrime(1, 1e6+5);
+    static vector<int> prime = listPrime(1, 1e6+5);
     int ans = 1;
     for (int p : prime) {
         if (1ll * p * p * p > n) break;
