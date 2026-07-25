@@ -58,8 +58,8 @@ data:
   isVerificationFile: false
   path: String/Rolling_Hash.h
   requiredBy:
-  - String/Problem/Rolling_Hash2.cpp
   - String/Problem/Rolling_Hash1.cpp
+  - String/Problem/Rolling_Hash2.cpp
   timestamp: '2025-10-07 00:37:04+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

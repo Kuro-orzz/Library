@@ -205,6 +205,9 @@ data:
     - icon: ':warning:'
       path: NumberTheory/Math/Misc.h
       title: NumberTheory/Math/Misc.h
+    - icon: ':heavy_check_mark:'
+      path: NumberTheory/Math/Pollard_rho.h
+      title: NumberTheory/Math/Pollard_rho.h
     - icon: ':warning:'
       path: NumberTheory/Math/Primality_test.h
       title: NumberTheory/Math/Primality_test.h
@@ -385,6 +388,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Enumerate_quotients.test.cpp
       title: NumberTheory/Yosupo/Enumerate_quotients.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: NumberTheory/Yosupo/Factorize.test.cpp
+      title: NumberTheory/Yosupo/Factorize.test.cpp
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Primality_test.test.cpp
       title: NumberTheory/Yosupo/Primality_test.test.cpp

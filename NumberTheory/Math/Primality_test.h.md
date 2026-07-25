@@ -23,29 +23,39 @@ data:
     \  ios_base::sync_with_stdio(false);cin.tie(NULL);\n    // cin.exceptions(cin.failbit);\n\
     \    // int t; cin >> t;\n    // while(t--)\n        solve();\n    cerr << \"\\\
     nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC << \"ms\" << '\\n';\n    return\
-    \ 0;\n}\n#line 2 \"NumberTheory/Math/Binary_exponentiation.h\"\n\nusing u128 =\
-    \ __uint128_t;\nusing i128 = __int128;\n\nll binMul(ll a, ll b, ll M) {\n    a\
-    \ = a % M;\n    ll res = 0;\n    while (b) {\n        if (b & 1) res = (res +\
-    \ a) % M;\n        a = a * 2 % M;\n        b /= 2;\n    }\n    return res;\n}\n\
-    \nll binPow(ll a, ll b, ll M) {\n    a %= M;\n    ll res = 1;\n    while (b) {\n\
-    \        if (b & 1) res = (i128)res * a % M;\n        a = (i128)a * a % M;\n \
-    \       b /= 2;\n    }\n    return res;\n}\n#line 3 \"NumberTheory/Math/Primality_test.h\"\
-    \n\n// Fermat's little theorem\nbool isPrime(ll n) {\n    if (n < 7) return n\
-    \ == 2 || n == 3 || n == 5;\n    for (int i = 0; i < 5; i++) {\n        ll a =\
-    \ rand() % (n-3) + 2;\n        if (binPow(a, n-1, n) != 1) \n            return\
-    \ false;\n    }\n    return true;\n}\n"
-  code: "#include \"../../template.h\"\n#include \"Binary_exponentiation.h\"\n\n//\
-    \ Fermat's little theorem\nbool isPrime(ll n) {\n    if (n < 7) return n == 2\
-    \ || n == 3 || n == 5;\n    for (int i = 0; i < 5; i++) {\n        ll a = rand()\
-    \ % (n-3) + 2;\n        if (binPow(a, n-1, n) != 1) \n            return false;\n\
-    \    }\n    return true;\n}"
+    \ 0;\n}\n#line 2 \"NumberTheory/Math/Binary_exponentiation.h\"\n\r\nusing u128\
+    \ = __uint128_t;\r\nusing i128 = __int128;\r\n\r\nll binMul(ll a, ll b, ll M)\
+    \ { return (i128)a * b % M; }\r\n\r\n// long double trick\r\n// require: mantissa\
+    \ 64 bit, x86 gcc/clang\r\nll binMul2(ll a, ll b, ll M) {\r\n    ll q = (ll)((long\
+    \ double)a * b / M);\r\n    ll r = (ll)((unsigned ll)a * b - (unsigned ll)q *\
+    \ M);\r\n    return r < 0 ? r + M : (r >= M ? r - M : r);\r\n}\r\n\r\nll binMul3(ll\
+    \ a, ll b, ll M) {\r\n    unsigned long long ua = a % M, um = M, res = 0;\r\n\
+    \    while (b) {\r\n        if (b & 1) { res += ua; if (res >= um) res -= um;\
+    \ }\r\n        ua <<= 1; if (ua >= um) ua -= um;\r\n        b >>= 1;\r\n    }\r\
+    \n    return res;\r\n}\r\n\r\nll binPow(ll a, ll b, ll M) {\r\n    a %= M;\r\n\
+    \    ll res = 1;\r\n    while (b) {\r\n        if (b & 1) res = (i128)res * a\
+    \ % M;\r\n        a = (i128)a * a % M;\r\n        b /= 2;\r\n    }\r\n    return\
+    \ res;\r\n}\n#line 3 \"NumberTheory/Math/Primality_test.h\"\n\r\n\r\nmt19937_64\
+    \ rng(chrono::steady_clock::now().time_since_epoch().count());\r\n\r\n// Fermat's\
+    \ little theorem (probabilistic)\r\n// always fails on carmichael numbers a^(n\u2212\
+    1) \u2261 1\r\nbool isPrime(ll n) {\r\n    if (n < 7) return n == 2 || n == 3\
+    \ || n == 5;\r\n    for (int i = 0; i < 5; i++) {\r\n        ll a = rng() % (n-3)\
+    \ + 2;\r\n        if (binPow(a, n-1, n) != 1) \r\n            return false;\r\n\
+    \    }\r\n    return true;\r\n}\n"
+  code: "#include \"../../template.h\"\r\n#include \"Binary_exponentiation.h\"\r\n\
+    \r\n\r\nmt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());\r\
+    \n\r\n// Fermat's little theorem (probabilistic)\r\n// always fails on carmichael\
+    \ numbers a^(n\u22121) \u2261 1\r\nbool isPrime(ll n) {\r\n    if (n < 7) return\
+    \ n == 2 || n == 3 || n == 5;\r\n    for (int i = 0; i < 5; i++) {\r\n       \
+    \ ll a = rng() % (n-3) + 2;\r\n        if (binPow(a, n-1, n) != 1) \r\n      \
+    \      return false;\r\n    }\r\n    return true;\r\n}"
   dependsOn:
   - template.h
   - NumberTheory/Math/Binary_exponentiation.h
   isVerificationFile: false
   path: NumberTheory/Math/Primality_test.h
   requiredBy: []
-  timestamp: '2025-07-18 00:55:12+07:00'
+  timestamp: '2026-07-26 02:09:30+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: NumberTheory/Math/Primality_test.h

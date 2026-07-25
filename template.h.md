@@ -176,6 +176,9 @@ data:
   - icon: ':warning:'
     path: NumberTheory/Math/Misc.h
     title: NumberTheory/Math/Misc.h
+  - icon: ':heavy_check_mark:'
+    path: NumberTheory/Math/Pollard_rho.h
+    title: NumberTheory/Math/Pollard_rho.h
   - icon: ':warning:'
     path: NumberTheory/Math/Primality_test.h
     title: NumberTheory/Math/Primality_test.h
@@ -325,6 +328,9 @@ data:
     path: NumberTheory/Yosupo/Enumerate_quotients.test.cpp
     title: NumberTheory/Yosupo/Enumerate_quotients.test.cpp
   - icon: ':heavy_check_mark:'
+    path: NumberTheory/Yosupo/Factorize.test.cpp
+    title: NumberTheory/Yosupo/Factorize.test.cpp
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Primality_test.test.cpp
     title: NumberTheory/Yosupo/Primality_test.test.cpp
   - icon: ':heavy_check_mark:'
@@ -383,126 +389,128 @@ data:
   isVerificationFile: false
   path: template.h
   requiredBy:
+  - Graph/Mst/Kruskal.h
+  - Graph/Mst/Prim.h
+  - Graph/Shortest_path/Bellman_ford.h
   - Graph/Shortest_path/Bfs_0-1.cpp
   - Graph/Shortest_path/Floyd_warshall.h
   - Graph/Shortest_path/Dijkstra.h
-  - Graph/Shortest_path/Bellman_ford.h
-  - Graph/Mst/Kruskal.h
-  - Graph/Mst/Prim.h
-  - NumberTheory/Math/EulerPhi.h
-  - NumberTheory/Math/Divisors.h
-  - NumberTheory/Math/Extended_euclid.h
-  - NumberTheory/Math/Factorization.h
-  - NumberTheory/Math/Misc.h
-  - NumberTheory/Math/Factorial.h
-  - NumberTheory/Math/MillerRabin.h
-  - NumberTheory/Math/CheckPrime.h
-  - NumberTheory/Math/Combination.h
-  - NumberTheory/Math/Primality_test.h
-  - NumberTheory/Math/Sieve.h
-  - NumberTheory/Math/Binary_exponentiation.h
-  - Tree/EulerTour.h
+  - DataStructure/Aizu/test_dsu_2d.cpp
+  - DataStructure/Aizu/test_dsu_2d_2.cpp
+  - DataStructure/DSU/Weighted_Dsu.h
+  - DataStructure/DSU/Dsu.h
+  - DataStructure/DSU/Dsu_2D.h
+  - DataStructure/Problem/SegTreeBeats3.cpp
+  - DataStructure/Problem/SegTreeBeats1.cpp
+  - DataStructure/Problem/Sqrt_split_rebuild1.cpp
+  - DataStructure/Problem/Sqrt_split_rebuild2.cpp
+  - DataStructure/Problem/SegTreeBeats2.cpp
+  - DataStructure/Problem/Mo2.cpp
+  - DataStructure/Problem/PersistentSegTree2.cpp
+  - DataStructure/Problem/PersistentSegTree1.cpp
+  - DataStructure/Problem/Mo1.cpp
+  - DataStructure/SqrtDecomposition/Sqrt.h
+  - DataStructure/SqrtDecomposition/Split_Rebuild/Full_version.h
+  - DataStructure/SqrtDecomposition/Split_Rebuild/Simplified_version.h
+  - DataStructure/Yosupo/Point_set_range_composite.brute_force.cpp
+  - DataStructure/SegTree/SegTreeBeats2.h
+  - DataStructure/SegTree/SegTreeBeats1.h
+  - DataStructure/SegTree/PersistentSegTree.h
+  - DataStructure/SegTree/LazySegTree.h
+  - DataStructure/SegTree/SegTreeBeats3.h
+  - DataStructure/SegTree/Affline.h
+  - DataStructure/SegTree/SegTree.h
+  - DataStructure/SegTree/SparseSegTree.h
+  - DataStructure/RMQ/RMQ.h
+  - DataStructure/Fenwick/Fenwick.h
   - Tree/Tree/BinaryLifting.h
   - Tree/Tree/Lca.h
   - Tree/Tree_diameter.h
-  - String/Problem/Kmp.cpp
-  - String/Problem/Rolling_Hash2.cpp
-  - String/Problem/Rolling_Hash1.cpp
-  - String/Z_Function.h
-  - String/Kmp.h
-  - String/Rolling_Hash.h
-  - String/Manacher.h
-  - String/Trie/Trie.h
-  - String/Trie/Trie_array_ver.h
-  - Dp/Knapsack.h
-  - Dp/LCS.h
-  - Dp/DAG.h
-  - DataStructure/SegTree/LazySegTree.h
-  - DataStructure/SegTree/SegTreeBeats3.h
-  - DataStructure/SegTree/PersistentSegTree.h
-  - DataStructure/SegTree/Affline.h
-  - DataStructure/SegTree/SegTreeBeats1.h
-  - DataStructure/SegTree/SparseSegTree.h
-  - DataStructure/SegTree/SegTree.h
-  - DataStructure/SegTree/SegTreeBeats2.h
-  - DataStructure/Problem/Mo2.cpp
-  - DataStructure/Problem/Mo1.cpp
-  - DataStructure/Problem/Sqrt_split_rebuild1.cpp
-  - DataStructure/Problem/SegTreeBeats3.cpp
-  - DataStructure/Problem/Sqrt_split_rebuild2.cpp
-  - DataStructure/Problem/SegTreeBeats1.cpp
-  - DataStructure/Problem/SegTreeBeats2.cpp
-  - DataStructure/Problem/PersistentSegTree2.cpp
-  - DataStructure/Problem/PersistentSegTree1.cpp
-  - DataStructure/Fenwick/Fenwick.h
-  - DataStructure/Aizu/test_dsu_2d.cpp
-  - DataStructure/Aizu/test_dsu_2d_2.cpp
-  - DataStructure/SqrtDecomposition/Split_Rebuild/Simplified_version.h
-  - DataStructure/SqrtDecomposition/Split_Rebuild/Full_version.h
-  - DataStructure/SqrtDecomposition/Sqrt.h
-  - DataStructure/Yosupo/Point_set_range_composite.brute_force.cpp
-  - DataStructure/RMQ/RMQ.h
-  - DataStructure/DSU/Dsu_2D.h
-  - DataStructure/DSU/Weighted_Dsu.h
-  - DataStructure/DSU/Dsu.h
-  - Misc/Compress.h
-  - Misc/Deque.h
-  - Misc/MITM.h
-  - Misc/Formula.h
-  - Misc/LIS.h
+  - Tree/EulerTour.h
   - Misc/ModInt.h
-  - Misc/Prefix_sum.h
+  - Misc/LIS.h
   - Misc/Matrix.h
   - Misc/Small_to_large.h
+  - Misc/MITM.h
+  - Misc/Prefix_sum.h
+  - Misc/Compress.h
+  - Misc/Formula.h
+  - Misc/Deque.h
+  - NumberTheory/Math/Sieve.h
+  - NumberTheory/Math/Primality_test.h
+  - NumberTheory/Math/Factorial.h
+  - NumberTheory/Math/Binary_exponentiation.h
+  - NumberTheory/Math/Misc.h
+  - NumberTheory/Math/EulerPhi.h
+  - NumberTheory/Math/Combination.h
+  - NumberTheory/Math/Divisors.h
+  - NumberTheory/Math/CheckPrime.h
+  - NumberTheory/Math/Factorization.h
+  - NumberTheory/Math/MillerRabin.h
+  - NumberTheory/Math/Extended_euclid.h
+  - NumberTheory/Math/Pollard_rho.h
   - Big_Integer/BigInt_full.h
   - Big_Integer/BigInt.h
+  - String/Z_Function.h
+  - String/Manacher.h
+  - String/Problem/Rolling_Hash1.cpp
+  - String/Problem/Rolling_Hash2.cpp
+  - String/Problem/Kmp.cpp
+  - String/Rolling_Hash.h
+  - String/Trie/Trie_array_ver.h
+  - String/Trie/Trie.h
+  - String/Kmp.h
+  - Dp/LCS.h
+  - Dp/Knapsack.h
+  - Dp/DAG.h
   timestamp: '2025-05-07 22:18:34+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Graph/Aizu/aizu_grl_1_a_dijkstra.test.cpp
-  - Graph/Aizu/aizu_grl_1_c_floyd_warshall.test.cpp
   - Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
   - Graph/Aizu/aizu_grl_1_b_negative_cycle.test.cpp
-  - NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
-  - NumberTheory/Aizu/aizu_ntl_1_c_lcm.test.cpp
+  - Graph/Aizu/aizu_grl_1_a_dijkstra.test.cpp
+  - Graph/Aizu/aizu_grl_1_c_floyd_warshall.test.cpp
+  - DataStructure/Aizu/aizu_dsl_1_b_weighted_dsu.test.cpp
+  - DataStructure/Yosupo/Double_end_priority_queue.test.cpp
+  - DataStructure/Yosupo/Associative_array.test.cpp
+  - DataStructure/Yosupo/Point_add_range_sum.test.cpp
+  - DataStructure/Yosupo/Range_reverse_range_sum.test.cpp
+  - DataStructure/Yosupo/Range_affine_point_get.test.cpp
+  - DataStructure/Yosupo/Range_chmin_chmax_add_range_sum.test.cpp
+  - DataStructure/Yosupo/Range_affine_range_sum_large_array.test.cpp
+  - DataStructure/Yosupo/Range_affine_range_sum.test.cpp
+  - DataStructure/Yosupo/Ordered_set.test.cpp
+  - DataStructure/Yosupo/Static_RMQ.test.cpp
+  - DataStructure/Yosupo/Predecessor_problem.test.cpp
+  - DataStructure/Yosupo/Unionfind_with_potential.test.cpp
+  - DataStructure/Yosupo/Static_range_sum.test.cpp
+  - DataStructure/Yosupo/Union_find.test.cpp
+  - Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
+  - Tree/Yosupo/Diameter_tree.test.cpp
+  - Tree/Yosupo/Jump_on_tree.test.cpp
+  - Tree/Yosupo/Lowest_common_ancestor.test.cpp
+  - NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
   - NumberTheory/Aizu/aizu_ntl_1_a_prime_factor.test.cpp
   - NumberTheory/Aizu/aizu_ntl_1_b_power_mod.test.cpp
-  - NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
+  - NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
+  - NumberTheory/Aizu/aizu_ntl_1_c_lcm.test.cpp
   - NumberTheory/Yosupo/Primality_test.test.cpp
+  - NumberTheory/Yosupo/Factorize.test.cpp
   - NumberTheory/Yosupo/Counting_primes.test.cpp
   - NumberTheory/Yosupo/Enumerate_quotients.test.cpp
   - NumberTheory/Yosupo/Enumerate_primes.test.cpp
-  - Tree/Yosupo/Lowest_common_ancestor.test.cpp
-  - Tree/Yosupo/Diameter_tree.test.cpp
-  - Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
-  - Tree/Yosupo/Jump_on_tree.test.cpp
-  - String/Yosupo/Z_Algorithm.test.cpp
-  - String/Yosupo/Enumerate_Palindromes.test.cpp
-  - DataStructure/Aizu/aizu_dsl_1_b_weighted_dsu.test.cpp
-  - DataStructure/Yosupo/Unionfind_with_potential.test.cpp
-  - DataStructure/Yosupo/Range_chmin_chmax_add_range_sum.test.cpp
-  - DataStructure/Yosupo/Double_end_priority_queue.test.cpp
-  - DataStructure/Yosupo/Predecessor_problem.test.cpp
-  - DataStructure/Yosupo/Range_affine_range_sum.test.cpp
-  - DataStructure/Yosupo/Range_affine_range_sum_large_array.test.cpp
-  - DataStructure/Yosupo/Range_reverse_range_sum.test.cpp
-  - DataStructure/Yosupo/Ordered_set.test.cpp
-  - DataStructure/Yosupo/Static_range_sum.test.cpp
-  - DataStructure/Yosupo/Static_RMQ.test.cpp
-  - DataStructure/Yosupo/Range_affine_point_get.test.cpp
-  - DataStructure/Yosupo/Point_add_range_sum.test.cpp
-  - DataStructure/Yosupo/Associative_array.test.cpp
-  - DataStructure/Yosupo/Union_find.test.cpp
-  - Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
-  - Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
-  - Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
-  - Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
-  - Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
-  - Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
-  - Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
-  - Sample/Many_A_plus_B_128bit.test.cpp
   - Sample/A_plus_B.test.cpp
+  - Sample/Many_A_plus_B_128bit.test.cpp
   - Sample/Many_A_plus_B.test.cpp
+  - Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
+  - Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
+  - Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
+  - String/Yosupo/Enumerate_Palindromes.test.cpp
+  - String/Yosupo/Z_Algorithm.test.cpp
 documentation_of: template.h
 layout: document
 redirect_from:

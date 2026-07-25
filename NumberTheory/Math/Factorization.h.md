@@ -23,26 +23,38 @@ data:
     \  ios_base::sync_with_stdio(false);cin.tie(NULL);\n    // cin.exceptions(cin.failbit);\n\
     \    // int t; cin >> t;\n    // while(t--)\n        solve();\n    cerr << \"\\\
     nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC << \"ms\" << '\\n';\n    return\
-    \ 0;\n}\n#line 2 \"NumberTheory/Math/Factorization.h\"\n\n\nvector<ll> primeFactor(ll\
-    \ n) {\n    vector<ll> factor;\n    for (int i : {2, 3, 5}) {\n        while (n\
-    \ % i == 0) {\n            n /= i;\n            factor.push_back(i);\n       \
-    \ }\n    }\n    int inc[] = {4, 2, 4, 2, 4, 6, 2, 6};\n    int j = 0;\n    for\
-    \ (ll i = 7; i * i <= n; i += inc[j%8], j++) {\n        while(n % i == 0) {\n\
-    \            n /= i;\n            factor.push_back(i);\n        }\n    }\n   \
-    \ if (n > 1) factor.push_back(n);\n    return factor;\n}\n"
-  code: "#include \"../../template.h\"\n\n\nvector<ll> primeFactor(ll n) {\n    vector<ll>\
-    \ factor;\n    for (int i : {2, 3, 5}) {\n        while (n % i == 0) {\n     \
-    \       n /= i;\n            factor.push_back(i);\n        }\n    }\n    int inc[]\
-    \ = {4, 2, 4, 2, 4, 6, 2, 6};\n    int j = 0;\n    for (ll i = 7; i * i <= n;\
-    \ i += inc[j%8], j++) {\n        while(n % i == 0) {\n            n /= i;\n  \
-    \          factor.push_back(i);\n        }\n    }\n    if (n > 1) factor.push_back(n);\n\
-    \    return factor;\n}"
+    \ 0;\n}\n#line 2 \"NumberTheory/Math/Factorization.h\"\n\r\n\r\n// 360 -> [2,\
+    \ 2, 2, 3, 3, 5]\r\nvector<ll> primeFactor(ll n) {\r\n    vector<ll> factor;\r\
+    \n    for (int i : {2, 3, 5}) {\r\n        while (n % i == 0) {\r\n          \
+    \  n /= i;\r\n            factor.push_back(i);\r\n        }\r\n    }\r\n    int\
+    \ inc[] = {4, 2, 4, 2, 4, 6, 2, 6};\r\n    int j = 0;\r\n    ll lim = sqrtl(n);\r\
+    \n    while (lim > 0 && lim > n / lim) lim--;\r\n    for (ll i = 7; i <= lim;\
+    \ i += inc[j%8], j++) {\r\n        while(n % i == 0) {\r\n            n /= i;\r\
+    \n            factor.push_back(i);\r\n        }\r\n        lim = sqrtl(n);\r\n\
+    \        while (lim > 0 && lim > n / lim) lim--;\r\n    }\r\n    if (n > 1) factor.push_back(n);\r\
+    \n    return factor;\r\n}\r\n\r\n// [2, 2, 2, 3, 3, 5] -> [(2,3), (3,2), (5,1)]\r\
+    \nvector<pll> primeFactorPow(ll n) {\r\n    vector<pll> res;\r\n    for (ll p\
+    \ : primeFactor(n))\r\n        if (!res.empty() && res.back().fi == p) res.back().se++;\r\
+    \n        else res.push_back({p, 1});\r\n    return res;\r\n}\n"
+  code: "#include \"../../template.h\"\r\n\r\n\r\n// 360 -> [2, 2, 2, 3, 3, 5]\r\n\
+    vector<ll> primeFactor(ll n) {\r\n    vector<ll> factor;\r\n    for (int i : {2,\
+    \ 3, 5}) {\r\n        while (n % i == 0) {\r\n            n /= i;\r\n        \
+    \    factor.push_back(i);\r\n        }\r\n    }\r\n    int inc[] = {4, 2, 4, 2,\
+    \ 4, 6, 2, 6};\r\n    int j = 0;\r\n    ll lim = sqrtl(n);\r\n    while (lim >\
+    \ 0 && lim > n / lim) lim--;\r\n    for (ll i = 7; i <= lim; i += inc[j%8], j++)\
+    \ {\r\n        while(n % i == 0) {\r\n            n /= i;\r\n            factor.push_back(i);\r\
+    \n        }\r\n        lim = sqrtl(n);\r\n        while (lim > 0 && lim > n /\
+    \ lim) lim--;\r\n    }\r\n    if (n > 1) factor.push_back(n);\r\n    return factor;\r\
+    \n}\r\n\r\n// [2, 2, 2, 3, 3, 5] -> [(2,3), (3,2), (5,1)]\r\nvector<pll> primeFactorPow(ll\
+    \ n) {\r\n    vector<pll> res;\r\n    for (ll p : primeFactor(n))\r\n        if\
+    \ (!res.empty() && res.back().fi == p) res.back().se++;\r\n        else res.push_back({p,\
+    \ 1});\r\n    return res;\r\n}"
   dependsOn:
   - template.h
   isVerificationFile: false
   path: NumberTheory/Math/Factorization.h
   requiredBy: []
-  timestamp: '2025-06-11 15:37:14+07:00'
+  timestamp: '2026-07-26 02:09:30+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - NumberTheory/Aizu/aizu_ntl_1_a_prime_factor.test.cpp

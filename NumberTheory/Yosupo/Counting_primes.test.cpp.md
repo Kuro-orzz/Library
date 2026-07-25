@@ -28,18 +28,20 @@ data:
     \    // cin.exceptions(cin.failbit);\n    // int t; cin >> t;\n    // while(t--)\n\
     \        solve();\n    cerr << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC\
     \ << \"ms\" << '\\n';\n    return 0;\n}\n#line 2 \"NumberTheory/Math/CheckPrime.h\"\
-    \n\n\nbool BruteForce(ll n) {\n    if (n == 2 || n == 3) return true;\n    if\
-    \ (n <= 1 || n % 2 == 0 || n % 3 == 0) return false;\n    for (ll i = 5; i * i\
-    \ <= n; i += 6)\n        if (n % i == 0 || n % (i+2) == 0)\n            return\
-    \ false;\n    return true;\n}\n\n// https://codeforces.com/blog/entry/91632\n\
-    ll Meissel(ll n) {\n    vector<ll> v;\n    for (ll i = 1; i*i <= n; i++) {\n \
-    \       v.push_back(i);\n        v.push_back(n / i);\n    }\n    sort(all(v));\n\
-    \    unique(v);\n    ll sq = sqrt(n);\n    auto geti = [&](ll x) {\n        if\
-    \ (x <= sq) return x-1;\n        return (int)v.size() - n / x;\n    };\n    vector<ll>\
-    \ dp = v;\n    ll a = 0;\n    for (ll p = 2; p*p <= n; p++) {\n        if (dp[geti(p)]\
-    \ == dp[geti(p-1)]) continue;\n        a++;\n        for (int i = (int)v.size()-1;\
-    \ i >= 0; i--) {\n            if (v[i] < p * p) break;\n            dp[i] -= dp[geti(v[i]\
-    \ / p)] - a;\n        }\n    }\n    return dp[geti(n)] - 1;\n}\n#line 5 \"NumberTheory/Yosupo/Counting_primes.test.cpp\"\
+    \n\r\n\r\nbool BruteForce(ll n) {\r\n    if (n == 2 || n == 3) return true;\r\n\
+    \    if (n <= 1 || n % 2 == 0 || n % 3 == 0) return false;\r\n    ll lim = sqrtl(n);\r\
+    \n    while (lim > 0 && lim > n / lim) lim--;\r\n    for (ll i = 5; i <= lim;\
+    \ i += 6) {\r\n        if (n % i == 0 || n % (i+2) == 0) return false;\r\n   \
+    \ }\r\n    return true;\r\n}\r\n\r\n// https://codeforces.com/blog/entry/91632\r\
+    \nll Meissel(ll n) {\r\n    vector<ll> v;\r\n    for (ll i = 1; i*i <= n; i++)\
+    \ {\r\n        v.push_back(i);\r\n        v.push_back(n / i);\r\n    }\r\n   \
+    \ sort(all(v));\r\n    unique(v);\r\n    ll sq = sqrt(n);\r\n    auto geti = [&](ll\
+    \ x) {\r\n        if (x <= sq) return x-1;\r\n        return (int)v.size() - n\
+    \ / x;\r\n    };\r\n    vector<ll> dp = v;\r\n    ll a = 0;\r\n    for (ll p =\
+    \ 2; p*p <= n; p++) {\r\n        if (dp[geti(p)] == dp[geti(p-1)]) continue;\r\
+    \n        a++;\r\n        for (int i = (int)v.size()-1; i >= 0; i--) {\r\n   \
+    \         if (v[i] < p * p) break;\r\n            dp[i] -= dp[geti(v[i] / p)]\
+    \ - a;\r\n        }\r\n    }\r\n    return dp[geti(n)] - 1;\r\n}\n#line 5 \"NumberTheory/Yosupo/Counting_primes.test.cpp\"\
     \n\nvoid solve() {\n    ll n; cin >> n;\n    cout << Meissel(n);\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/counting_primes\"\n\n#include\
     \ \"../../template.h\"\n#include \"../Math/CheckPrime.h\"\n\nvoid solve() {\n\
@@ -50,7 +52,7 @@ data:
   isVerificationFile: true
   path: NumberTheory/Yosupo/Counting_primes.test.cpp
   requiredBy: []
-  timestamp: '2025-10-07 00:37:04+07:00'
+  timestamp: '2026-07-26 02:09:30+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: NumberTheory/Yosupo/Counting_primes.test.cpp
