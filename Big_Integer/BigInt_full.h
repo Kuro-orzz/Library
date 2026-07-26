@@ -1,14 +1,15 @@
 #include "../template.h"
 
 
-// Still slow ver, need optimize
+// Still slow ver, need optimize by FFT
 // This template only work for base <= 10
+constexpr int pow10c(int k) { return k ? 10 * pow10c(k - 1) : 1; }
 
-const int BASE_DIGITS = 9;
-const int BASE = 1000000000;
-
+template<int D = 9>
 class BigInt {
 public:
+    static const int BASE_DIGITS = D;
+    static const int BASE = pow10c(D);
     int sign;
     vector<uint32_t> digit;
 
@@ -17,12 +18,6 @@ public:
     BigInt(const string &s) { *this = s; }
 
     BigInt(int64_t val) { *this = val; }
-
-    BigInt &operator = (const BigInt &b) {
-        sign = b.sign;
-        digit = b.digit;
-        return *this;
-    }
 
     BigInt &operator = (const string &s) {
         read(s);
@@ -104,6 +99,10 @@ public:
     BigInt &operator *= (int64_t t) { return *this *= BigInt(t); }
     BigInt &operator /= (int64_t t) { 
         assert(t != 0); // not divided for 0
+        if (t < 0) {
+            sign = -sign;
+            t = -t;
+        }
         int64_t rem = 0;
         for (int i = (int)size() - 1; i >= 0; i--) {
             int64_t cur = rem * BASE + (*this)[i];
@@ -111,7 +110,6 @@ public:
             rem = cur % t;
         } 
         trim();
-        sign = sign * (t < 0 ? -1 : 1);
         return *this;
     }
     BigInt &operator %= (int64_t t) {
@@ -124,7 +122,7 @@ public:
         if (rem < 0) rem += llabs(t);
         int s = sign;
         *this = rem;
-        sign = s;
+        if (!isZero()) sign = s;
         return *this;
     }
 
@@ -164,15 +162,8 @@ public:
         if (sign != b.sign) {
             return sign < b.sign;
         }
-        if (size() != b.size()) {
-            return size() * sign < b.size() * b.sign;
-        }
-        for (int i = (int)size() - 1; i >= 0; i--) {
-            if ((*this)[i] != b[i]) {
-                return (*this)[i] * sign < b[i] * sign;
-            }
-        }
-        return false;
+        int c = __compare_abs(b);
+        return sign == 1 ? c < 0 : c > 0;
     }
 
     bool operator > (const BigInt &b) const { return b < *this; }
@@ -205,19 +196,18 @@ public:
 
     // -------------------- karatsuba ---------------------
     BigInt mul_simple(const BigInt &a, const BigInt &b) {
-        BigInt x = a, y = b;
         BigInt res;
-        res.sign = x.sign * y.sign;
-        res.digit.resize(x.size() + y.size());
-        for (int i = 0; i < (int)x.size(); i++) {
+        res.sign = a.sign * b.sign;
+        res.digit.resize(a.size() + b.size());
+        for (int i = 0; i < (int)a.size(); i++) {
             uint64_t carry = 0;
-            for (int j = 0; j < (int)y.size(); j++) {
+            for (int j = 0; j < (int)b.size(); j++) {
                 uint64_t cur = res[i+j] + carry;
-                cur += 1ull * x[i] * y[j];
+                cur += 1ull * a[i] * b[j];
                 res[i+j] = cur % BASE;
                 carry = cur / BASE;
             }
-            if (carry) res[i+(int)y.size()] += carry;
+            if (carry) res[i+(int)b.size()] += carry;
         }
         res.trim();
         if (res.isZero()) res.sign = 1;
@@ -293,11 +283,9 @@ public:
             remainder[i] = cur / norm;
             carry = cur % norm;
         }
+        remainder.sign = r.sign;
         remainder.trim();
         auto res = make_pair(q, remainder);
-        if (res.second < 0) {
-            res.second += b1.abs();
-        }
         return res;
     }
 
@@ -343,12 +331,13 @@ public:
     }
 
     friend BigInt __gcd(const BigInt &a, const BigInt &b) {
-        if (b == 0) return a;
+        if (b == 0) return a.abs();
         return __gcd(b, a % b);
     }
 
     friend BigInt __lcm(const BigInt &a, const BigInt &b) {
-        return a / __gcd(a, b) * b;
+        if (a == 0 || b == 0) return BigInt(0);
+        return (a / __gcd(a, b) * b).abs();
     }
 
     // safe sqrt for long long and BigInt
@@ -398,6 +387,7 @@ public:
     // ---------------------- Input Output ---------------------
     /* only use for decimal number */
     void read(const string &s) {
+        if (s.empty()) { *this = 0; return; }
         sign = (s[0] == '-' ? -1 : 1);
         digit.clear();
         int pos = (s[0] == '-' ? 1 : 0);
@@ -421,8 +411,10 @@ public:
     friend ostream &operator << (ostream &out, const BigInt &a) {
         if (a.sign == -1 && !a.isZero()) out << '-';
         out << (a.digit.empty() ? 0 : a.digit.back());
+        char old = out.fill('0');
         for (int i = (int)a.size() - 2; i >= 0; i--)
-            out << setw(BASE_DIGITS) << setfill('0') << a[i];
+            out << setw(BASE_DIGITS) << a[i];
+        out.fill(old);
         return out;
     }
 };

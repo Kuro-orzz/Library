@@ -19,10 +19,7 @@ public:
     bool isZero() const {return digit.empty();}
 
     int compare(const BigInt &b) const {
-        if (size() != b.size())
-            return size() > b.size() ? 1 : -1;
-        else if (size() < b.size())
-            return -1;
+        if (size() != b.size()) return size() > b.size() ? 1 : -1;
         for (int i = (int)size()-1; i >= 0; i--) {
             if (digit[i] != b.getDigit(i))
                 return digit[i] > b.getDigit(i) ? 1 : -1;
@@ -41,7 +38,7 @@ public:
         if (val < 0) {
             neg = true;
             val = -val;
-        }
+        } else neg = false;
         while (val) {
             digit.push_back(val % BASE);
             val /= BASE;
@@ -55,7 +52,7 @@ public:
         if (s[0] == '-') {
             neg = true;
             pos = 1;
-        }
+        } else neg = false;
         for (int i = (int)s.size()-1; i >= pos; i--) {
             digit.push_back(s[i]-'0');
         }
