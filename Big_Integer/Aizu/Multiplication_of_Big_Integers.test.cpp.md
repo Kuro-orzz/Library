@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Big_Integer/BigInt_full.h
     title: Big_Integer/BigInt_full.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []
@@ -19,118 +19,121 @@ data:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/2/NTL_2_C
   bundledCode: "#line 1 \"Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp\"\
     \n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/2/NTL_2_C\"\
-    \n\n#line 2 \"template.h\"\n\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    \ \n#define ll long long\n#define MOD (ll)(1e9+7)\n#define all(x) (x).begin(),(x).end()\n\
-    #define unique(x) x.erase(unique(all(x)), x.end())\n#define INF32 ((1ull<<31)-1)\n\
-    #define INF64 ((1ull<<63)-1)\n#define inf (ll)1e18\n\n#define vi vector<int>\n\
-    #define pii pair<int, int>\n#define pll pair<ll, ll>\n#define fi first\n#define\
-    \ se second\n\nconst int mod = 998244353;\n\nvoid solve();\n\nint main(){\n  \
-    \  ios_base::sync_with_stdio(false);cin.tie(NULL);\n    // cin.exceptions(cin.failbit);\n\
-    \    // int t; cin >> t;\n    // while(t--)\n        solve();\n    cerr << \"\\\
-    nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC << \"ms\" << '\\n';\n    return\
-    \ 0;\n}\n#line 2 \"Big_Integer/BigInt_full.h\"\n\n\n// Still slow ver, need optimize\n\
-    // This template only work for base <= 10\n\nconst int BASE_DIGITS = 9;\nconst\
-    \ int BASE = 1000000000;\n\nclass BigInt {\npublic:\n    int sign;\n    vector<uint32_t>\
-    \ digit;\n\n    BigInt(): sign(1) {}\n\n    BigInt(const string &s) { *this =\
-    \ s; }\n\n    BigInt(int64_t val) { *this = val; }\n\n    BigInt &operator = (const\
-    \ BigInt &b) {\n        sign = b.sign;\n        digit = b.digit;\n        return\
-    \ *this;\n    }\n\n    BigInt &operator = (const string &s) {\n        read(s);\n\
-    \        return *this;\n    }\n\n    BigInt &operator = (int64_t val) {\n    \
-    \    sign = val >= 0 ? 1 : -1;\n        val = llabs(val);\n        digit.clear();\n\
-    \        for (; val; val /= BASE) {\n            digit.push_back(val % BASE);\n\
+    \n\n#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\
+    \n \r\n#define ll long long\r\n#define MOD (ll)(1e9+7)\r\n#define all(x) (x).begin(),(x).end()\r\
+    \n#define unique(x) x.erase(unique(all(x)), x.end())\r\n#define INF32 ((1ull<<31)-1)\r\
+    \n#define INF64 ((1ull<<63)-1)\r\n#define inf (ll)1e18\r\n\r\n#define vi vector<int>\r\
+    \n#define pii pair<int, int>\r\n#define pll pair<ll, ll>\r\n#define fi first\r\
+    \n#define se second\r\n\r\nmt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());\r\
+    \nll get_rand(ll r) { return uniform_int_distribution<ll>(0, r - 1)(rng); }\r\n\
+    \r\nconst int mod = 998244353;\r\n\r\nvoid solve();\r\n\r\nint main(){\r\n   \
+    \ ios_base::sync_with_stdio(false);cin.tie(NULL);\r\n    // cin.exceptions(cin.failbit);\r\
+    \n    // int t; cin >> t;\r\n    // while(t--)\r\n        solve();\r\n    cerr\
+    \ << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC << \"ms\" << '\\n';\r\
+    \n    return 0;\r\n}\n#line 2 \"Big_Integer/BigInt_full.h\"\n\n\n// Still slow\
+    \ ver, need optimize\n// This template only work for base <= 10\n\nconst int BASE_DIGITS\
+    \ = 9;\nconst int BASE = 1000000000;\n\nclass BigInt {\npublic:\n    int sign;\n\
+    \    vector<uint32_t> digit;\n\n    BigInt(): sign(1) {}\n\n    BigInt(const string\
+    \ &s) { *this = s; }\n\n    BigInt(int64_t val) { *this = val; }\n\n    BigInt\
+    \ &operator = (const BigInt &b) {\n        sign = b.sign;\n        digit = b.digit;\n\
+    \        return *this;\n    }\n\n    BigInt &operator = (const string &s) {\n\
+    \        read(s);\n        return *this;\n    }\n\n    BigInt &operator = (int64_t\
+    \ val) {\n        sign = val >= 0 ? 1 : -1;\n        val = llabs(val);\n     \
+    \   digit.clear();\n        for (; val; val /= BASE) {\n            digit.push_back(val\
+    \ % BASE);\n        }\n        trim();\n        return *this;\n    }\n\n    BigInt\
+    \ &operator += (const BigInt &b) {\n        if (sign != b.sign) {\n          \
+    \  BigInt t = b;\n            t.sign *= -1;\n            return *this -= t;\n\
+    \        }\n        int carry = 0, len = (int)max(size(), b.size());\n       \
+    \ for (int i = 0; i < len; i++) {\n            int sum = carry;\n            if\
+    \ (i < (int)size()) sum += digit[i];\n            if (i < (int)b.size()) sum +=\
+    \ b[i];\n            if (i < (int)size()) digit[i] = sum % BASE;\n           \
+    \ else digit.push_back(sum % BASE);\n            carry = sum / BASE;\n       \
+    \ }\n        if (carry) digit.push_back(carry);\n        trim();\n        return\
+    \ *this;\n    }\n\n    BigInt &operator -= (const BigInt &b) {\n        if (sign\
+    \ != b.sign) {\n            return *this += (-b);\n        }\n        if (__compare_abs(b)\
+    \ == -1) {\n            BigInt t = b;\n            t -= *this;\n            t.sign\
+    \ *= -1;\n            return *this = t;\n        }\n        int borrow = 0, len\
+    \ = (int)max(size(), b.size());\n        for (int i = 0; i < len; i++) {\n   \
+    \         int sub = -borrow;\n            if (i < (int)size()) sub += digit[i];\n\
+    \            if (i < (int)b.size()) sub -= b[i];\n            if (sub < 0) sub\
+    \ += BASE, borrow = 1;\n            else borrow = 0;\n            digit[i] = sub;\n\
     \        }\n        trim();\n        return *this;\n    }\n\n    BigInt &operator\
-    \ += (const BigInt &b) {\n        if (sign != b.sign) {\n            BigInt t\
-    \ = b;\n            t.sign *= -1;\n            return *this -= t;\n        }\n\
-    \        int carry = 0, len = (int)max(size(), b.size());\n        for (int i\
-    \ = 0; i < len; i++) {\n            int sum = carry;\n            if (i < (int)size())\
-    \ sum += digit[i];\n            if (i < (int)b.size()) sum += b[i];\n        \
-    \    if (i < (int)size()) digit[i] = sum % BASE;\n            else digit.push_back(sum\
-    \ % BASE);\n            carry = sum / BASE;\n        }\n        if (carry) digit.push_back(carry);\n\
-    \        trim();\n        return *this;\n    }\n\n    BigInt &operator -= (const\
-    \ BigInt &b) {\n        if (sign != b.sign) {\n            return *this += (-b);\n\
-    \        }\n        if (__compare_abs(b) == -1) {\n            BigInt t = b;\n\
-    \            t -= *this;\n            t.sign *= -1;\n            return *this\
-    \ = t;\n        }\n        int borrow = 0, len = (int)max(size(), b.size());\n\
-    \        for (int i = 0; i < len; i++) {\n            int sub = -borrow;\n   \
-    \         if (i < (int)size()) sub += digit[i];\n            if (i < (int)b.size())\
-    \ sub -= b[i];\n            if (sub < 0) sub += BASE, borrow = 1;\n          \
-    \  else borrow = 0;\n            digit[i] = sub;\n        }\n        trim();\n\
-    \        return *this;\n    }\n\n    BigInt &operator *= (const BigInt &b) {\n\
-    \        return *this = karatsuba(*this, b);\n    }\n\n    BigInt &operator /=\
-    \ (const BigInt &b) {\n        *this = divmod(*this, b).first;\n        return\
-    \ *this;\n    }\n\n    BigInt &operator %= (const BigInt &b) {\n        *this\
-    \ = divmod(*this, b).second;\n        return *this;\n    }\n\n    // ------------------------\
-    \ Operator ------------------------\n    // BigInt += Int\n    BigInt &operator\
-    \ += (int64_t t) { return *this += BigInt(t); }\n    BigInt &operator -= (int64_t\
-    \ t) { return *this -= BigInt(t); }\n    BigInt &operator *= (int64_t t) { return\
-    \ *this *= BigInt(t); }\n    BigInt &operator /= (int64_t t) { \n        assert(t\
-    \ != 0); // not divided for 0\n        int64_t rem = 0;\n        for (int i =\
-    \ (int)size() - 1; i >= 0; i--) {\n            int64_t cur = rem * BASE + (*this)[i];\n\
-    \            (*this)[i] = uint32_t(cur / t);\n            rem = cur % t;\n   \
-    \     } \n        trim();\n        sign = sign * (t < 0 ? -1 : 1);\n        return\
-    \ *this;\n    }\n    BigInt &operator %= (int64_t t) {\n        assert(t != 0);\n\
-    \        int64_t rem = 0;\n        for (int i = (int)size() - 1; i >= 0; i--)\
-    \ {\n            int64_t cur = rem * BASE + (*this)[i];\n            rem = cur\
-    \ % t;\n        }\n        if (rem < 0) rem += llabs(t);\n        int s = sign;\n\
-    \        *this = rem;\n        sign = s;\n        return *this;\n    }\n\n   \
-    \ BigInt operator - () const { BigInt res = *this; res *= -1; return res; } //\
-    \ -a;\n    BigInt operator + () const { return BigInt(*this); } // +a;\n    BigInt\
-    \ &operator ++ () { *this += 1; return *this; } // ++a;\n    BigInt &operator\
-    \ -- () { *this -= 1; return *this; } // --a;\n    BigInt operator ++ (int) {\
-    \ BigInt res = *this; *this += 1; return res; } // a++;\n    BigInt operator --\
-    \ (int) { BigInt res = *this; *this -= 1; return res; } // a--;\n\n    // BigInt\
-    \ = BigInt + BigInt\n    BigInt operator + (const BigInt &b) const { return BigInt(*this)\
-    \ += b; }\n    BigInt operator - (const BigInt &b) const { return BigInt(*this)\
-    \ -= b; }\n    BigInt operator * (const BigInt &b) const { return BigInt(*this)\
-    \ *= b; }\n    BigInt operator / (const BigInt &b) const { return BigInt(*this)\
-    \ /= b; }\n    BigInt operator % (const BigInt &b) const { return BigInt(*this)\
-    \ %= b; }\n\n    // BigInt = BigInt + Int\n    BigInt operator + (int64_t t) const\
-    \ { return BigInt(*this) += t; }\n    BigInt operator - (int64_t t) const { return\
-    \ BigInt(*this) -= t; }\n    BigInt operator * (int64_t t) const { return BigInt(*this)\
-    \ *= t; }\n    BigInt operator / (int64_t t) const { return BigInt(*this) /= t;\
-    \ }\n    BigInt operator % (int64_t t) const { return BigInt(*this) %= t; }\n\n\
-    \    // BigInt = Int + BigInt\n    friend BigInt operator + (int64_t t, const\
-    \ BigInt &b) { BigInt res(t); res += b; return res; }\n    friend BigInt operator\
-    \ - (int64_t t, const BigInt &b) { BigInt res(t); res -= b; return res; }\n  \
-    \  friend BigInt operator * (int64_t t, const BigInt &b) { BigInt res(t); res\
-    \ *= b; return res; }\n    friend BigInt operator / (int64_t t, const BigInt &b)\
-    \ { BigInt res(t); res /= b; return res; }\n    friend BigInt operator % (int64_t\
-    \ t, const BigInt &b) { BigInt res(t); res %= b; return res; }\n\n    uint32_t\
-    \ operator [] (const int i) const { assert(i >= 0 && i < (int)size()); return\
-    \ digit[i]; }\n    uint32_t &operator [] (const int i) { assert(i >= 0 && i <\
-    \ (int)size()); return digit[i]; }\n\n    // ------------------------- Comparison\
-    \ ---------------------\n    bool operator < (const BigInt &b) const {\n     \
-    \   if (sign != b.sign) {\n            return sign < b.sign;\n        }\n    \
-    \    if (size() != b.size()) {\n            return size() * sign < b.size() *\
-    \ b.sign;\n        }\n        for (int i = (int)size() - 1; i >= 0; i--) {\n \
-    \           if ((*this)[i] != b[i]) {\n                return (*this)[i] * sign\
-    \ < b[i] * sign;\n            }\n        }\n        return false;\n    }\n\n \
-    \   bool operator > (const BigInt &b) const { return b < *this; }\n    bool operator\
-    \ <= (const BigInt &b) const { return !(b < *this); }\n    bool operator >= (const\
-    \ BigInt &b) const { return !(*this < b); }\n    bool operator == (const BigInt\
-    \ &b) const { return !(*this < b) && !(b < *this); }\n    bool operator != (const\
-    \ BigInt &b) const { return *this < b || b < *this; }\n\n    bool operator ==\
-    \ (int64_t t) const { return *this == BigInt(t); }\n    bool operator != (int64_t\
-    \ t) const { return *this != BigInt(t); }\n    bool operator < (int64_t t) const\
-    \ { return *this < BigInt(t); }\n    bool operator <= (int64_t t) const { return\
-    \ *this <= BigInt(t); }\n    bool operator > (int64_t t) const { return *this\
-    \ > BigInt(t); }\n    bool operator >= (int64_t t) const { return *this >= BigInt(t);\
-    \ }\n\n    // 0 if |a| == |b|\n    // -1 if |a| < |b|\n    // 1 if |a| > |b|\n\
-    \    int __compare_abs(const BigInt &b) const {\n        if (size() != b.size())\
-    \ {\n            return size() < b.size() ? -1 : 1;\n        }\n        for (int\
-    \ i = (int)size() - 1; i >= 0; i--) {\n            if ((*this)[i] != b[i]) {\n\
-    \                return (*this)[i] < b[i] ? -1 : 1;\n            }\n        }\n\
-    \        return 0;\n    }\n\n    // -------------------- karatsuba ---------------------\n\
-    \    BigInt mul_simple(const BigInt &a, const BigInt &b) {\n        BigInt x =\
-    \ a, y = b;\n        BigInt res;\n        res.sign = x.sign * y.sign;\n      \
-    \  res.digit.resize(x.size() + y.size());\n        for (int i = 0; i < (int)x.size();\
-    \ i++) {\n            uint64_t carry = 0;\n            for (int j = 0; j < (int)y.size();\
-    \ j++) {\n                uint64_t cur = res[i+j] + carry;\n                cur\
-    \ += 1ull * x[i] * y[j];\n                res[i+j] = cur % BASE;\n           \
-    \     carry = cur / BASE;\n            }\n            if (carry) res[i+(int)y.size()]\
-    \ += carry;\n        }\n        res.trim();\n        if (res.isZero()) res.sign\
-    \ = 1;\n        return res;\n    }\n\n    BigInt shifted(int k) const {\n    \
-    \    if (isZero()) return *this;\n        BigInt r = *this;\n        r.digit.insert(r.digit.begin(),\
+    \ *= (const BigInt &b) {\n        return *this = karatsuba(*this, b);\n    }\n\
+    \n    BigInt &operator /= (const BigInt &b) {\n        *this = divmod(*this, b).first;\n\
+    \        return *this;\n    }\n\n    BigInt &operator %= (const BigInt &b) {\n\
+    \        *this = divmod(*this, b).second;\n        return *this;\n    }\n\n  \
+    \  // ------------------------ Operator ------------------------\n    // BigInt\
+    \ += Int\n    BigInt &operator += (int64_t t) { return *this += BigInt(t); }\n\
+    \    BigInt &operator -= (int64_t t) { return *this -= BigInt(t); }\n    BigInt\
+    \ &operator *= (int64_t t) { return *this *= BigInt(t); }\n    BigInt &operator\
+    \ /= (int64_t t) { \n        assert(t != 0); // not divided for 0\n        int64_t\
+    \ rem = 0;\n        for (int i = (int)size() - 1; i >= 0; i--) {\n           \
+    \ int64_t cur = rem * BASE + (*this)[i];\n            (*this)[i] = uint32_t(cur\
+    \ / t);\n            rem = cur % t;\n        } \n        trim();\n        sign\
+    \ = sign * (t < 0 ? -1 : 1);\n        return *this;\n    }\n    BigInt &operator\
+    \ %= (int64_t t) {\n        assert(t != 0);\n        int64_t rem = 0;\n      \
+    \  for (int i = (int)size() - 1; i >= 0; i--) {\n            int64_t cur = rem\
+    \ * BASE + (*this)[i];\n            rem = cur % t;\n        }\n        if (rem\
+    \ < 0) rem += llabs(t);\n        int s = sign;\n        *this = rem;\n       \
+    \ sign = s;\n        return *this;\n    }\n\n    BigInt operator - () const {\
+    \ BigInt res = *this; res *= -1; return res; } // -a;\n    BigInt operator + ()\
+    \ const { return BigInt(*this); } // +a;\n    BigInt &operator ++ () { *this +=\
+    \ 1; return *this; } // ++a;\n    BigInt &operator -- () { *this -= 1; return\
+    \ *this; } // --a;\n    BigInt operator ++ (int) { BigInt res = *this; *this +=\
+    \ 1; return res; } // a++;\n    BigInt operator -- (int) { BigInt res = *this;\
+    \ *this -= 1; return res; } // a--;\n\n    // BigInt = BigInt + BigInt\n    BigInt\
+    \ operator + (const BigInt &b) const { return BigInt(*this) += b; }\n    BigInt\
+    \ operator - (const BigInt &b) const { return BigInt(*this) -= b; }\n    BigInt\
+    \ operator * (const BigInt &b) const { return BigInt(*this) *= b; }\n    BigInt\
+    \ operator / (const BigInt &b) const { return BigInt(*this) /= b; }\n    BigInt\
+    \ operator % (const BigInt &b) const { return BigInt(*this) %= b; }\n\n    //\
+    \ BigInt = BigInt + Int\n    BigInt operator + (int64_t t) const { return BigInt(*this)\
+    \ += t; }\n    BigInt operator - (int64_t t) const { return BigInt(*this) -= t;\
+    \ }\n    BigInt operator * (int64_t t) const { return BigInt(*this) *= t; }\n\
+    \    BigInt operator / (int64_t t) const { return BigInt(*this) /= t; }\n    BigInt\
+    \ operator % (int64_t t) const { return BigInt(*this) %= t; }\n\n    // BigInt\
+    \ = Int + BigInt\n    friend BigInt operator + (int64_t t, const BigInt &b) {\
+    \ BigInt res(t); res += b; return res; }\n    friend BigInt operator - (int64_t\
+    \ t, const BigInt &b) { BigInt res(t); res -= b; return res; }\n    friend BigInt\
+    \ operator * (int64_t t, const BigInt &b) { BigInt res(t); res *= b; return res;\
+    \ }\n    friend BigInt operator / (int64_t t, const BigInt &b) { BigInt res(t);\
+    \ res /= b; return res; }\n    friend BigInt operator % (int64_t t, const BigInt\
+    \ &b) { BigInt res(t); res %= b; return res; }\n\n    uint32_t operator [] (const\
+    \ int i) const { assert(i >= 0 && i < (int)size()); return digit[i]; }\n    uint32_t\
+    \ &operator [] (const int i) { assert(i >= 0 && i < (int)size()); return digit[i];\
+    \ }\n\n    // ------------------------- Comparison ---------------------\n   \
+    \ bool operator < (const BigInt &b) const {\n        if (sign != b.sign) {\n \
+    \           return sign < b.sign;\n        }\n        if (size() != b.size())\
+    \ {\n            return size() * sign < b.size() * b.sign;\n        }\n      \
+    \  for (int i = (int)size() - 1; i >= 0; i--) {\n            if ((*this)[i] !=\
+    \ b[i]) {\n                return (*this)[i] * sign < b[i] * sign;\n         \
+    \   }\n        }\n        return false;\n    }\n\n    bool operator > (const BigInt\
+    \ &b) const { return b < *this; }\n    bool operator <= (const BigInt &b) const\
+    \ { return !(b < *this); }\n    bool operator >= (const BigInt &b) const { return\
+    \ !(*this < b); }\n    bool operator == (const BigInt &b) const { return !(*this\
+    \ < b) && !(b < *this); }\n    bool operator != (const BigInt &b) const { return\
+    \ *this < b || b < *this; }\n\n    bool operator == (int64_t t) const { return\
+    \ *this == BigInt(t); }\n    bool operator != (int64_t t) const { return *this\
+    \ != BigInt(t); }\n    bool operator < (int64_t t) const { return *this < BigInt(t);\
+    \ }\n    bool operator <= (int64_t t) const { return *this <= BigInt(t); }\n \
+    \   bool operator > (int64_t t) const { return *this > BigInt(t); }\n    bool\
+    \ operator >= (int64_t t) const { return *this >= BigInt(t); }\n\n    // 0 if\
+    \ |a| == |b|\n    // -1 if |a| < |b|\n    // 1 if |a| > |b|\n    int __compare_abs(const\
+    \ BigInt &b) const {\n        if (size() != b.size()) {\n            return size()\
+    \ < b.size() ? -1 : 1;\n        }\n        for (int i = (int)size() - 1; i >=\
+    \ 0; i--) {\n            if ((*this)[i] != b[i]) {\n                return (*this)[i]\
+    \ < b[i] ? -1 : 1;\n            }\n        }\n        return 0;\n    }\n\n   \
+    \ // -------------------- karatsuba ---------------------\n    BigInt mul_simple(const\
+    \ BigInt &a, const BigInt &b) {\n        BigInt x = a, y = b;\n        BigInt\
+    \ res;\n        res.sign = x.sign * y.sign;\n        res.digit.resize(x.size()\
+    \ + y.size());\n        for (int i = 0; i < (int)x.size(); i++) {\n          \
+    \  uint64_t carry = 0;\n            for (int j = 0; j < (int)y.size(); j++) {\n\
+    \                uint64_t cur = res[i+j] + carry;\n                cur += 1ull\
+    \ * x[i] * y[j];\n                res[i+j] = cur % BASE;\n                carry\
+    \ = cur / BASE;\n            }\n            if (carry) res[i+(int)y.size()] +=\
+    \ carry;\n        }\n        res.trim();\n        if (res.isZero()) res.sign =\
+    \ 1;\n        return res;\n    }\n\n    BigInt shifted(int k) const {\n      \
+    \  if (isZero()) return *this;\n        BigInt r = *this;\n        r.digit.insert(r.digit.begin(),\
     \ k, 0);\n        return r;\n    }\n\n    BigInt karatsuba(const BigInt &a, const\
     \ BigInt &b) {\n        if (a.size() < 32 || b.size() < 32) {\n            return\
     \ mul_simple(a, b);\n        }\n        size_t n = max(a.size(), b.size());\n\
@@ -226,7 +229,7 @@ data:
   isVerificationFile: true
   path: Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
   requiredBy: []
-  timestamp: '2025-12-04 02:05:35+07:00'
+  timestamp: '2026-07-26 14:40:30+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp

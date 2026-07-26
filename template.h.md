@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Big_Integer/BigInt.h
     title: Big_Integer/BigInt.h
   - icon: ':heavy_check_mark:'
@@ -14,7 +14,7 @@ data:
   - icon: ':warning:'
     path: DataStructure/Aizu/test_dsu_2d_2.cpp
     title: DataStructure/Aizu/test_dsu_2d_2.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: DataStructure/DSU/Dsu.h
     title: DataStructure/DSU/Dsu.h
   - icon: ':warning:'
@@ -23,7 +23,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/DSU/Weighted_Dsu.h
     title: DataStructure/DSU/Weighted_Dsu.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: DataStructure/Fenwick/Fenwick.h
     title: DataStructure/Fenwick/Fenwick.h
   - icon: ':warning:'
@@ -101,22 +101,22 @@ data:
   - icon: ':warning:'
     path: Dp/LCS.h
     title: Dp/LCS.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Graph/Mst/Kruskal.h
     title: Graph/Mst/Kruskal.h
   - icon: ':warning:'
     path: Graph/Mst/Prim.h
     title: Graph/Mst/Prim.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Graph/Shortest_path/Bellman_ford.h
     title: Graph/Shortest_path/Bellman_ford.h
   - icon: ':warning:'
     path: Graph/Shortest_path/Bfs_0-1.cpp
     title: Graph/Shortest_path/Bfs_0-1.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Graph/Shortest_path/Dijkstra.h
     title: Graph/Shortest_path/Dijkstra.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Graph/Shortest_path/Floyd_warshall.h
     title: Graph/Shortest_path/Floyd_warshall.h
   - icon: ':warning:'
@@ -137,7 +137,7 @@ data:
   - icon: ':warning:'
     path: Misc/Matrix.h
     title: Misc/Matrix.h
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Misc/ModInt.h
     title: Misc/ModInt.h
   - icon: ':warning:'
@@ -146,49 +146,55 @@ data:
   - icon: ':warning:'
     path: Misc/Small_to_large.h
     title: Misc/Small_to_large.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/Binary_exponentiation.h
     title: NumberTheory/Math/Binary_exponentiation.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/CheckPrime.h
     title: NumberTheory/Math/CheckPrime.h
-  - icon: ':warning:'
+  - icon: ':x:'
     path: NumberTheory/Math/Combination.h
     title: NumberTheory/Math/Combination.h
+  - icon: ':x:'
+    path: NumberTheory/Math/Combination_any_mod.h
+    title: NumberTheory/Math/Combination_any_mod.h
   - icon: ':warning:'
     path: NumberTheory/Math/Divisors.h
     title: NumberTheory/Math/Divisors.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/EulerPhi.h
     title: NumberTheory/Math/EulerPhi.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/Extended_euclid.h
     title: NumberTheory/Math/Extended_euclid.h
   - icon: ':warning:'
     path: NumberTheory/Math/Factorial.h
     title: NumberTheory/Math/Factorial.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/Factorization.h
     title: NumberTheory/Math/Factorization.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/MillerRabin.h
     title: NumberTheory/Math/MillerRabin.h
   - icon: ':warning:'
     path: NumberTheory/Math/Misc.h
     title: NumberTheory/Math/Misc.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/Pollard_rho.h
     title: NumberTheory/Math/Pollard_rho.h
   - icon: ':warning:'
     path: NumberTheory/Math/Primality_test.h
     title: NumberTheory/Math/Primality_test.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: NumberTheory/Math/Primitive_root.h
+    title: NumberTheory/Math/Primitive_root.h
+  - icon: ':x:'
     path: NumberTheory/Math/Sieve.h
     title: NumberTheory/Math/Sieve.h
   - icon: ':warning:'
     path: String/Kmp.h
     title: String/Kmp.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: String/Manacher.h
     title: String/Manacher.h
   - icon: ':warning:'
@@ -209,19 +215,19 @@ data:
   - icon: ':warning:'
     path: String/Trie/Trie_array_ver.h
     title: String/Trie/Trie_array_ver.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: String/Z_Function.h
     title: String/Z_Function.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tree/EulerTour.h
     title: Tree/EulerTour.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tree/Tree/BinaryLifting.h
     title: Tree/Tree/BinaryLifting.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tree/Tree/Lca.h
     title: Tree/Tree/Lca.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tree/Tree_diameter.h
     title: Tree/Tree_diameter.h
   _extendedVerifiedWith:
@@ -285,106 +291,119 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/Yosupo/Static_range_sum.test.cpp
     title: DataStructure/Yosupo/Static_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: DataStructure/Yosupo/Union_find.test.cpp
     title: DataStructure/Yosupo/Union_find.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: DataStructure/Yosupo/Unionfind_with_potential.test.cpp
     title: DataStructure/Yosupo/Unionfind_with_potential.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Graph/Aizu/aizu_grl_1_a_dijkstra.test.cpp
     title: Graph/Aizu/aizu_grl_1_a_dijkstra.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Graph/Aizu/aizu_grl_1_b_negative_cycle.test.cpp
     title: Graph/Aizu/aizu_grl_1_b_negative_cycle.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Graph/Aizu/aizu_grl_1_c_floyd_warshall.test.cpp
     title: Graph/Aizu/aizu_grl_1_c_floyd_warshall.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
     title: Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Aizu/aizu_ntl_1_a_prime_factor.test.cpp
     title: NumberTheory/Aizu/aizu_ntl_1_a_prime_factor.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Aizu/aizu_ntl_1_b_power_mod.test.cpp
     title: NumberTheory/Aizu/aizu_ntl_1_b_power_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Aizu/aizu_ntl_1_c_lcm.test.cpp
     title: NumberTheory/Aizu/aizu_ntl_1_c_lcm.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
     title: NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
     title: NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: NumberTheory/Yosupo/Binomial_coefficient.test.cpp
+    title: NumberTheory/Yosupo/Binomial_coefficient.test.cpp
+  - icon: ':x:'
+    path: NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
+    title: NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
+  - icon: ':x:'
     path: NumberTheory/Yosupo/Counting_primes.test.cpp
     title: NumberTheory/Yosupo/Counting_primes.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Yosupo/Enumerate_primes.test.cpp
     title: NumberTheory/Yosupo/Enumerate_primes.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Yosupo/Enumerate_quotients.test.cpp
     title: NumberTheory/Yosupo/Enumerate_quotients.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Yosupo/Factorize.test.cpp
     title: NumberTheory/Yosupo/Factorize.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Yosupo/Primality_test.test.cpp
     title: NumberTheory/Yosupo/Primality_test.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: NumberTheory/Yosupo/Primitive_root.test.cpp
+    title: NumberTheory/Yosupo/Primitive_root.test.cpp
+  - icon: ':x:'
     path: Sample/A_plus_B.test.cpp
     title: Sample/A_plus_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Sample/Many_A_plus_B.test.cpp
     title: Sample/Many_A_plus_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Sample/Many_A_plus_B_128bit.test.cpp
     title: Sample/Many_A_plus_B_128bit.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: String/Yosupo/Enumerate_Palindromes.test.cpp
     title: String/Yosupo/Enumerate_Palindromes.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: String/Yosupo/Z_Algorithm.test.cpp
     title: String/Yosupo/Z_Algorithm.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tree/Yosupo/Diameter_tree.test.cpp
     title: Tree/Yosupo/Diameter_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tree/Yosupo/Jump_on_tree.test.cpp
     title: Tree/Yosupo/Jump_on_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tree/Yosupo/Lowest_common_ancestor.test.cpp
     title: Tree/Yosupo/Lowest_common_ancestor.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
     title: Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: h
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"template.h\"\n\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\n \n#define ll long long\n#define MOD (ll)(1e9+7)\n#define all(x) (x).begin(),(x).end()\n\
-    #define unique(x) x.erase(unique(all(x)), x.end())\n#define INF32 ((1ull<<31)-1)\n\
-    #define INF64 ((1ull<<63)-1)\n#define inf (ll)1e18\n\n#define vi vector<int>\n\
-    #define pii pair<int, int>\n#define pll pair<ll, ll>\n#define fi first\n#define\
-    \ se second\n\nconst int mod = 998244353;\n\nvoid solve();\n\nint main(){\n  \
-    \  ios_base::sync_with_stdio(false);cin.tie(NULL);\n    // cin.exceptions(cin.failbit);\n\
-    \    // int t; cin >> t;\n    // while(t--)\n        solve();\n    cerr << \"\\\
-    nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC << \"ms\" << '\\n';\n    return\
-    \ 0;\n}\n"
-  code: "#pragma once\n\n#include <bits/stdc++.h>\nusing namespace std;\n \n#define\
-    \ ll long long\n#define MOD (ll)(1e9+7)\n#define all(x) (x).begin(),(x).end()\n\
-    #define unique(x) x.erase(unique(all(x)), x.end())\n#define INF32 ((1ull<<31)-1)\n\
-    #define INF64 ((1ull<<63)-1)\n#define inf (ll)1e18\n\n#define vi vector<int>\n\
-    #define pii pair<int, int>\n#define pll pair<ll, ll>\n#define fi first\n#define\
-    \ se second\n\nconst int mod = 998244353;\n\nvoid solve();\n\nint main(){\n  \
-    \  ios_base::sync_with_stdio(false);cin.tie(NULL);\n    // cin.exceptions(cin.failbit);\n\
-    \    // int t; cin >> t;\n    // while(t--)\n        solve();\n    cerr << \"\\\
-    nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC << \"ms\" << '\\n';\n    return\
-    \ 0;\n}"
+  bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
+    \ std;\r\n \r\n#define ll long long\r\n#define MOD (ll)(1e9+7)\r\n#define all(x)\
+    \ (x).begin(),(x).end()\r\n#define unique(x) x.erase(unique(all(x)), x.end())\r\
+    \n#define INF32 ((1ull<<31)-1)\r\n#define INF64 ((1ull<<63)-1)\r\n#define inf\
+    \ (ll)1e18\r\n\r\n#define vi vector<int>\r\n#define pii pair<int, int>\r\n#define\
+    \ pll pair<ll, ll>\r\n#define fi first\r\n#define se second\r\n\r\nmt19937_64\
+    \ rng(chrono::steady_clock::now().time_since_epoch().count());\r\nll get_rand(ll\
+    \ r) { return uniform_int_distribution<ll>(0, r - 1)(rng); }\r\n\r\nconst int\
+    \ mod = 998244353;\r\n\r\nvoid solve();\r\n\r\nint main(){\r\n    ios_base::sync_with_stdio(false);cin.tie(NULL);\r\
+    \n    // cin.exceptions(cin.failbit);\r\n    // int t; cin >> t;\r\n    // while(t--)\r\
+    \n        solve();\r\n    cerr << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC\
+    \ << \"ms\" << '\\n';\r\n    return 0;\r\n}\n"
+  code: "#pragma once\r\n\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\n\
+    \ \r\n#define ll long long\r\n#define MOD (ll)(1e9+7)\r\n#define all(x) (x).begin(),(x).end()\r\
+    \n#define unique(x) x.erase(unique(all(x)), x.end())\r\n#define INF32 ((1ull<<31)-1)\r\
+    \n#define INF64 ((1ull<<63)-1)\r\n#define inf (ll)1e18\r\n\r\n#define vi vector<int>\r\
+    \n#define pii pair<int, int>\r\n#define pll pair<ll, ll>\r\n#define fi first\r\
+    \n#define se second\r\n\r\nmt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());\r\
+    \nll get_rand(ll r) { return uniform_int_distribution<ll>(0, r - 1)(rng); }\r\n\
+    \r\nconst int mod = 998244353;\r\n\r\nvoid solve();\r\n\r\nint main(){\r\n   \
+    \ ios_base::sync_with_stdio(false);cin.tie(NULL);\r\n    // cin.exceptions(cin.failbit);\r\
+    \n    // int t; cin >> t;\r\n    // while(t--)\r\n        solve();\r\n    cerr\
+    \ << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC << \"ms\" << '\\n';\r\
+    \n    return 0;\r\n}"
   dependsOn: []
   isVerificationFile: false
   path: template.h
@@ -437,6 +456,7 @@ data:
   - Misc/Formula.h
   - Misc/Deque.h
   - NumberTheory/Math/Sieve.h
+  - NumberTheory/Math/Primitive_root.h
   - NumberTheory/Math/Primality_test.h
   - NumberTheory/Math/Factorial.h
   - NumberTheory/Math/Binary_exponentiation.h
@@ -449,6 +469,7 @@ data:
   - NumberTheory/Math/MillerRabin.h
   - NumberTheory/Math/Extended_euclid.h
   - NumberTheory/Math/Pollard_rho.h
+  - NumberTheory/Math/Combination_any_mod.h
   - Big_Integer/BigInt_full.h
   - Big_Integer/BigInt.h
   - String/Z_Function.h
@@ -463,8 +484,8 @@ data:
   - Dp/LCS.h
   - Dp/Knapsack.h
   - Dp/DAG.h
-  timestamp: '2025-05-07 22:18:34+07:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-07-26 14:40:30+07:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
   - Graph/Aizu/aizu_grl_1_b_negative_cycle.test.cpp
@@ -494,6 +515,9 @@ data:
   - NumberTheory/Aizu/aizu_ntl_1_b_power_mod.test.cpp
   - NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
   - NumberTheory/Aizu/aizu_ntl_1_c_lcm.test.cpp
+  - NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
+  - NumberTheory/Yosupo/Binomial_coefficient.test.cpp
+  - NumberTheory/Yosupo/Primitive_root.test.cpp
   - NumberTheory/Yosupo/Primality_test.test.cpp
   - NumberTheory/Yosupo/Factorize.test.cpp
   - NumberTheory/Yosupo/Counting_primes.test.cpp

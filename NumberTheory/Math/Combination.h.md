@@ -1,64 +1,69 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Misc/ModInt.h
     title: Misc/ModInt.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/Binary_exponentiation.h
     title: NumberTheory/Math/Binary_exponentiation.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/Extended_euclid.h
     title: NumberTheory/Math/Extended_euclid.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
+    title: NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
+  _isVerificationFailed: true
   _pathExtension: h
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"template.h\"\n\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\n \n#define ll long long\n#define MOD (ll)(1e9+7)\n#define all(x) (x).begin(),(x).end()\n\
-    #define unique(x) x.erase(unique(all(x)), x.end())\n#define INF32 ((1ull<<31)-1)\n\
-    #define INF64 ((1ull<<63)-1)\n#define inf (ll)1e18\n\n#define vi vector<int>\n\
-    #define pii pair<int, int>\n#define pll pair<ll, ll>\n#define fi first\n#define\
-    \ se second\n\nconst int mod = 998244353;\n\nvoid solve();\n\nint main(){\n  \
-    \  ios_base::sync_with_stdio(false);cin.tie(NULL);\n    // cin.exceptions(cin.failbit);\n\
-    \    // int t; cin >> t;\n    // while(t--)\n        solve();\n    cerr << \"\\\
-    nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC << \"ms\" << '\\n';\n    return\
-    \ 0;\n}\n#line 2 \"Misc/ModInt.h\"\n\ntemplate <int32_t mod>\nstruct ModInt {\n\
-    \    int32_t x;\n\n    ModInt(): x(0) {}\n    ModInt(int32_t _x): x(_x % mod)\
-    \ { x = x < 0 ? x + mod : x; }\n\n    ModInt &operator += (const ModInt &p) {\n\
-    \        x += p.x;\n        if (x >= mod) x -= mod;\n        return *this;\n \
-    \   }\n\n    ModInt &operator -= (const ModInt &p) {\n        x -= p.x;\n    \
-    \    if (x < 0) x += mod;\n        return *this;\n    }\n\n    ModInt &operator\
-    \ *= (const ModInt &p) {\n        x = (int32_t)(1ll * x * p.x % mod);\n      \
-    \  return *this; \n    }\n\n    ModInt &operator /= (const ModInt &p) {\n    \
-    \    *this *= p.inverse();\n        return *this;\n    }\n\n    // ModInt += Int\n\
-    \    ModInt &operator += (int32_t t) { return *this += ModInt(t); }\n    ModInt\
-    \ &operator -= (int32_t t) { return *this -= ModInt(t); }\n    ModInt &operator\
-    \ *= (int32_t t) { return *this *= ModInt(t); }\n    ModInt &operator /= (int32_t\
-    \ t) { return *this /= ModInt(t); }\n\n    ModInt operator - () const { return\
-    \ ModInt(-x); } // -a;\n    ModInt operator + () const { return ModInt(*this);\
-    \ } // +a;\n    ModInt &operator ++ () { *this += 1; return *this; } // ++a;\n\
-    \    ModInt &operator -- () { *this -= 1; return *this; } // --a;\n    ModInt\
-    \ operator ++ (int) { ModInt res = *this; *this += 1; return res; } // a++;\n\
-    \    ModInt operator -- (int) { ModInt res = *this; *this -= 1; return res; }\
-    \ // a--;\n\n    // ModInt = ModInt + ModInt\n    ModInt operator + (const ModInt\
-    \ &p) const { return ModInt(*this) += p; }\n    ModInt operator - (const ModInt\
-    \ &p) const { return ModInt(*this) -= p; }\n    ModInt operator * (const ModInt\
-    \ &p) const { return ModInt(*this) *= p; }\n    ModInt operator / (const ModInt\
-    \ &p) const { return ModInt(*this) /= p; }\n\n    // ModInt = ModInt + Int\n \
-    \   ModInt operator + (int32_t t) const { return ModInt(*this) += t; }\n    ModInt\
-    \ operator - (int32_t t) const { return ModInt(*this) -= t; }\n    ModInt operator\
-    \ * (int32_t t) const { return ModInt(*this) *= t; }\n    ModInt operator / (int32_t\
-    \ t) const { return ModInt(*this) /= t; }\n\n    // ModInt = Int + ModInt\n  \
-    \  friend ModInt operator + (int32_t t, const ModInt &p) { ModInt res(t); res\
-    \ += p; return res; }\n    friend ModInt operator - (int32_t t, const ModInt &p)\
-    \ { ModInt res(t); res -= p; return res; }\n    friend ModInt operator * (int32_t\
+  bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
+    \ std;\r\n \r\n#define ll long long\r\n#define MOD (ll)(1e9+7)\r\n#define all(x)\
+    \ (x).begin(),(x).end()\r\n#define unique(x) x.erase(unique(all(x)), x.end())\r\
+    \n#define INF32 ((1ull<<31)-1)\r\n#define INF64 ((1ull<<63)-1)\r\n#define inf\
+    \ (ll)1e18\r\n\r\n#define vi vector<int>\r\n#define pii pair<int, int>\r\n#define\
+    \ pll pair<ll, ll>\r\n#define fi first\r\n#define se second\r\n\r\nmt19937_64\
+    \ rng(chrono::steady_clock::now().time_since_epoch().count());\r\nll get_rand(ll\
+    \ r) { return uniform_int_distribution<ll>(0, r - 1)(rng); }\r\n\r\nconst int\
+    \ mod = 998244353;\r\n\r\nvoid solve();\r\n\r\nint main(){\r\n    ios_base::sync_with_stdio(false);cin.tie(NULL);\r\
+    \n    // cin.exceptions(cin.failbit);\r\n    // int t; cin >> t;\r\n    // while(t--)\r\
+    \n        solve();\r\n    cerr << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC\
+    \ << \"ms\" << '\\n';\r\n    return 0;\r\n}\n#line 2 \"Misc/ModInt.h\"\n\ntemplate\
+    \ <int32_t mod>\nstruct ModInt {\n    int32_t x;\n\n    ModInt(): x(0) {}\n  \
+    \  ModInt(int32_t _x): x(_x % mod) { x = x < 0 ? x + mod : x; }\n\n    ModInt\
+    \ &operator += (const ModInt &p) {\n        x += p.x;\n        if (x >= mod) x\
+    \ -= mod;\n        return *this;\n    }\n\n    ModInt &operator -= (const ModInt\
+    \ &p) {\n        x -= p.x;\n        if (x < 0) x += mod;\n        return *this;\n\
+    \    }\n\n    ModInt &operator *= (const ModInt &p) {\n        x = (int32_t)(1ll\
+    \ * x * p.x % mod);\n        return *this; \n    }\n\n    ModInt &operator /=\
+    \ (const ModInt &p) {\n        *this *= p.inverse();\n        return *this;\n\
+    \    }\n\n    // ModInt += Int\n    ModInt &operator += (int32_t t) { return *this\
+    \ += ModInt(t); }\n    ModInt &operator -= (int32_t t) { return *this -= ModInt(t);\
+    \ }\n    ModInt &operator *= (int32_t t) { return *this *= ModInt(t); }\n    ModInt\
+    \ &operator /= (int32_t t) { return *this /= ModInt(t); }\n\n    ModInt operator\
+    \ - () const { return ModInt(-x); } // -a;\n    ModInt operator + () const { return\
+    \ ModInt(*this); } // +a;\n    ModInt &operator ++ () { *this += 1; return *this;\
+    \ } // ++a;\n    ModInt &operator -- () { *this -= 1; return *this; } // --a;\n\
+    \    ModInt operator ++ (int) { ModInt res = *this; *this += 1; return res; }\
+    \ // a++;\n    ModInt operator -- (int) { ModInt res = *this; *this -= 1; return\
+    \ res; } // a--;\n\n    // ModInt = ModInt + ModInt\n    ModInt operator + (const\
+    \ ModInt &p) const { return ModInt(*this) += p; }\n    ModInt operator - (const\
+    \ ModInt &p) const { return ModInt(*this) -= p; }\n    ModInt operator * (const\
+    \ ModInt &p) const { return ModInt(*this) *= p; }\n    ModInt operator / (const\
+    \ ModInt &p) const { return ModInt(*this) /= p; }\n\n    // ModInt = ModInt +\
+    \ Int\n    ModInt operator + (int32_t t) const { return ModInt(*this) += t; }\n\
+    \    ModInt operator - (int32_t t) const { return ModInt(*this) -= t; }\n    ModInt\
+    \ operator * (int32_t t) const { return ModInt(*this) *= t; }\n    ModInt operator\
+    \ / (int32_t t) const { return ModInt(*this) /= t; }\n\n    // ModInt = Int +\
+    \ ModInt\n    friend ModInt operator + (int32_t t, const ModInt &p) { ModInt res(t);\
+    \ res += p; return res; }\n    friend ModInt operator - (int32_t t, const ModInt\
+    \ &p) { ModInt res(t); res -= p; return res; }\n    friend ModInt operator * (int32_t\
     \ t, const ModInt &p) { ModInt res(t); res *= p; return res; }\n    friend ModInt\
     \ operator / (int32_t t, const ModInt &p) { ModInt res(t); res /= p; return res;\
     \ }\n\n    bool operator == (const ModInt &p) const { return x == p.x; }\n   \
@@ -88,9 +93,9 @@ data:
     \n    unsigned long long ua = a % M, um = M, res = 0;\r\n    while (b) {\r\n \
     \       if (b & 1) { res += ua; if (res >= um) res -= um; }\r\n        ua <<=\
     \ 1; if (ua >= um) ua -= um;\r\n        b >>= 1;\r\n    }\r\n    return res;\r\
-    \n}\r\n\r\nll binPow(ll a, ll b, ll M) {\r\n    a %= M;\r\n    ll res = 1;\r\n\
-    \    while (b) {\r\n        if (b & 1) res = (i128)res * a % M;\r\n        a =\
-    \ (i128)a * a % M;\r\n        b /= 2;\r\n    }\r\n    return res;\r\n}\n#line\
+    \n}\r\n\r\nll binPow(ll a, ll b, ll M) {\r\n    a %= M;\r\n    ll res = 1 % M;\r\
+    \n    while (b) {\r\n        if (b & 1) res = (i128)res * a % M;\r\n        a\
+    \ = (i128)a * a % M;\r\n        b /= 2;\r\n    }\r\n    return res;\r\n}\n#line\
     \ 2 \"NumberTheory/Math/Extended_euclid.h\"\n\r\n\r\nll extended1(ll a, ll b,\
     \ ll &x, ll &y) {\r\n    if (b == 0) {\r\n        x = 1, y = 0;\r\n        return\
     \ a;\r\n    }\r\n    ll x1, y1;\r\n    ll d = extended1(b, a%b, x1, y1);\r\n \
@@ -100,66 +105,72 @@ data:
     \    ll q = a1 / b1;\r\n        tie(x, x1) = make_tuple(x1, x - q * x1);\r\n \
     \       tie(y, y1) = make_tuple(y1, y - q * y1);\r\n        tie(a1, b1) = make_tuple(b1,\
     \ a1 - q * b1);\r\n    }\r\n    return a1;\r\n}\n#line 5 \"NumberTheory/Math/Combination.h\"\
-    \n\r\n// This modint only work for MOD is prime cuz using modulo inverse\r\nusing\
-    \ mint = ModInt<MOD>;\r\n\r\n// vector<mint> fact;\r\n\r\n// void preprocess()\
+    \n\r\n// This modint only work for MOD is prime cuz using modulo inverse\r\n//\
+    \ using mint = ModInt<MOD>;\r\n\r\n// vector<mint> fact;\r\n\r\n// void preprocess()\
     \ {\r\n//     fact[0] = 1;\r\n//     for (int i = 1; i < (int)fact.size(); i++)\
     \ {\r\n//         fact[i] = fact[i-1] * i;\r\n//     }\r\n// }\r\n\r\n// mint\
     \ comb(int n, int k) {\r\n//     if (k < 0 || k > n) return 0; \r\n//     return\
-    \ fact[n] / (fact[n-k] * fact[k]);\r\n// }\r\n\r\n\r\n// Using for n * k <= 1e7\
-    \ or n,k <= 5000, O(1) per operation\r\nvector<vector<int>> preprocess(int n,\
-    \ int k, int m) {\r\n    vector<vector<int>> C(n+1, vector<int>(k+1));\r\n   \
-    \ for (int i = 0; i <= n; i++) {\r\n        C[i][0] = 1;\r\n        for (int j\
-    \ = 1; j <= min(i, k); j++) {\r\n            C[i][j] = (C[i-1][j-1] + C[i-1][j])\
-    \ % m;\r\n        }\r\n    }\r\n    return C;\r\n}\r\n\r\n// Using for n, k <=\
-    \ 1e6, MOD is prime\r\nconst int N = 1e6 + 6;\r\nvector<ll> fact(N), inv(N), invFact(N);\r\
-    \n\r\nvoid preprocess() {\r\n    fact[0] = 1;\r\n    for (int i = 1; i < N; i++)\
-    \ {\r\n        fact[i] = fact[i-1] * i % MOD;\r\n    }\r\n    // slow version\r\
-    \n    invFact[0] = invFact[1] = 1;\r\n    inv[1] = 1;\r\n    for(int i = 2; i\
-    \ < N; i++) {\r\n        inv[i] = MOD - (ll)(MOD/i) * inv[MOD%i] % MOD;\r\n  \
-    \      invFact[i] = invFact[i-1] * inv[i] % MOD;\r\n    }\r\n    // Optimize version\r\
-    \n    // invFact[N-1] = binPow(fact[N-1], MOD-2, MOD);\r\n    // for (int i =\
-    \ N-2; i >= 0; i--) {\r\n    //     invFact[i] = invFact[i+1] * (i + 1) % MOD;\r\
-    \n    // }\r\n}\r\n\r\n// m must be prime\r\n// fermat's little theorem a^(m-2)\
-    \ \u2261 a^(-1)\r\nll inverse1(ll a, ll m) { return binPow(a, m-2, m); }\r\n//\
-    \ m must be prime\r\n// base on extended euclid trick\r\nll inverse2(ll a, ll\
-    \ m) { return a <= 1 ? a : m-m/a * inverse2(m % a, m) % m; }\r\n// m coprime to\
-    \ a, gcd(a, m) = 1\r\n// extended euclid trick\r\nll inverse3(ll a, ll m) {\r\n\
-    \    ll x, y;\r\n    extended2(a, m, x, y);\r\n    return (x % m + m) % m;\r\n\
-    }\r\n\r\nll comb(int n, int k) {\r\n    if (k < 0 || k > n) return 0;\r\n    //\
-    \ ll t = binMul(fact[k], fact[n-k], MOD);\r\n    // return fact[n] * inverse2(t,\
-    \ MOD) % MOD;\r\n    return fact[n] * invFact[k] % MOD * invFact[n-k] % MOD;\r\
-    \n}\n"
+    \ fact[n] / (fact[n-k] * fact[k]);\r\n// }\r\n// -----------------------------------------------------\r\
+    \n\r\n// Using for n, k <= 1e6, m is prime and n < m < 2^31\r\nstruct Comb {\r\
+    \n    ll m;\r\n    vector<int> fact, invFact;\r\n\r\n    Comb() {}\r\n    Comb(int\
+    \ maxn, ll _m) : m(_m), fact(maxn+1), invFact(maxn+1) {\r\n        fact[0] = 1;\r\
+    \n        for (int i = 1; i <= maxn; i++) fact[i] = (ll)fact[i-1] * i % m;\r\n\
+    \        invFact[maxn] = binPow(fact[maxn], m-2, m);\r\n        for (int i = maxn;\
+    \ i >= 1; i--) invFact[i-1] = (ll)invFact[i] * i % m;\r\n    }\r\n\r\n    // C(n,\
+    \ k) = n! / (k! * (n-k)!)\r\n    ll comb(int n, int k) {\r\n        if (k < 0\
+    \ || k > n) return 0;\r\n        return 1ll * fact[n] * invFact[k] % m * invFact[n-k]\
+    \ % m;\r\n    }\r\n\r\n    // P(n,k) = n! / (n\u2212k)!\r\n    ll perm(int n,\
+    \ int k) {\r\n        if (k < 0 || k > n) return 0;\r\n        return 1ll * fact[n]\
+    \ * invFact[n-k] % m;\r\n    }\r\n\r\n    // inv(i) = (i-1)! / i! = 1/i\r\n  \
+    \  // modulo inverse of i\r\n    ll inv(int i) { return i <= 0 ? 0 : 1ll * invFact[i]\
+    \ * fact[i-1] % m; }\r\n\r\n    // catalan(n) = C(2n, n) / (n+1)\r\n    // require\
+    \ 2*n <= maxn\r\n    ll Catalan(int n) { return 1ll * comb(2*n, n) * inv(n+1)\
+    \ % m; }\r\n};\r\n\r\n\r\n// Pascal triangle\r\n// Using for n * k <= 1e7 or n,k\
+    \ <= 5000, O(1) per operation\r\nvector<vector<int>> preprocess(int n, int k,\
+    \ int m) {\r\n    vector<vector<int>> C(n+1, vector<int>(k+1));\r\n    for (int\
+    \ i = 0; i <= n; i++) {\r\n        C[i][0] = 1 % m;\r\n        for (int j = 1;\
+    \ j <= min(i, k); j++) {\r\n            C[i][j] = (1ll * C[i-1][j-1] + C[i-1][j])\
+    \ % m;\r\n        }\r\n    }\r\n    return C;\r\n}\r\n\r\n// m must be prime\r\
+    \n// fermat's little theorem a^(m-2) \u2261 a^(-1)\r\nll inverse1(ll a, ll m)\
+    \ { return binPow(a, m-2, m); }\r\n// m must be prime\r\n// base on extended euclid\
+    \ trick\r\nll inverse2(ll a, ll m) { return a <= 1 ? a : m-m/a * inverse2(m %\
+    \ a, m) % m; }\r\n// m coprime to a, gcd(a, m) = 1\r\n// extended euclid trick\r\
+    \nll inverse3(ll a, ll m) {\r\n    ll x, y;\r\n    extended2(a, m, x, y);\r\n\
+    \    return (x % m + m) % m;\r\n}\n"
   code: "#include \"../../template.h\"\r\n#include \"../../Misc/ModInt.h\"\r\n#include\
     \ \"Binary_exponentiation.h\"\r\n#include \"Extended_euclid.h\"\r\n\r\n// This\
-    \ modint only work for MOD is prime cuz using modulo inverse\r\nusing mint = ModInt<MOD>;\r\
-    \n\r\n// vector<mint> fact;\r\n\r\n// void preprocess() {\r\n//     fact[0] =\
-    \ 1;\r\n//     for (int i = 1; i < (int)fact.size(); i++) {\r\n//         fact[i]\
-    \ = fact[i-1] * i;\r\n//     }\r\n// }\r\n\r\n// mint comb(int n, int k) {\r\n\
-    //     if (k < 0 || k > n) return 0; \r\n//     return fact[n] / (fact[n-k] *\
-    \ fact[k]);\r\n// }\r\n\r\n\r\n// Using for n * k <= 1e7 or n,k <= 5000, O(1)\
-    \ per operation\r\nvector<vector<int>> preprocess(int n, int k, int m) {\r\n \
-    \   vector<vector<int>> C(n+1, vector<int>(k+1));\r\n    for (int i = 0; i <=\
-    \ n; i++) {\r\n        C[i][0] = 1;\r\n        for (int j = 1; j <= min(i, k);\
-    \ j++) {\r\n            C[i][j] = (C[i-1][j-1] + C[i-1][j]) % m;\r\n        }\r\
-    \n    }\r\n    return C;\r\n}\r\n\r\n// Using for n, k <= 1e6, MOD is prime\r\n\
-    const int N = 1e6 + 6;\r\nvector<ll> fact(N), inv(N), invFact(N);\r\n\r\nvoid\
-    \ preprocess() {\r\n    fact[0] = 1;\r\n    for (int i = 1; i < N; i++) {\r\n\
-    \        fact[i] = fact[i-1] * i % MOD;\r\n    }\r\n    // slow version\r\n  \
-    \  invFact[0] = invFact[1] = 1;\r\n    inv[1] = 1;\r\n    for(int i = 2; i < N;\
-    \ i++) {\r\n        inv[i] = MOD - (ll)(MOD/i) * inv[MOD%i] % MOD;\r\n       \
-    \ invFact[i] = invFact[i-1] * inv[i] % MOD;\r\n    }\r\n    // Optimize version\r\
-    \n    // invFact[N-1] = binPow(fact[N-1], MOD-2, MOD);\r\n    // for (int i =\
-    \ N-2; i >= 0; i--) {\r\n    //     invFact[i] = invFact[i+1] * (i + 1) % MOD;\r\
-    \n    // }\r\n}\r\n\r\n// m must be prime\r\n// fermat's little theorem a^(m-2)\
-    \ \u2261 a^(-1)\r\nll inverse1(ll a, ll m) { return binPow(a, m-2, m); }\r\n//\
-    \ m must be prime\r\n// base on extended euclid trick\r\nll inverse2(ll a, ll\
-    \ m) { return a <= 1 ? a : m-m/a * inverse2(m % a, m) % m; }\r\n// m coprime to\
-    \ a, gcd(a, m) = 1\r\n// extended euclid trick\r\nll inverse3(ll a, ll m) {\r\n\
-    \    ll x, y;\r\n    extended2(a, m, x, y);\r\n    return (x % m + m) % m;\r\n\
-    }\r\n\r\nll comb(int n, int k) {\r\n    if (k < 0 || k > n) return 0;\r\n    //\
-    \ ll t = binMul(fact[k], fact[n-k], MOD);\r\n    // return fact[n] * inverse2(t,\
-    \ MOD) % MOD;\r\n    return fact[n] * invFact[k] % MOD * invFact[n-k] % MOD;\r\
-    \n}"
+    \ modint only work for MOD is prime cuz using modulo inverse\r\n// using mint\
+    \ = ModInt<MOD>;\r\n\r\n// vector<mint> fact;\r\n\r\n// void preprocess() {\r\n\
+    //     fact[0] = 1;\r\n//     for (int i = 1; i < (int)fact.size(); i++) {\r\n\
+    //         fact[i] = fact[i-1] * i;\r\n//     }\r\n// }\r\n\r\n// mint comb(int\
+    \ n, int k) {\r\n//     if (k < 0 || k > n) return 0; \r\n//     return fact[n]\
+    \ / (fact[n-k] * fact[k]);\r\n// }\r\n// -----------------------------------------------------\r\
+    \n\r\n// Using for n, k <= 1e6, m is prime and n < m < 2^31\r\nstruct Comb {\r\
+    \n    ll m;\r\n    vector<int> fact, invFact;\r\n\r\n    Comb() {}\r\n    Comb(int\
+    \ maxn, ll _m) : m(_m), fact(maxn+1), invFact(maxn+1) {\r\n        fact[0] = 1;\r\
+    \n        for (int i = 1; i <= maxn; i++) fact[i] = (ll)fact[i-1] * i % m;\r\n\
+    \        invFact[maxn] = binPow(fact[maxn], m-2, m);\r\n        for (int i = maxn;\
+    \ i >= 1; i--) invFact[i-1] = (ll)invFact[i] * i % m;\r\n    }\r\n\r\n    // C(n,\
+    \ k) = n! / (k! * (n-k)!)\r\n    ll comb(int n, int k) {\r\n        if (k < 0\
+    \ || k > n) return 0;\r\n        return 1ll * fact[n] * invFact[k] % m * invFact[n-k]\
+    \ % m;\r\n    }\r\n\r\n    // P(n,k) = n! / (n\u2212k)!\r\n    ll perm(int n,\
+    \ int k) {\r\n        if (k < 0 || k > n) return 0;\r\n        return 1ll * fact[n]\
+    \ * invFact[n-k] % m;\r\n    }\r\n\r\n    // inv(i) = (i-1)! / i! = 1/i\r\n  \
+    \  // modulo inverse of i\r\n    ll inv(int i) { return i <= 0 ? 0 : 1ll * invFact[i]\
+    \ * fact[i-1] % m; }\r\n\r\n    // catalan(n) = C(2n, n) / (n+1)\r\n    // require\
+    \ 2*n <= maxn\r\n    ll Catalan(int n) { return 1ll * comb(2*n, n) * inv(n+1)\
+    \ % m; }\r\n};\r\n\r\n\r\n// Pascal triangle\r\n// Using for n * k <= 1e7 or n,k\
+    \ <= 5000, O(1) per operation\r\nvector<vector<int>> preprocess(int n, int k,\
+    \ int m) {\r\n    vector<vector<int>> C(n+1, vector<int>(k+1));\r\n    for (int\
+    \ i = 0; i <= n; i++) {\r\n        C[i][0] = 1 % m;\r\n        for (int j = 1;\
+    \ j <= min(i, k); j++) {\r\n            C[i][j] = (1ll * C[i-1][j-1] + C[i-1][j])\
+    \ % m;\r\n        }\r\n    }\r\n    return C;\r\n}\r\n\r\n// m must be prime\r\
+    \n// fermat's little theorem a^(m-2) \u2261 a^(-1)\r\nll inverse1(ll a, ll m)\
+    \ { return binPow(a, m-2, m); }\r\n// m must be prime\r\n// base on extended euclid\
+    \ trick\r\nll inverse2(ll a, ll m) { return a <= 1 ? a : m-m/a * inverse2(m %\
+    \ a, m) % m; }\r\n// m coprime to a, gcd(a, m) = 1\r\n// extended euclid trick\r\
+    \nll inverse3(ll a, ll m) {\r\n    ll x, y;\r\n    extended2(a, m, x, y);\r\n\
+    \    return (x % m + m) % m;\r\n}"
   dependsOn:
   - template.h
   - Misc/ModInt.h
@@ -168,9 +179,10 @@ data:
   isVerificationFile: false
   path: NumberTheory/Math/Combination.h
   requiredBy: []
-  timestamp: '2026-07-26 02:09:30+07:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2026-07-26 14:40:30+07:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
 documentation_of: NumberTheory/Math/Combination.h
 layout: document
 redirect_from:
