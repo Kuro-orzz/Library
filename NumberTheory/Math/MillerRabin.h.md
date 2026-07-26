@@ -8,7 +8,7 @@ data:
     path: template.h
     title: template.h
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Divisors.h
     title: NumberTheory/Math/Divisors.h
   - icon: ':heavy_check_mark:'
@@ -27,6 +27,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Primitive_root.test.cpp
     title: NumberTheory/Yosupo/Primitive_root.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: NumberTheory/Yosupo/Unit_test_math.test.cpp
+    title: NumberTheory/Yosupo/Unit_test_math.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -100,6 +103,7 @@ data:
   - NumberTheory/Yosupo/Primitive_root.test.cpp
   - NumberTheory/Yosupo/Primality_test.test.cpp
   - NumberTheory/Yosupo/Factorize.test.cpp
+  - NumberTheory/Yosupo/Unit_test_math.test.cpp
 documentation_of: NumberTheory/Math/MillerRabin.h
 layout: document
 redirect_from:

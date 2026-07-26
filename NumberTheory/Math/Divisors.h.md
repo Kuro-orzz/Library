@@ -14,10 +14,13 @@ data:
     path: template.h
     title: template.h
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: NumberTheory/Yosupo/Unit_test_math.test.cpp
+    title: NumberTheory/Yosupo/Unit_test_math.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://codeforces.com/gym/100753
@@ -132,8 +135,9 @@ data:
   path: NumberTheory/Math/Divisors.h
   requiredBy: []
   timestamp: '2026-07-26 14:40:30+07:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - NumberTheory/Yosupo/Unit_test_math.test.cpp
 documentation_of: NumberTheory/Math/Divisors.h
 layout: document
 redirect_from:

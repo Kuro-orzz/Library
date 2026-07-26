@@ -7,6 +7,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: NumberTheory/Aizu/aizu_alds1_1_c_check_prime.test.cpp
+    title: NumberTheory/Aizu/aizu_alds1_1_c_check_prime.test.cpp
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Counting_primes.test.cpp
     title: NumberTheory/Yosupo/Counting_primes.test.cpp
   - icon: ':heavy_check_mark:'
@@ -67,6 +70,7 @@ data:
   timestamp: '2026-07-26 14:40:30+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - NumberTheory/Aizu/aizu_alds1_1_c_check_prime.test.cpp
   - NumberTheory/Yosupo/Counting_primes.test.cpp
   - NumberTheory/Yosupo/Enumerate_primes.test.cpp
 documentation_of: NumberTheory/Math/CheckPrime.h

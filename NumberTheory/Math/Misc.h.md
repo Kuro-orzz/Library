@@ -5,10 +5,16 @@ data:
     path: template.h
     title: template.h
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
+    title: NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: NumberTheory/Yosupo/Unit_test_math.test.cpp
+    title: NumberTheory/Yosupo/Unit_test_math.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -61,8 +67,10 @@ data:
   path: NumberTheory/Math/Misc.h
   requiredBy: []
   timestamp: '2026-07-26 14:40:30+07:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
+  - NumberTheory/Yosupo/Unit_test_math.test.cpp
 documentation_of: NumberTheory/Math/Misc.h
 layout: document
 redirect_from:

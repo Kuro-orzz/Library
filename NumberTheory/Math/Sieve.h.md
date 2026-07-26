@@ -5,13 +5,16 @@ data:
     path: template.h
     title: template.h
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Divisors.h
     title: NumberTheory/Math/Divisors.h
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Enumerate_primes.test.cpp
     title: NumberTheory/Yosupo/Enumerate_primes.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: NumberTheory/Yosupo/Unit_test_math.test.cpp
+    title: NumberTheory/Yosupo/Unit_test_math.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -102,6 +105,7 @@ data:
   timestamp: '2026-07-26 14:40:30+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - NumberTheory/Yosupo/Unit_test_math.test.cpp
   - NumberTheory/Yosupo/Enumerate_primes.test.cpp
 documentation_of: NumberTheory/Math/Sieve.h
 layout: document

@@ -187,7 +187,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Combination_any_mod.h
       title: NumberTheory/Math/Combination_any_mod.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Divisors.h
       title: NumberTheory/Math/Divisors.h
     - icon: ':heavy_check_mark:'
@@ -196,7 +196,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Extended_euclid.h
       title: NumberTheory/Math/Extended_euclid.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Factorial.h
       title: NumberTheory/Math/Factorial.h
     - icon: ':heavy_check_mark:'
@@ -205,7 +205,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/MillerRabin.h
       title: NumberTheory/Math/MillerRabin.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Misc.h
       title: NumberTheory/Math/Misc.h
     - icon: ':heavy_check_mark:'
@@ -303,6 +303,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
       title: Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Big_Integer/Yosupo/Unit_test_math.test.cpp
+      title: Big_Integer/Yosupo/Unit_test_math.test.cpp
   - name: DataStructure/Aizu
     pages:
     - icon: ':heavy_check_mark:'
@@ -369,6 +372,12 @@ data:
   - name: NumberTheory/Aizu
     pages:
     - icon: ':heavy_check_mark:'
+      path: NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
+      title: NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: NumberTheory/Aizu/aizu_alds1_1_c_check_prime.test.cpp
+      title: NumberTheory/Aizu/aizu_alds1_1_c_check_prime.test.cpp
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Aizu/aizu_ntl_1_a_prime_factor.test.cpp
       title: NumberTheory/Aizu/aizu_ntl_1_a_prime_factor.test.cpp
     - icon: ':heavy_check_mark:'
@@ -409,6 +418,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Primitive_root.test.cpp
       title: NumberTheory/Yosupo/Primitive_root.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: NumberTheory/Yosupo/Unit_test_math.test.cpp
+      title: NumberTheory/Yosupo/Unit_test_math.test.cpp
   - name: Sample
     pages:
     - icon: ':heavy_check_mark:'

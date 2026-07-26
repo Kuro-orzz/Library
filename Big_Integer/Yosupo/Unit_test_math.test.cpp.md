@@ -1,0 +1,494 @@
+---
+data:
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/BigInt_full.h
+    title: Big_Integer/BigInt_full.h
+  - icon: ':heavy_check_mark:'
+    path: template.h
+    title: template.h
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
+  _pathExtension: cpp
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/aplusb
+    links:
+    - https://judge.yosupo.jp/problem/aplusb
+  bundledCode: "#line 1 \"Big_Integer/Yosupo/Unit_test_math.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/aplusb\"\r\n\r\n#line 2 \"template.h\"\n\r\
+    \n#include <bits/stdc++.h>\r\nusing namespace std;\r\n \r\n#define ll long long\r\
+    \n#define MOD (ll)(1e9+7)\r\n#define all(x) (x).begin(),(x).end()\r\n#define unique(x)\
+    \ x.erase(unique(all(x)), x.end())\r\n#define INF32 ((1ull<<31)-1)\r\n#define\
+    \ INF64 ((1ull<<63)-1)\r\n#define inf (ll)1e18\r\n\r\n#define vi vector<int>\r\
+    \n#define pii pair<int, int>\r\n#define pll pair<ll, ll>\r\n#define fi first\r\
+    \n#define se second\r\n\r\nmt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());\r\
+    \nll get_rand(ll r) { return uniform_int_distribution<ll>(0, r - 1)(rng); }\r\n\
+    \r\nconst int mod = 998244353;\r\n\r\nvoid solve();\r\n\r\nint main(){\r\n   \
+    \ ios_base::sync_with_stdio(false);cin.tie(NULL);\r\n    // cin.exceptions(cin.failbit);\r\
+    \n    // int t; cin >> t;\r\n    // while(t--)\r\n        solve();\r\n    cerr\
+    \ << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC << \"ms\" << '\\n';\r\
+    \n    return 0;\r\n}\n#line 2 \"Big_Integer/BigInt_full.h\"\n\r\n\r\n// Still\
+    \ slow ver, need optimize by FFT\r\n// This template only work for base <= 10\r\
+    \nconstexpr int pow10c(int k) { return k ? 10 * pow10c(k - 1) : 1; }\r\n\r\ntemplate<int\
+    \ D = 9>\r\nclass BigInt {\r\npublic:\r\n    static const int BASE_DIGITS = D;\r\
+    \n    static const int BASE = pow10c(D);\r\n    int sign;\r\n    vector<uint32_t>\
+    \ digit;\r\n\r\n    BigInt(): sign(1) {}\r\n\r\n    BigInt(const string &s) {\
+    \ *this = s; }\r\n\r\n    BigInt(int64_t val) { *this = val; }\r\n\r\n    BigInt\
+    \ &operator = (const string &s) {\r\n        read(s);\r\n        return *this;\r\
+    \n    }\r\n\r\n    BigInt &operator = (int64_t val) {\r\n        sign = val >=\
+    \ 0 ? 1 : -1;\r\n        val = llabs(val);\r\n        digit.clear();\r\n     \
+    \   for (; val; val /= BASE) {\r\n            digit.push_back(val % BASE);\r\n\
+    \        }\r\n        trim();\r\n        return *this;\r\n    }\r\n\r\n    BigInt\
+    \ &operator += (const BigInt &b) {\r\n        if (sign != b.sign) {\r\n      \
+    \      BigInt t = b;\r\n            t.sign *= -1;\r\n            return *this\
+    \ -= t;\r\n        }\r\n        int carry = 0, len = (int)max(size(), b.size());\r\
+    \n        for (int i = 0; i < len; i++) {\r\n            int sum = carry;\r\n\
+    \            if (i < (int)size()) sum += digit[i];\r\n            if (i < (int)b.size())\
+    \ sum += b[i];\r\n            if (i < (int)size()) digit[i] = sum % BASE;\r\n\
+    \            else digit.push_back(sum % BASE);\r\n            carry = sum / BASE;\r\
+    \n        }\r\n        if (carry) digit.push_back(carry);\r\n        trim();\r\
+    \n        return *this;\r\n    }\r\n\r\n    BigInt &operator -= (const BigInt\
+    \ &b) {\r\n        if (sign != b.sign) {\r\n            return *this += (-b);\r\
+    \n        }\r\n        if (__compare_abs(b) == -1) {\r\n            BigInt t =\
+    \ b;\r\n            t -= *this;\r\n            t.sign *= -1;\r\n            return\
+    \ *this = t;\r\n        }\r\n        int borrow = 0, len = (int)max(size(), b.size());\r\
+    \n        for (int i = 0; i < len; i++) {\r\n            int sub = -borrow;\r\n\
+    \            if (i < (int)size()) sub += digit[i];\r\n            if (i < (int)b.size())\
+    \ sub -= b[i];\r\n            if (sub < 0) sub += BASE, borrow = 1;\r\n      \
+    \      else borrow = 0;\r\n            digit[i] = sub;\r\n        }\r\n      \
+    \  trim();\r\n        return *this;\r\n    }\r\n\r\n    BigInt &operator *= (const\
+    \ BigInt &b) {\r\n        return *this = karatsuba(*this, b);\r\n    }\r\n\r\n\
+    \    BigInt &operator /= (const BigInt &b) {\r\n        *this = divmod(*this,\
+    \ b).first;\r\n        return *this;\r\n    }\r\n\r\n    BigInt &operator %= (const\
+    \ BigInt &b) {\r\n        *this = divmod(*this, b).second;\r\n        return *this;\r\
+    \n    }\r\n\r\n    // ------------------------ Operator ------------------------\r\
+    \n    // BigInt += Int\r\n    BigInt &operator += (int64_t t) { return *this +=\
+    \ BigInt(t); }\r\n    BigInt &operator -= (int64_t t) { return *this -= BigInt(t);\
+    \ }\r\n    BigInt &operator *= (int64_t t) { return *this *= BigInt(t); }\r\n\
+    \    BigInt &operator /= (int64_t t) { \r\n        assert(t != 0); // not divided\
+    \ for 0\r\n        if (t < 0) {\r\n            sign = -sign;\r\n            t\
+    \ = -t;\r\n        }\r\n        int64_t rem = 0;\r\n        for (int i = (int)size()\
+    \ - 1; i >= 0; i--) {\r\n            int64_t cur = rem * BASE + (*this)[i];\r\n\
+    \            (*this)[i] = uint32_t(cur / t);\r\n            rem = cur % t;\r\n\
+    \        } \r\n        trim();\r\n        return *this;\r\n    }\r\n    BigInt\
+    \ &operator %= (int64_t t) {\r\n        assert(t != 0);\r\n        int64_t rem\
+    \ = 0;\r\n        for (int i = (int)size() - 1; i >= 0; i--) {\r\n           \
+    \ int64_t cur = rem * BASE + (*this)[i];\r\n            rem = cur % t;\r\n   \
+    \     }\r\n        if (rem < 0) rem += llabs(t);\r\n        int s = sign;\r\n\
+    \        *this = rem;\r\n        if (!isZero()) sign = s;\r\n        return *this;\r\
+    \n    }\r\n\r\n    BigInt operator - () const { BigInt res = *this; res *= -1;\
+    \ return res; } // -a;\r\n    BigInt operator + () const { return BigInt(*this);\
+    \ } // +a;\r\n    BigInt &operator ++ () { *this += 1; return *this; } // ++a;\r\
+    \n    BigInt &operator -- () { *this -= 1; return *this; } // --a;\r\n    BigInt\
+    \ operator ++ (int) { BigInt res = *this; *this += 1; return res; } // a++;\r\n\
+    \    BigInt operator -- (int) { BigInt res = *this; *this -= 1; return res; }\
+    \ // a--;\r\n\r\n    // BigInt = BigInt + BigInt\r\n    BigInt operator + (const\
+    \ BigInt &b) const { return BigInt(*this) += b; }\r\n    BigInt operator - (const\
+    \ BigInt &b) const { return BigInt(*this) -= b; }\r\n    BigInt operator * (const\
+    \ BigInt &b) const { return BigInt(*this) *= b; }\r\n    BigInt operator / (const\
+    \ BigInt &b) const { return BigInt(*this) /= b; }\r\n    BigInt operator % (const\
+    \ BigInt &b) const { return BigInt(*this) %= b; }\r\n\r\n    // BigInt = BigInt\
+    \ + Int\r\n    BigInt operator + (int64_t t) const { return BigInt(*this) += t;\
+    \ }\r\n    BigInt operator - (int64_t t) const { return BigInt(*this) -= t; }\r\
+    \n    BigInt operator * (int64_t t) const { return BigInt(*this) *= t; }\r\n \
+    \   BigInt operator / (int64_t t) const { return BigInt(*this) /= t; }\r\n   \
+    \ BigInt operator % (int64_t t) const { return BigInt(*this) %= t; }\r\n\r\n \
+    \   // BigInt = Int + BigInt\r\n    friend BigInt operator + (int64_t t, const\
+    \ BigInt &b) { BigInt res(t); res += b; return res; }\r\n    friend BigInt operator\
+    \ - (int64_t t, const BigInt &b) { BigInt res(t); res -= b; return res; }\r\n\
+    \    friend BigInt operator * (int64_t t, const BigInt &b) { BigInt res(t); res\
+    \ *= b; return res; }\r\n    friend BigInt operator / (int64_t t, const BigInt\
+    \ &b) { BigInt res(t); res /= b; return res; }\r\n    friend BigInt operator %\
+    \ (int64_t t, const BigInt &b) { BigInt res(t); res %= b; return res; }\r\n\r\n\
+    \    uint32_t operator [] (const int i) const { assert(i >= 0 && i < (int)size());\
+    \ return digit[i]; }\r\n    uint32_t &operator [] (const int i) { assert(i >=\
+    \ 0 && i < (int)size()); return digit[i]; }\r\n\r\n    // -------------------------\
+    \ Comparison ---------------------\r\n    bool operator < (const BigInt &b) const\
+    \ {\r\n        if (sign != b.sign) {\r\n            return sign < b.sign;\r\n\
+    \        }\r\n        int c = __compare_abs(b);\r\n        return sign == 1 ?\
+    \ c < 0 : c > 0;\r\n    }\r\n\r\n    bool operator > (const BigInt &b) const {\
+    \ return b < *this; }\r\n    bool operator <= (const BigInt &b) const { return\
+    \ !(b < *this); }\r\n    bool operator >= (const BigInt &b) const { return !(*this\
+    \ < b); }\r\n    bool operator == (const BigInt &b) const { return !(*this < b)\
+    \ && !(b < *this); }\r\n    bool operator != (const BigInt &b) const { return\
+    \ *this < b || b < *this; }\r\n\r\n    bool operator == (int64_t t) const { return\
+    \ *this == BigInt(t); }\r\n    bool operator != (int64_t t) const { return *this\
+    \ != BigInt(t); }\r\n    bool operator < (int64_t t) const { return *this < BigInt(t);\
+    \ }\r\n    bool operator <= (int64_t t) const { return *this <= BigInt(t); }\r\
+    \n    bool operator > (int64_t t) const { return *this > BigInt(t); }\r\n    bool\
+    \ operator >= (int64_t t) const { return *this >= BigInt(t); }\r\n\r\n    // 0\
+    \ if |a| == |b|\r\n    // -1 if |a| < |b|\r\n    // 1 if |a| > |b|\r\n    int\
+    \ __compare_abs(const BigInt &b) const {\r\n        if (size() != b.size()) {\r\
+    \n            return size() < b.size() ? -1 : 1;\r\n        }\r\n        for (int\
+    \ i = (int)size() - 1; i >= 0; i--) {\r\n            if ((*this)[i] != b[i]) {\r\
+    \n                return (*this)[i] < b[i] ? -1 : 1;\r\n            }\r\n    \
+    \    }\r\n        return 0;\r\n    }\r\n\r\n    // -------------------- karatsuba\
+    \ ---------------------\r\n    BigInt mul_simple(const BigInt &a, const BigInt\
+    \ &b) {\r\n        BigInt res;\r\n        res.sign = a.sign * b.sign;\r\n    \
+    \    res.digit.resize(a.size() + b.size());\r\n        for (int i = 0; i < (int)a.size();\
+    \ i++) {\r\n            uint64_t carry = 0;\r\n            for (int j = 0; j <\
+    \ (int)b.size(); j++) {\r\n                uint64_t cur = res[i+j] + carry;\r\n\
+    \                cur += 1ull * a[i] * b[j];\r\n                res[i+j] = cur\
+    \ % BASE;\r\n                carry = cur / BASE;\r\n            }\r\n        \
+    \    if (carry) res[i+(int)b.size()] += carry;\r\n        }\r\n        res.trim();\r\
+    \n        if (res.isZero()) res.sign = 1;\r\n        return res;\r\n    }\r\n\r\
+    \n    BigInt shifted(int k) const {\r\n        if (isZero()) return *this;\r\n\
+    \        BigInt r = *this;\r\n        r.digit.insert(r.digit.begin(), k, 0);\r\
+    \n        return r;\r\n    }\r\n\r\n    BigInt karatsuba(const BigInt &a, const\
+    \ BigInt &b) {\r\n        if (a.size() < 32 || b.size() < 32) {\r\n          \
+    \  return mul_simple(a, b);\r\n        }\r\n        size_t n = max(a.size(), b.size());\r\
+    \n        size_t k = n / 2;\r\n\r\n        BigInt a_low, a_high, b_low, b_high;\r\
+    \n        int m1 = min(k, a.size()), m2 = min(k, b.size());\r\n        a_low.digit.assign(a.digit.begin(),\
+    \ a.digit.begin() + m1);\r\n        a_high.digit.assign(a.digit.begin() + m1,\
+    \ a.digit.end());\r\n        b_low.digit.assign(b.digit.begin(), b.digit.begin()\
+    \ + m2);\r\n        b_high.digit.assign(b.digit.begin() + m2, b.digit.end());\r\
+    \n        a_low.sign = a_high.sign = b_low.sign = b_high.sign = 1;\r\n       \
+    \ a_low.trim(); a_high.trim();\r\n        b_low.trim(); b_high.trim();\r\n\r\n\
+    \        BigInt z0 = karatsuba(a_low, b_low);\r\n        BigInt z1 = karatsuba(a_high,\
+    \ b_high);\r\n        BigInt z2 = karatsuba(a_low + a_high, b_low + b_high) -\
+    \ z1 - z0;\r\n        BigInt res = z1.shifted(2 * k) + z2.shifted(k) + z0;\r\n\
+    \        res.trim();\r\n        res.sign = (a.sign != b.sign ? -1 : 1);\r\n  \
+    \      return res;\r\n    }\r\n\r\n    // ------------------------ Div / Mod -----------------------\r\
+    \n    pair<BigInt, BigInt> divmod(const BigInt &a1, const BigInt &b1) {\r\n  \
+    \      assert(b1 != 0); // not divided for 0\r\n        ll norm = BASE / (b1.digit.back()\
+    \ + 1);\r\n        BigInt a = a1.abs() * norm;\r\n        BigInt b = b1.abs()\
+    \ * norm;\r\n        BigInt q = 0, r = 0;\r\n        q.digit.resize(a.size());\r\
+    \n\r\n        for (int i = a.size() - 1; i >= 0; i--) {\r\n            r *= BASE;\r\
+    \n            r += a[i];\r\n            int64_t s1 = r.size() <= b.size() ? 0\
+    \ : r[b.size()];\r\n            int64_t s2 = r.size() <= b.size() - 1 ? 0 : r[b.size()\
+    \ - 1];\r\n            int64_t d = (BASE * s1 + s2) / b.digit.back();\r\n    \
+    \        if (d >= BASE) {\r\n                d = BASE - 1;\r\n            }\r\n\
+    \            r -= b * d;\r\n            while (r < 0) {\r\n                r +=\
+    \ b, --d;\r\n            }\r\n            q[i] = d;\r\n        }\r\n        q.sign\
+    \ = a1.sign * b1.sign;\r\n        r.sign = a1.sign;\r\n        q.trim(); r.trim();\r\
+    \n\r\n        BigInt remainder;\r\n        remainder.digit.resize(r.size());\r\
+    \n        int64_t carry = 0;\r\n        for (int i = (int)r.size() - 1; i >= 0;\
+    \ i--) {\r\n            int64_t cur = r[i] + carry * BASE;\r\n            remainder[i]\
+    \ = cur / norm;\r\n            carry = cur % norm;\r\n        }\r\n        remainder.sign\
+    \ = r.sign;\r\n        remainder.trim();\r\n        auto res = make_pair(q, remainder);\r\
+    \n        return res;\r\n    }\r\n\r\n    // ------------------------- Misc ---------------------------\r\
+    \n    size_t size() const { return digit.size(); }\r\n\r\n    bool isZero() const\
+    \ { return digit.empty(); }\r\n\r\n    void trim() {\r\n        while (!digit.empty()\
+    \ && !digit.back()) {\r\n            digit.pop_back();\r\n        }\r\n      \
+    \  if (digit.empty()) sign = 1;\r\n    }\r\n\r\n    BigInt abs() const { BigInt\
+    \ res = *this; res.sign = 1; return res; }\r\n\r\n    string toString() const\
+    \ {\r\n        ostringstream oss;\r\n        oss << *this;\r\n        return oss.str();\r\
+    \n    }\r\n\r\n    // only support b >= 0, if b < 0 need to implement modulo inverse\r\
+    \n    friend BigInt pow(const BigInt &a, const BigInt &b, ll mod) { return pow(a,\
+    \ b, BigInt(mod)); }\r\n    friend BigInt pow(const BigInt &a, const BigInt &b,\
+    \ const BigInt &mod) {\r\n        BigInt x(a), y(b), res(1);\r\n        while\
+    \ (y != 0) {\r\n            if (y[0] % 2 == 1) res = res * x % mod;\r\n      \
+    \      x = x * x % mod;\r\n            y /= 2;\r\n        }\r\n        return\
+    \ res;\r\n    }\r\n    friend BigInt pow(const BigInt &a, const BigInt &b) {\r\
+    \n        BigInt x(a), y(b), res(1);\r\n        while (y != 0) {\r\n         \
+    \   if (y[0] % 2 == 1) res = res * x;\r\n            x = x * x;\r\n          \
+    \  y /= 2;\r\n        }\r\n        return res;\r\n    }\r\n\r\n    friend BigInt\
+    \ __gcd(const BigInt &a, const BigInt &b) {\r\n        if (b == 0) return a.abs();\r\
+    \n        return __gcd(b, a % b);\r\n    }\r\n\r\n    friend BigInt __lcm(const\
+    \ BigInt &a, const BigInt &b) {\r\n        if (a == 0 || b == 0) return BigInt(0);\r\
+    \n        return (a / __gcd(a, b) * b).abs();\r\n    }\r\n\r\n    // safe sqrt\
+    \ for long long and BigInt\r\n    friend BigInt sqrt(const BigInt &a1) {\r\n \
+    \       BigInt a = a1;\r\n        while (a.digit.empty() || a.size() % 2 == 1)\
+    \ {\r\n            a.digit.push_back(0);\r\n        }\r\n\r\n        int n = a.size();\r\
+    \n        int firstDigit = (int) sqrt((double) a[n - 1] * BASE + a[n - 2]);\r\n\
+    \        int norm = BASE / (firstDigit + 1);\r\n        a = a * norm * norm;\r\
+    \n        while (a.digit.empty() || a.size() % 2 == 1) {\r\n            a.digit.push_back(0);\r\
+    \n        }\r\n\r\n        BigInt r = 1ll * a[n - 1] * BASE + a[n - 2];\r\n  \
+    \      firstDigit = (int) sqrt((double) a[n - 1] * BASE + a[n - 2]);\r\n     \
+    \   int q = firstDigit;\r\n        BigInt res;\r\n\r\n        for (int j = n /\
+    \ 2 - 1; j >= 0; j--) {\r\n            for (; ; --q) {\r\n                BigInt\
+    \ r1 = (r - (res * 2 * BigInt(BASE) + q) * q) * BigInt(BASE) * BigInt(BASE);\r\
+    \n                r1 += (j > 0 ? 1ll * a[2 * j - 1] * BASE + a[2 * j - 2] : 0);\r\
+    \n                if (r1 >= 0) {\r\n                    r = r1;\r\n          \
+    \          break;\r\n                }\r\n            }\r\n            res *=\
+    \ BASE;\r\n            res += q;\r\n\r\n            if (j > 0) {\r\n         \
+    \       int d1 = res.size() + 2 < r.size() ? r[res.size() + 2] : 0;\r\n      \
+    \          int d2 = res.size() + 1 < r.size() ? r[res.size() + 1] : 0;\r\n   \
+    \             int d3 = res.size() < r.size() ? r[res.size()] : 0;\r\n        \
+    \        q = (1ll * d1 * BASE * BASE + 1ll * d2 * BASE + d3) / (firstDigit * 2);\r\
+    \n            }\r\n        }\r\n\r\n        res.trim();\r\n        return res\
+    \ / norm;\r\n    }\r\n\r\n    // ---------------------- Input Output ---------------------\r\
+    \n    /* only use for decimal number */\r\n    void read(const string &s) {\r\n\
+    \        if (s.empty()) { *this = 0; return; }\r\n        sign = (s[0] == '-'\
+    \ ? -1 : 1);\r\n        digit.clear();\r\n        int pos = (s[0] == '-' ? 1 :\
+    \ 0);\r\n        for (int i = (int)s.size() - 1; i >= pos; i -= BASE_DIGITS) {\r\
+    \n            int x = 0;\r\n            int k = max(pos, i - BASE_DIGITS + 1);\r\
+    \n            for (int j = k; j <= i; j++) {\r\n                x = x * 10 + (s[j]\
+    \ - '0');\r\n            }\r\n            digit.push_back(x);\r\n        }\r\n\
+    \        trim();\r\n    }\r\n\r\n    friend istream &operator >> (istream &in,\
+    \ BigInt &a) {\r\n        string s; in >> s;\r\n        a.read(s);\r\n       \
+    \ return in;\r\n    }\r\n\r\n    friend ostream &operator << (ostream &out, const\
+    \ BigInt &a) {\r\n        if (a.sign == -1 && !a.isZero()) out << '-';\r\n   \
+    \     out << (a.digit.empty() ? 0 : a.digit.back());\r\n        char old = out.fill('0');\r\
+    \n        for (int i = (int)a.size() - 2; i >= 0; i--)\r\n            out << setw(BASE_DIGITS)\
+    \ << a[i];\r\n        out.fill(old);\r\n        return out;\r\n    }\r\n};\n#line\
+    \ 5 \"Big_Integer/Yosupo/Unit_test_math.test.cpp\"\n\r\nusing B  = BigInt<>; \
+    \     // D = 9\r\nusing B4 = BigInt<4>;     // cung logic, khac limb -> doi chieu\
+    \ cheo\r\nusing B1 = BigInt<1>;\r\n\r\nstring i128str(__int128 v) {\r\n    if\
+    \ (v == 0) return \"0\";\r\n    bool neg = v < 0; if (neg) v = -v;\r\n    string\
+    \ s;\r\n    while (v) { s += char('0' + int(v % 10)); v /= 10; }\r\n    if (neg)\
+    \ s += '-';\r\n    reverse(s.begin(), s.end());\r\n    return s;\r\n}\r\n\r\n\
+    // so sanh hai so nguyen dang chuoi, doc lap hoan toan voi BigInt\r\nint refCmp(string\
+    \ x, string y) {\r\n    int sx = 1, sy = 1;\r\n    if (x[0] == '-') { sx = -1;\
+    \ x = x.substr(1); }\r\n    if (y[0] == '-') { sy = -1; y = y.substr(1); }\r\n\
+    \    x.erase(0, min(x.find_first_not_of('0'), x.size() - 1));\r\n    y.erase(0,\
+    \ min(y.find_first_not_of('0'), y.size() - 1));\r\n    if (x == \"0\") sx = 0;\r\
+    \n    if (y == \"0\") sy = 0;\r\n    if (sx != sy) return sx < sy ? -1 : 1;\r\n\
+    \    int c = x.size() != y.size() ? (x.size() < y.size() ? -1 : 1)\r\n       \
+    \                          : (x == y ? 0 : (x < y ? -1 : 1));\r\n    return sx\
+    \ >= 0 ? c : -c;\r\n}\r\n\r\nstring rndDigits(int n, mt19937 &g, bool neg = false)\
+    \ {\r\n    string s;\r\n    if (neg) s += '-';\r\n    s += char('1' + g() % 9);\r\
+    \n    for (int i = 1; i < n; i++) s += char('0' + g() % 10);\r\n    return s;\r\
+    \n}\r\n\r\nvoid solve() {\r\n    mt19937 g(20260726);\r\n\r\n    // ----------\
+    \ 1. khoi tao va in ra ----------\r\n    assert(B().toString() == \"0\");\r\n\
+    \    assert(B(0).toString() == \"0\");\r\n    assert(B(\"0\").toString() == \"\
+    0\");\r\n    assert(B(\"-0\").toString() == \"0\");\r\n    assert(B(\"0000123\"\
+    ).toString() == \"123\");\r\n    assert(B(\"-0000123\").toString() == \"-123\"\
+    );\r\n    assert(B(LLONG_MAX).toString() == \"9223372036854775807\");\r\n    assert(B(LLONG_MIN\
+    \ + 1).toString() == \"-9223372036854775807\");\r\n\r\n    for (int t = 0; t <\
+    \ 300; t++) {\r\n        string s = rndDigits(1 + g() % 60, g, g() & 1);\r\n \
+    \       assert(B(s).toString() == s);\r\n        assert(B4(s).toString() == s);\r\
+    \n        assert(B1(s).toString() == s);\r\n    }\r\n\r\n    // ---------- 2.\
+    \ so 0 chi co MOT bieu dien ----------\r\n    vector<B> zeros = {B(), B(0), B(\"\
+    0\"), B(\"-0\"), B(5) - B(5), B(0) * B(-7)};\r\n    { B t(-10); t %= 5LL; zeros.push_back(t);\
+    \ }\r\n    { B t(-10); t /= 3LL; t /= 4LL; zeros.push_back(t); }\r\n    for (const\
+    \ B &z : zeros) {\r\n        assert(z.isZero() && z.sign == 1 && z.toString()\
+    \ == \"0\");\r\n        for (const B &w : zeros)\r\n            assert(z == w\
+    \ && !(z < w) && !(z > w) && z <= w && z >= w);\r\n    }\r\n\r\n    // ----------\
+    \ 3. so hoc doi chieu long long ----------\r\n    vector<ll> smalls;\r\n    for\
+    \ (ll x = -40; x <= 40; x++) smalls.push_back(x);\r\n    for (ll x : {999999998LL,\
+    \ 999999999LL, 1000000000LL, 1000000001LL,\r\n                 -1000000000LL,\
+    \ 123456789012345LL, -987654321098765LL}) smalls.push_back(x);\r\n    for (ll\
+    \ a : smalls) for (ll b : smalls) {\r\n        B A(a), B_(b);\r\n        assert((A\
+    \ + B_) == B(a + b));\r\n        assert((A - B_) == B(a - b));\r\n        assert((A\
+    \ * B_).toString() == i128str((__int128)a * b));\r\n        assert((A < B_) ==\
+    \ (a < b) && (A > B_) == (a > b) && (A == B_) == (a == b));\r\n        assert((A\
+    \ <= B_) == (a <= b) && (A >= B_) == (a >= b) && (A != B_) == (a != b));\r\n \
+    \       assert((A < b) == (a < b) && (A == b) == (a == b) && (A >= b) == (a >=\
+    \ b));\r\n        if (b != 0) {\r\n            assert((A / B_) == B(a / b)); \
+    \          // chat ve 0, giong C++\r\n            assert((A % B_) == B(a % b));\r\
+    \n            assert(A / B_ * B_ + A % B_ == A);      // bat bien\r\n        }\r\
+    \n        if (b != 0 && llabs(b) <= 1000000000LL) {\r\n            B q = A, r\
+    \ = A;\r\n            q /= b; r %= b;\r\n            assert(q == B(a / b) && r\
+    \ == B(a % b));\r\n        }\r\n    }\r\n\r\n    // ---------- 3b. so sanh ky:\
+    \ nhieu limb, co limb bang 0 ----------\r\n    {\r\n        vector<string> v =\
+    \ {\"0\", \"-0\", \"1\", \"-1\", \"999999999\", \"-999999999\",\r\n          \
+    \  \"1000000000\", \"-1000000000\", \"1000000005\", \"-1000000005\",\r\n     \
+    \       \"1000000000000000000\", \"-1000000000000000000\",\r\n            \"1000000000000000001\"\
+    , \"-1000000000000000001\",\r\n            \"2000000000\", \"-2000000000\", \"\
+    999999999999999999\", \"-999999999999999999\",\r\n            \"1000000000000000000000000000\"\
+    , \"-1000000000000000000000000000\",\r\n            \"1000000000000000000000000001\"\
+    , \"-1000000000000000000000000001\"};\r\n        for (int t = 0; t < 200; t++)\
+    \ {\r\n            string s;\r\n            int limbs = 1 + g() % 4;\r\n     \
+    \       for (int i = 0; i < limbs; i++) {\r\n                int d = (g() % 3\
+    \ == 0) ? 0 : (int)(g() % 1000000000);\r\n                string p = to_string(d);\r\
+    \n                s += string(9 - p.size(), '0') + p;\r\n            }\r\n   \
+    \         s.erase(0, min(s.find_first_not_of('0'), s.size() - 1));\r\n       \
+    \     v.push_back(s);\r\n            v.push_back(\"-\" + s);\r\n        }\r\n\
+    \        for (const string &x : v) for (const string &y : v) {\r\n           \
+    \ int c = refCmp(x, y);\r\n            B a(x), b(y);\r\n            assert((a\
+    \ < b) == (c < 0));\r\n            assert((a > b) == (c > 0));\r\n           \
+    \ assert((a == b) == (c == 0));\r\n            assert((a <= b) == (c <= 0));\r\
+    \n            assert((a >= b) == (c >= 0));\r\n            assert((a != b) ==\
+    \ (c != 0));\r\n        }\r\n    }\r\n\r\n    // ---------- 4. don nguyen, tang\
+    \ giam ----------\r\n    for (ll x : {-7LL, -1LL, 0LL, 1LL, 9LL}) {\r\n      \
+    \  B a(x);\r\n        assert((-a) == B(-x) && (+a) == B(x) && (-(-a)) == a);\r\
+    \n        B b = a; assert((++b) == B(x + 1) && b == B(x + 1));\r\n        B c\
+    \ = a; assert((c++) == B(x) && c == B(x + 1));\r\n        B d = a; assert((--d)\
+    \ == B(x - 1));\r\n        B e = a; assert((e--) == B(x) && e == B(x - 1));\r\n\
+    \    }\r\n    assert((-B(0)).sign == 1 && (-B(0)).toString() == \"0\");\r\n\r\n\
+    \    // ---------- 5. int op BigInt (friend) ----------\r\n    assert((100LL +\
+    \ B(23)) == B(123));\r\n    assert((100LL - B(23)) == B(77));\r\n    assert((100LL\
+    \ * B(23)) == B(2300));\r\n    assert((100LL / B(23)) == B(4));\r\n    assert((100LL\
+    \ % B(23)) == B(8));\r\n\r\n    // ---------- 6. so lon: doi chieu cheo D=9 /\
+    \ D=4 / D=1 ----------\r\n    for (int t = 0; t < 40; t++) {\r\n        int la\
+    \ = 50 + g() % 700, lb = 50 + g() % 700;   // vuot nguong karatsuba\r\n      \
+    \  string sa = rndDigits(la, g, g() & 1), sb = rndDigits(lb, g, false);\r\n  \
+    \      B a(sa), b(sb);\r\n        B4 a4(sa), b4(sb);\r\n        B1 a1(sa), b1(sb);\r\
+    \n        assert((a + b).toString() == (a4 + b4).toString());\r\n        assert((a\
+    \ - b).toString() == (a4 - b4).toString());\r\n        assert((a * b).toString()\
+    \ == (a4 * b4).toString());\r\n        assert((a / b).toString() == (a4 / b4).toString());\r\
+    \n        assert((a % b).toString() == (a4 % b4).toString());\r\n        assert((a\
+    \ * b).toString() == (a1 * b1).toString());\r\n        assert(a / b * b + a %\
+    \ b == a);\r\n    }\r\n\r\n    // ---------- 7. dong nhat thuc so lon ----------\r\
+    \n    for (int k : {1, 5, 20, 100, 400}) {\r\n        B p = pow(B(10), B(k));\r\
+    \n        assert(p.toString() == \"1\" + string(k, '0'));\r\n        assert((p\
+    \ - 1) * (p + 1) == pow(B(10), B(2 * k)) - 1);\r\n        B a = p - 1, b = p +\
+    \ 7;\r\n        assert((a + b) * (a + b) == a * a + 2 * (a * b) + b * b);\r\n\
+    \        assert((a - b) * (a + b) == a * a - b * b);\r\n    }\r\n    B f1(1);\
+    \ for (int i = 1; i <= 100; i++) f1 *= i;\r\n    B f2(1); for (int i = 100; i\
+    \ >= 1; i--) f2 = f2 * i;\r\n    assert(f1 == f2);\r\n    assert(f1.toString().size()\
+    \ == 158);        // 100! co 158 chu so\r\n    assert(f1 % 101 == B(100));   \
+    \              // wilson: 100! = -1 (mod 101)\r\n\r\n    // ---------- 8. sqrt\
+    \ ----------\r\n    for (ll x = 0; x <= 400; x++) {\r\n        assert(sqrt(B(x\
+    \ * x)) == B(x));\r\n        if (x) assert(sqrt(B(x * x + x)) == B(x));\r\n  \
+    \      if (x) assert(sqrt(B(x * x - 1)) == B(x - 1));\r\n    }\r\n    for (int\
+    \ t = 0; t < 30; t++) {\r\n        B a(rndDigits(1 + g() % 60, g)), r = sqrt(a);\r\
+    \n        assert(r * r <= a && (r + 1) * (r + 1) > a);\r\n    }\r\n\r\n    //\
+    \ ---------- 9. pow ----------\r\n    for (ll a = 2; a <= 12; a++) for (ll e =\
+    \ 0; e <= 15; e++) {\r\n        ll p = 1; for (ll i = 0; i < e; i++) p *= a;\r\
+    \n        assert(pow(B(a), B(e)) == B(p));\r\n        assert(pow(B(a), B(e), 1000000007LL)\
+    \ == B(p % 1000000007));\r\n    }\r\n    assert(pow(B(7), B(0)) == B(1));\r\n\
+    \    assert(pow(B(0), B(5)) == B(0));\r\n    for (ll a : {2LL, 3LL, 123456LL})\
+    \           // fermat\r\n        assert(pow(B(a), B(1000000006LL), 1000000007LL)\
+    \ == B(1));\r\n\r\n    // ---------- 10. gcd / lcm ----------\r\n    for (ll a\
+    \ = -30; a <= 30; a++) for (ll b = -30; b <= 30; b++) {\r\n        B G = __gcd(B(a),\
+    \ B(b));\r\n        assert(G == B(__gcd(llabs(a), llabs(b))) && G >= B(0));\r\n\
+    \        B L = __lcm(B(a), B(b));\r\n        if (a == 0 || b == 0) assert(L ==\
+    \ B(0));\r\n        else assert(L == B(llabs(a) / __gcd(llabs(a), llabs(b)) *\
+    \ llabs(b)));\r\n    }\r\n    {\r\n        B gg = pow(B(10), B(30)) + 7;\r\n \
+    \       assert(__gcd(B(999983) * gg, B(1000003) * gg) == gg);\r\n    }\r\n\r\n\
+    \    // ---------- 11. abs / isZero / size ----------\r\n    assert(B(-123).abs()\
+    \ == B(123) && B(0).abs().sign == 1);\r\n    assert(B(0).isZero() && !B(1).isZero());\r\
+    \n    assert(B(0).size() == 0 && B(\"999999999\").size() == 1 && B(\"1000000000\"\
+    ).size() == 2);\r\n\r\n    // ---------- 12. stream khong bi ban ----------\r\n\
+    \    { ostringstream os; os << B(\"1000000000000000000\") << setw(5) << 42;\r\n\
+    \      assert(os.str() == \"1000000000000000000   42\"); }\r\n    { istringstream\
+    \ is(\"-123456789012345678901234567890\"); B a; is >> a;\r\n      assert(a.toString()\
+    \ == \"-123456789012345678901234567890\"); }\r\n\r\n    ll a, b; cin >> a >> b;\r\
+    \n    cout << a + b << '\\n';\r\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\r\n\r\n#include\
+    \ \"../../template.h\"\r\n#include \"../BigInt_full.h\"\r\n\r\nusing B  = BigInt<>;\
+    \      // D = 9\r\nusing B4 = BigInt<4>;     // cung logic, khac limb -> doi chieu\
+    \ cheo\r\nusing B1 = BigInt<1>;\r\n\r\nstring i128str(__int128 v) {\r\n    if\
+    \ (v == 0) return \"0\";\r\n    bool neg = v < 0; if (neg) v = -v;\r\n    string\
+    \ s;\r\n    while (v) { s += char('0' + int(v % 10)); v /= 10; }\r\n    if (neg)\
+    \ s += '-';\r\n    reverse(s.begin(), s.end());\r\n    return s;\r\n}\r\n\r\n\
+    // so sanh hai so nguyen dang chuoi, doc lap hoan toan voi BigInt\r\nint refCmp(string\
+    \ x, string y) {\r\n    int sx = 1, sy = 1;\r\n    if (x[0] == '-') { sx = -1;\
+    \ x = x.substr(1); }\r\n    if (y[0] == '-') { sy = -1; y = y.substr(1); }\r\n\
+    \    x.erase(0, min(x.find_first_not_of('0'), x.size() - 1));\r\n    y.erase(0,\
+    \ min(y.find_first_not_of('0'), y.size() - 1));\r\n    if (x == \"0\") sx = 0;\r\
+    \n    if (y == \"0\") sy = 0;\r\n    if (sx != sy) return sx < sy ? -1 : 1;\r\n\
+    \    int c = x.size() != y.size() ? (x.size() < y.size() ? -1 : 1)\r\n       \
+    \                          : (x == y ? 0 : (x < y ? -1 : 1));\r\n    return sx\
+    \ >= 0 ? c : -c;\r\n}\r\n\r\nstring rndDigits(int n, mt19937 &g, bool neg = false)\
+    \ {\r\n    string s;\r\n    if (neg) s += '-';\r\n    s += char('1' + g() % 9);\r\
+    \n    for (int i = 1; i < n; i++) s += char('0' + g() % 10);\r\n    return s;\r\
+    \n}\r\n\r\nvoid solve() {\r\n    mt19937 g(20260726);\r\n\r\n    // ----------\
+    \ 1. khoi tao va in ra ----------\r\n    assert(B().toString() == \"0\");\r\n\
+    \    assert(B(0).toString() == \"0\");\r\n    assert(B(\"0\").toString() == \"\
+    0\");\r\n    assert(B(\"-0\").toString() == \"0\");\r\n    assert(B(\"0000123\"\
+    ).toString() == \"123\");\r\n    assert(B(\"-0000123\").toString() == \"-123\"\
+    );\r\n    assert(B(LLONG_MAX).toString() == \"9223372036854775807\");\r\n    assert(B(LLONG_MIN\
+    \ + 1).toString() == \"-9223372036854775807\");\r\n\r\n    for (int t = 0; t <\
+    \ 300; t++) {\r\n        string s = rndDigits(1 + g() % 60, g, g() & 1);\r\n \
+    \       assert(B(s).toString() == s);\r\n        assert(B4(s).toString() == s);\r\
+    \n        assert(B1(s).toString() == s);\r\n    }\r\n\r\n    // ---------- 2.\
+    \ so 0 chi co MOT bieu dien ----------\r\n    vector<B> zeros = {B(), B(0), B(\"\
+    0\"), B(\"-0\"), B(5) - B(5), B(0) * B(-7)};\r\n    { B t(-10); t %= 5LL; zeros.push_back(t);\
+    \ }\r\n    { B t(-10); t /= 3LL; t /= 4LL; zeros.push_back(t); }\r\n    for (const\
+    \ B &z : zeros) {\r\n        assert(z.isZero() && z.sign == 1 && z.toString()\
+    \ == \"0\");\r\n        for (const B &w : zeros)\r\n            assert(z == w\
+    \ && !(z < w) && !(z > w) && z <= w && z >= w);\r\n    }\r\n\r\n    // ----------\
+    \ 3. so hoc doi chieu long long ----------\r\n    vector<ll> smalls;\r\n    for\
+    \ (ll x = -40; x <= 40; x++) smalls.push_back(x);\r\n    for (ll x : {999999998LL,\
+    \ 999999999LL, 1000000000LL, 1000000001LL,\r\n                 -1000000000LL,\
+    \ 123456789012345LL, -987654321098765LL}) smalls.push_back(x);\r\n    for (ll\
+    \ a : smalls) for (ll b : smalls) {\r\n        B A(a), B_(b);\r\n        assert((A\
+    \ + B_) == B(a + b));\r\n        assert((A - B_) == B(a - b));\r\n        assert((A\
+    \ * B_).toString() == i128str((__int128)a * b));\r\n        assert((A < B_) ==\
+    \ (a < b) && (A > B_) == (a > b) && (A == B_) == (a == b));\r\n        assert((A\
+    \ <= B_) == (a <= b) && (A >= B_) == (a >= b) && (A != B_) == (a != b));\r\n \
+    \       assert((A < b) == (a < b) && (A == b) == (a == b) && (A >= b) == (a >=\
+    \ b));\r\n        if (b != 0) {\r\n            assert((A / B_) == B(a / b)); \
+    \          // chat ve 0, giong C++\r\n            assert((A % B_) == B(a % b));\r\
+    \n            assert(A / B_ * B_ + A % B_ == A);      // bat bien\r\n        }\r\
+    \n        if (b != 0 && llabs(b) <= 1000000000LL) {\r\n            B q = A, r\
+    \ = A;\r\n            q /= b; r %= b;\r\n            assert(q == B(a / b) && r\
+    \ == B(a % b));\r\n        }\r\n    }\r\n\r\n    // ---------- 3b. so sanh ky:\
+    \ nhieu limb, co limb bang 0 ----------\r\n    {\r\n        vector<string> v =\
+    \ {\"0\", \"-0\", \"1\", \"-1\", \"999999999\", \"-999999999\",\r\n          \
+    \  \"1000000000\", \"-1000000000\", \"1000000005\", \"-1000000005\",\r\n     \
+    \       \"1000000000000000000\", \"-1000000000000000000\",\r\n            \"1000000000000000001\"\
+    , \"-1000000000000000001\",\r\n            \"2000000000\", \"-2000000000\", \"\
+    999999999999999999\", \"-999999999999999999\",\r\n            \"1000000000000000000000000000\"\
+    , \"-1000000000000000000000000000\",\r\n            \"1000000000000000000000000001\"\
+    , \"-1000000000000000000000000001\"};\r\n        for (int t = 0; t < 200; t++)\
+    \ {\r\n            string s;\r\n            int limbs = 1 + g() % 4;\r\n     \
+    \       for (int i = 0; i < limbs; i++) {\r\n                int d = (g() % 3\
+    \ == 0) ? 0 : (int)(g() % 1000000000);\r\n                string p = to_string(d);\r\
+    \n                s += string(9 - p.size(), '0') + p;\r\n            }\r\n   \
+    \         s.erase(0, min(s.find_first_not_of('0'), s.size() - 1));\r\n       \
+    \     v.push_back(s);\r\n            v.push_back(\"-\" + s);\r\n        }\r\n\
+    \        for (const string &x : v) for (const string &y : v) {\r\n           \
+    \ int c = refCmp(x, y);\r\n            B a(x), b(y);\r\n            assert((a\
+    \ < b) == (c < 0));\r\n            assert((a > b) == (c > 0));\r\n           \
+    \ assert((a == b) == (c == 0));\r\n            assert((a <= b) == (c <= 0));\r\
+    \n            assert((a >= b) == (c >= 0));\r\n            assert((a != b) ==\
+    \ (c != 0));\r\n        }\r\n    }\r\n\r\n    // ---------- 4. don nguyen, tang\
+    \ giam ----------\r\n    for (ll x : {-7LL, -1LL, 0LL, 1LL, 9LL}) {\r\n      \
+    \  B a(x);\r\n        assert((-a) == B(-x) && (+a) == B(x) && (-(-a)) == a);\r\
+    \n        B b = a; assert((++b) == B(x + 1) && b == B(x + 1));\r\n        B c\
+    \ = a; assert((c++) == B(x) && c == B(x + 1));\r\n        B d = a; assert((--d)\
+    \ == B(x - 1));\r\n        B e = a; assert((e--) == B(x) && e == B(x - 1));\r\n\
+    \    }\r\n    assert((-B(0)).sign == 1 && (-B(0)).toString() == \"0\");\r\n\r\n\
+    \    // ---------- 5. int op BigInt (friend) ----------\r\n    assert((100LL +\
+    \ B(23)) == B(123));\r\n    assert((100LL - B(23)) == B(77));\r\n    assert((100LL\
+    \ * B(23)) == B(2300));\r\n    assert((100LL / B(23)) == B(4));\r\n    assert((100LL\
+    \ % B(23)) == B(8));\r\n\r\n    // ---------- 6. so lon: doi chieu cheo D=9 /\
+    \ D=4 / D=1 ----------\r\n    for (int t = 0; t < 40; t++) {\r\n        int la\
+    \ = 50 + g() % 700, lb = 50 + g() % 700;   // vuot nguong karatsuba\r\n      \
+    \  string sa = rndDigits(la, g, g() & 1), sb = rndDigits(lb, g, false);\r\n  \
+    \      B a(sa), b(sb);\r\n        B4 a4(sa), b4(sb);\r\n        B1 a1(sa), b1(sb);\r\
+    \n        assert((a + b).toString() == (a4 + b4).toString());\r\n        assert((a\
+    \ - b).toString() == (a4 - b4).toString());\r\n        assert((a * b).toString()\
+    \ == (a4 * b4).toString());\r\n        assert((a / b).toString() == (a4 / b4).toString());\r\
+    \n        assert((a % b).toString() == (a4 % b4).toString());\r\n        assert((a\
+    \ * b).toString() == (a1 * b1).toString());\r\n        assert(a / b * b + a %\
+    \ b == a);\r\n    }\r\n\r\n    // ---------- 7. dong nhat thuc so lon ----------\r\
+    \n    for (int k : {1, 5, 20, 100, 400}) {\r\n        B p = pow(B(10), B(k));\r\
+    \n        assert(p.toString() == \"1\" + string(k, '0'));\r\n        assert((p\
+    \ - 1) * (p + 1) == pow(B(10), B(2 * k)) - 1);\r\n        B a = p - 1, b = p +\
+    \ 7;\r\n        assert((a + b) * (a + b) == a * a + 2 * (a * b) + b * b);\r\n\
+    \        assert((a - b) * (a + b) == a * a - b * b);\r\n    }\r\n    B f1(1);\
+    \ for (int i = 1; i <= 100; i++) f1 *= i;\r\n    B f2(1); for (int i = 100; i\
+    \ >= 1; i--) f2 = f2 * i;\r\n    assert(f1 == f2);\r\n    assert(f1.toString().size()\
+    \ == 158);        // 100! co 158 chu so\r\n    assert(f1 % 101 == B(100));   \
+    \              // wilson: 100! = -1 (mod 101)\r\n\r\n    // ---------- 8. sqrt\
+    \ ----------\r\n    for (ll x = 0; x <= 400; x++) {\r\n        assert(sqrt(B(x\
+    \ * x)) == B(x));\r\n        if (x) assert(sqrt(B(x * x + x)) == B(x));\r\n  \
+    \      if (x) assert(sqrt(B(x * x - 1)) == B(x - 1));\r\n    }\r\n    for (int\
+    \ t = 0; t < 30; t++) {\r\n        B a(rndDigits(1 + g() % 60, g)), r = sqrt(a);\r\
+    \n        assert(r * r <= a && (r + 1) * (r + 1) > a);\r\n    }\r\n\r\n    //\
+    \ ---------- 9. pow ----------\r\n    for (ll a = 2; a <= 12; a++) for (ll e =\
+    \ 0; e <= 15; e++) {\r\n        ll p = 1; for (ll i = 0; i < e; i++) p *= a;\r\
+    \n        assert(pow(B(a), B(e)) == B(p));\r\n        assert(pow(B(a), B(e), 1000000007LL)\
+    \ == B(p % 1000000007));\r\n    }\r\n    assert(pow(B(7), B(0)) == B(1));\r\n\
+    \    assert(pow(B(0), B(5)) == B(0));\r\n    for (ll a : {2LL, 3LL, 123456LL})\
+    \           // fermat\r\n        assert(pow(B(a), B(1000000006LL), 1000000007LL)\
+    \ == B(1));\r\n\r\n    // ---------- 10. gcd / lcm ----------\r\n    for (ll a\
+    \ = -30; a <= 30; a++) for (ll b = -30; b <= 30; b++) {\r\n        B G = __gcd(B(a),\
+    \ B(b));\r\n        assert(G == B(__gcd(llabs(a), llabs(b))) && G >= B(0));\r\n\
+    \        B L = __lcm(B(a), B(b));\r\n        if (a == 0 || b == 0) assert(L ==\
+    \ B(0));\r\n        else assert(L == B(llabs(a) / __gcd(llabs(a), llabs(b)) *\
+    \ llabs(b)));\r\n    }\r\n    {\r\n        B gg = pow(B(10), B(30)) + 7;\r\n \
+    \       assert(__gcd(B(999983) * gg, B(1000003) * gg) == gg);\r\n    }\r\n\r\n\
+    \    // ---------- 11. abs / isZero / size ----------\r\n    assert(B(-123).abs()\
+    \ == B(123) && B(0).abs().sign == 1);\r\n    assert(B(0).isZero() && !B(1).isZero());\r\
+    \n    assert(B(0).size() == 0 && B(\"999999999\").size() == 1 && B(\"1000000000\"\
+    ).size() == 2);\r\n\r\n    // ---------- 12. stream khong bi ban ----------\r\n\
+    \    { ostringstream os; os << B(\"1000000000000000000\") << setw(5) << 42;\r\n\
+    \      assert(os.str() == \"1000000000000000000   42\"); }\r\n    { istringstream\
+    \ is(\"-123456789012345678901234567890\"); B a; is >> a;\r\n      assert(a.toString()\
+    \ == \"-123456789012345678901234567890\"); }\r\n\r\n    ll a, b; cin >> a >> b;\r\
+    \n    cout << a + b << '\\n';\r\n}"
+  dependsOn:
+  - template.h
+  - Big_Integer/BigInt_full.h
+  isVerificationFile: true
+  path: Big_Integer/Yosupo/Unit_test_math.test.cpp
+  requiredBy: []
+  timestamp: '2026-07-26 19:50:18+07:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: Big_Integer/Yosupo/Unit_test_math.test.cpp
+layout: document
+redirect_from:
+- /verify/Big_Integer/Yosupo/Unit_test_math.test.cpp
+- /verify/Big_Integer/Yosupo/Unit_test_math.test.cpp.html
+title: Big_Integer/Yosupo/Unit_test_math.test.cpp
+---
