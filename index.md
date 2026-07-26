@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: Big_Integer
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Big_Integer/BigInt.h
       title: Big_Integer/BigInt.h
     - icon: ':heavy_check_mark:'
@@ -19,7 +19,7 @@ data:
       title: DataStructure/Aizu/test_dsu_2d_2.cpp
   - name: DataStructure/DSU
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/DSU/Dsu.h
       title: DataStructure/DSU/Dsu.h
     - icon: ':warning:'
@@ -30,7 +30,7 @@ data:
       title: DataStructure/DSU/Weighted_Dsu.h
   - name: DataStructure/Fenwick
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/Fenwick/Fenwick.h
       title: DataStructure/Fenwick/Fenwick.h
   - name: DataStructure/Problem
@@ -124,7 +124,7 @@ data:
       title: Dp/LCS.h
   - name: Graph/Mst
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/Mst/Kruskal.h
       title: Graph/Mst/Kruskal.h
     - icon: ':warning:'
@@ -132,16 +132,16 @@ data:
       title: Graph/Mst/Prim.h
   - name: Graph/Shortest_path
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/Shortest_path/Bellman_ford.h
       title: Graph/Shortest_path/Bellman_ford.h
     - icon: ':warning:'
       path: Graph/Shortest_path/Bfs_0-1.cpp
       title: Graph/Shortest_path/Bfs_0-1.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/Shortest_path/Dijkstra.h
       title: Graph/Shortest_path/Dijkstra.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/Shortest_path/Floyd_warshall.h
       title: Graph/Shortest_path/Floyd_warshall.h
   - name: Misc
@@ -164,7 +164,7 @@ data:
     - icon: ':warning:'
       path: Misc/Matrix.h
       title: Misc/Matrix.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Misc/ModInt.h
       title: Misc/ModInt.h
     - icon: ':warning:'
@@ -175,49 +175,49 @@ data:
       title: Misc/Small_to_large.h
   - name: NumberTheory/Math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Binary_exponentiation.h
       title: NumberTheory/Math/Binary_exponentiation.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/CheckPrime.h
       title: NumberTheory/Math/CheckPrime.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Combination.h
       title: NumberTheory/Math/Combination.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Combination_any_mod.h
       title: NumberTheory/Math/Combination_any_mod.h
     - icon: ':warning:'
       path: NumberTheory/Math/Divisors.h
       title: NumberTheory/Math/Divisors.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/EulerPhi.h
       title: NumberTheory/Math/EulerPhi.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Extended_euclid.h
       title: NumberTheory/Math/Extended_euclid.h
     - icon: ':warning:'
       path: NumberTheory/Math/Factorial.h
       title: NumberTheory/Math/Factorial.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Factorization.h
       title: NumberTheory/Math/Factorization.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/MillerRabin.h
       title: NumberTheory/Math/MillerRabin.h
     - icon: ':warning:'
       path: NumberTheory/Math/Misc.h
       title: NumberTheory/Math/Misc.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Pollard_rho.h
       title: NumberTheory/Math/Pollard_rho.h
     - icon: ':warning:'
       path: NumberTheory/Math/Primality_test.h
       title: NumberTheory/Math/Primality_test.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Primitive_root.h
       title: NumberTheory/Math/Primitive_root.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Sieve.h
       title: NumberTheory/Math/Sieve.h
   - name: String
@@ -225,13 +225,13 @@ data:
     - icon: ':warning:'
       path: String/Kmp.h
       title: String/Kmp.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/Manacher.h
       title: String/Manacher.h
     - icon: ':warning:'
       path: String/Rolling_Hash.h
       title: String/Rolling_Hash.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/Z_Function.h
       title: String/Z_Function.h
   - name: String/Problem
@@ -255,18 +255,18 @@ data:
       title: String/Trie/Trie_array_ver.h
   - name: Tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/EulerTour.h
       title: Tree/EulerTour.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Tree_diameter.h
       title: Tree/Tree_diameter.h
   - name: Tree/Tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Tree/BinaryLifting.h
       title: Tree/Tree/BinaryLifting.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Tree/Lca.h
       title: Tree/Tree/Lca.h
   - name: .
@@ -274,7 +274,7 @@ data:
     - icon: ':warning:'
       path: setup.py
       title: setup.py
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template.h
       title: template.h
   verificationCategories:
@@ -346,100 +346,100 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/Yosupo/Static_range_sum.test.cpp
       title: DataStructure/Yosupo/Static_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/Yosupo/Union_find.test.cpp
       title: DataStructure/Yosupo/Union_find.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/Yosupo/Unionfind_with_potential.test.cpp
       title: DataStructure/Yosupo/Unionfind_with_potential.test.cpp
   - name: Graph/Aizu
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/Aizu/aizu_grl_1_a_dijkstra.test.cpp
       title: Graph/Aizu/aizu_grl_1_a_dijkstra.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/Aizu/aizu_grl_1_b_negative_cycle.test.cpp
       title: Graph/Aizu/aizu_grl_1_b_negative_cycle.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/Aizu/aizu_grl_1_c_floyd_warshall.test.cpp
       title: Graph/Aizu/aizu_grl_1_c_floyd_warshall.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
       title: Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
   - name: NumberTheory/Aizu
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Aizu/aizu_ntl_1_a_prime_factor.test.cpp
       title: NumberTheory/Aizu/aizu_ntl_1_a_prime_factor.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Aizu/aizu_ntl_1_b_power_mod.test.cpp
       title: NumberTheory/Aizu/aizu_ntl_1_b_power_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Aizu/aizu_ntl_1_c_lcm.test.cpp
       title: NumberTheory/Aizu/aizu_ntl_1_c_lcm.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
       title: NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
       title: NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
   - name: NumberTheory/Yosupo
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Binomial_coefficient.test.cpp
       title: NumberTheory/Yosupo/Binomial_coefficient.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
       title: NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Counting_primes.test.cpp
       title: NumberTheory/Yosupo/Counting_primes.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Enumerate_primes.test.cpp
       title: NumberTheory/Yosupo/Enumerate_primes.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Enumerate_quotients.test.cpp
       title: NumberTheory/Yosupo/Enumerate_quotients.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Factorize.test.cpp
       title: NumberTheory/Yosupo/Factorize.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Primality_test.test.cpp
       title: NumberTheory/Yosupo/Primality_test.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Primitive_root.test.cpp
       title: NumberTheory/Yosupo/Primitive_root.test.cpp
   - name: Sample
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Sample/A_plus_B.test.cpp
       title: Sample/A_plus_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Sample/Many_A_plus_B.test.cpp
       title: Sample/Many_A_plus_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Sample/Many_A_plus_B_128bit.test.cpp
       title: Sample/Many_A_plus_B_128bit.test.cpp
   - name: String/Yosupo
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/Yosupo/Enumerate_Palindromes.test.cpp
       title: String/Yosupo/Enumerate_Palindromes.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/Yosupo/Z_Algorithm.test.cpp
       title: String/Yosupo/Z_Algorithm.test.cpp
   - name: Tree/Yosupo
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Yosupo/Diameter_tree.test.cpp
       title: Tree/Yosupo/Diameter_tree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Yosupo/Jump_on_tree.test.cpp
       title: Tree/Yosupo/Jump_on_tree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Yosupo/Lowest_common_ancestor.test.cpp
       title: Tree/Yosupo/Lowest_common_ancestor.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
       title: Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
 layout: toppage

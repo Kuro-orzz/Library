@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.h
     title: template.h
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Combination.h
     title: NumberTheory/Math/Combination.h
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
     title: NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
     title: NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -57,7 +57,7 @@ data:
   requiredBy:
   - NumberTheory/Math/Combination.h
   timestamp: '2026-07-26 14:40:30+07:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
   - NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
