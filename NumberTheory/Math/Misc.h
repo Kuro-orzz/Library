@@ -6,10 +6,12 @@ ll GCD(ll a, ll b) {
     a = llabs(a), b = llabs(b);
     return (!b ? a : GCD(b, a % b));
 }
+ll LCM(ll a, ll b) { return (!a || !b) ? 0 : llabs(a / GCD(a, b) * b); }
 
 // Only positive
 // ll GCD(ll a, ll b) { return (!b ? a : GCD(b, a % b)); }
-ll LCM(ll a, ll b) { return a / GCD(a, b) * b; }
+// ll LCM(ll a, ll b) { return a / GCD(a, b) * b; }
+
 // logb(a)
 double log_base(ll a, ll b) { return log(a) / log(b); }
 

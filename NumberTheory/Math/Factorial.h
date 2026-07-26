@@ -23,7 +23,11 @@
 // if n is not prime => n have divisors in range [2, n)
 //                   => gcd((n-1)!, n) > 1
 //                   => gcd(n-1, n) > 1 (contradiction)
-int factmod(int n, int p) {
+
+
+// use for small prime p <= 46341
+// slow version
+int factmod0(int n, int p) {
     vector<int> f(p);
     f[0] = 1;
     for (int i = 1; i < p; i++) {
@@ -37,10 +41,9 @@ int factmod(int n, int p) {
     }
     return res;
 }
-// use for small prime p
 
 
-// Optimize version using static to cache
+// Optimize version using static to cache, can work with multiple calling
 ll factmod(ll n, ll p) {
     static ll lastp = -1;
     static vector<ll> f;

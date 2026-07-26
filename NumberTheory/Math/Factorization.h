@@ -15,6 +15,7 @@ vector<ll> primeFactor(ll n) {
     ll lim = sqrtl(n);
     while (lim > 0 && lim > n / lim) lim--;
     for (ll i = 7; i <= lim; i += inc[j%8], j++) {
+        if (n % i) continue;
         while(n % i == 0) {
             n /= i;
             factor.push_back(i);

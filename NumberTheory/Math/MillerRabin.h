@@ -2,7 +2,7 @@
 #include "Binary_exponentiation.h"
 
 
-bool test(ll a, ll n, ll k, ll m) {
+bool millerTest(ll a, ll n, ll k, ll m) {
     ll mod = binPow(a, m, n);
     if (mod == 1 || mod == n - 1) return true;
     for (int l = 1; l < k; l++) {
@@ -14,16 +14,16 @@ bool test(ll a, ll n, ll k, ll m) {
 
 // Miller rabin
 bool MillerRabin0(ll n) {
-    if (n == 2) return true;
-    if (n < 2 || n % 2 == 0) return false;
+    if (n < 4) return n == 2 || n == 3;
+    if (n % 2 == 0) return false;
     ll k = 0, m = n - 1;
     while(m % 2 == 0) {
         m /= 2;
         k++;
     }
     for (int i = 0; i < 5; i++) {
-        ll a = rand() % (n - 3) + 2;
-        if (!test(a, n, k, m)) return false;
+        ll a = get_rand(n-3) + 2;
+        if (!millerTest(a, n, k, m)) return false;
     }
     return true;
 }
@@ -38,7 +38,7 @@ bool MillerRabin(ll n) {
     }
     for (int a : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {
         if (n == a) return true;
-        if (!test(a, n, k, m)) return false;
+        if (!millerTest(a, n, k, m)) return false;
     }
     return true;
 }

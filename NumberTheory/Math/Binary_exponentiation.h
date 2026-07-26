@@ -25,7 +25,7 @@ ll binMul3(ll a, ll b, ll M) {
 
 ll binPow(ll a, ll b, ll M) {
     a %= M;
-    ll res = 1;
+    ll res = 1 % M;
     while (b) {
         if (b & 1) res = (i128)res * a % M;
         a = (i128)a * a % M;

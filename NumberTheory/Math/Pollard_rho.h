@@ -2,10 +2,6 @@
 #include "MillerRabin.h"
 
 
-mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-ll get_rand(ll r) {
-    return uniform_int_distribution<ll>(0, r - 1)(rng);
-}
 
 // https://wiki.vnoi.info/algo/math/integer-factorization
 // pollard's rho, brent variant

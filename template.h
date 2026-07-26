@@ -17,6 +17,9 @@ using namespace std;
 #define fi first
 #define se second
 
+mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+ll get_rand(ll r) { return uniform_int_distribution<ll>(0, r - 1)(rng); }
+
 const int mod = 998244353;
 
 void solve();
