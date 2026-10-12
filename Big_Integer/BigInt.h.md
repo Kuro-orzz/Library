@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
     title: Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Sample/Many_A_plus_B_128bit.test.cpp
     title: Sample/Many_A_plus_B_128bit.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -179,7 +179,7 @@ data:
   path: Big_Integer/BigInt.h
   requiredBy: []
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
   - Sample/Many_A_plus_B_128bit.test.cpp

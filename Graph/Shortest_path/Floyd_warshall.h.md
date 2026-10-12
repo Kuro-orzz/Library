@@ -6,12 +6,12 @@ data:
     title: template.h
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/Aizu/aizu_grl_1_c_floyd_warshall.test.cpp
     title: Graph/Aizu/aizu_grl_1_c_floyd_warshall.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -52,7 +52,7 @@ data:
   path: Graph/Shortest_path/Floyd_warshall.h
   requiredBy: []
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Graph/Aizu/aizu_grl_1_c_floyd_warshall.test.cpp
 documentation_of: Graph/Shortest_path/Floyd_warshall.h

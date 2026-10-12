@@ -9,12 +9,12 @@ data:
     path: DataStructure/Problem/Sqrt_split_rebuild2.cpp
     title: DataStructure/Problem/Sqrt_split_rebuild2.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/Yosupo/Range_reverse_range_sum.test.cpp
     title: DataStructure/Yosupo/Range_reverse_range_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -133,7 +133,7 @@ data:
   requiredBy:
   - DataStructure/Problem/Sqrt_split_rebuild2.cpp
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - DataStructure/Yosupo/Range_reverse_range_sum.test.cpp
 documentation_of: DataStructure/SqrtDecomposition/Split_Rebuild/Simplified_version.h

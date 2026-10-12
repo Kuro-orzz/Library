@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/RMQ/RMQ.h
     title: DataStructure/RMQ/RMQ.h
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: template.h
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/staticrmq
@@ -65,7 +65,7 @@ data:
   path: DataStructure/Yosupo/Static_RMQ.test.cpp
   requiredBy: []
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: DataStructure/Yosupo/Static_RMQ.test.cpp
 layout: document

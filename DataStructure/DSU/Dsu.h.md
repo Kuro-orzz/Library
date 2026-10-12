@@ -5,25 +5,25 @@ data:
     path: template.h
     title: template.h
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/Mst/Kruskal.h
     title: Graph/Mst/Kruskal.h
   - icon: ':warning:'
     path: Graph/Mst/Prim.h
     title: Graph/Mst/Prim.h
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/Yosupo/Union_find.test.cpp
     title: DataStructure/Yosupo/Union_find.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/Yosupo/Unionfind_with_potential.test.cpp
     title: DataStructure/Yosupo/Unionfind_with_potential.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
     title: Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://judge.yosupo.jp/problem/unionfind_with_potential
@@ -93,7 +93,7 @@ data:
   - Graph/Mst/Kruskal.h
   - Graph/Mst/Prim.h
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - DataStructure/Yosupo/Union_find.test.cpp
   - DataStructure/Yosupo/Unionfind_with_potential.test.cpp

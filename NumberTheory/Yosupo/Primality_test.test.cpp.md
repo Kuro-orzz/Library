@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Binary_exponentiation.h
     title: NumberTheory/Math/Binary_exponentiation.h
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/MillerRabin.h
     title: NumberTheory/Math/MillerRabin.h
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template.h
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/primality_test
@@ -77,7 +77,7 @@ data:
   path: NumberTheory/Yosupo/Primality_test.test.cpp
   requiredBy: []
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: NumberTheory/Yosupo/Primality_test.test.cpp
 layout: document

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/SqrtDecomposition/Split_Rebuild/Simplified_version.h
     title: DataStructure/SqrtDecomposition/Split_Rebuild/Simplified_version.h
   - icon: ':question:'

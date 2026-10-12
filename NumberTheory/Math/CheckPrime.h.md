@@ -6,18 +6,18 @@ data:
     title: template.h
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Aizu/aizu_alds1_1_c_check_prime.test.cpp
     title: NumberTheory/Aizu/aizu_alds1_1_c_check_prime.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Counting_primes.test.cpp
     title: NumberTheory/Yosupo/Counting_primes.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Enumerate_primes.test.cpp
     title: NumberTheory/Yosupo/Enumerate_primes.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://codeforces.com/blog/entry/91632
@@ -69,7 +69,7 @@ data:
   path: NumberTheory/Math/CheckPrime.h
   requiredBy: []
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - NumberTheory/Aizu/aizu_alds1_1_c_check_prime.test.cpp
   - NumberTheory/Yosupo/Enumerate_primes.test.cpp

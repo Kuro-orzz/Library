@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Binary_exponentiation.h
     title: NumberTheory/Math/Binary_exponentiation.h
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/MillerRabin.h
     title: NumberTheory/Math/MillerRabin.h
   - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Primitive_root.h
     title: NumberTheory/Math/Primitive_root.h
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Factorize.test.cpp
     title: NumberTheory/Yosupo/Factorize.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Primitive_root.test.cpp
     title: NumberTheory/Yosupo/Primitive_root.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://wiki.vnoi.info/algo/math/integer-factorization
@@ -110,7 +110,7 @@ data:
   requiredBy:
   - NumberTheory/Math/Primitive_root.h
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - NumberTheory/Yosupo/Primitive_root.test.cpp
   - NumberTheory/Yosupo/Factorize.test.cpp

@@ -6,7 +6,7 @@ data:
     title: template.h
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/Yosupo/Static_range_sum.test.cpp
     title: DataStructure/Yosupo/Static_range_sum.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
   _isVerificationFailed: true
   _pathExtension: h
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -55,7 +55,7 @@ data:
   path: DataStructure/Fenwick/Fenwick.h
   requiredBy: []
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
   - DataStructure/Yosupo/Static_range_sum.test.cpp

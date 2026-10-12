@@ -6,12 +6,12 @@ data:
     title: template.h
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
     title: NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -70,7 +70,7 @@ data:
   path: NumberTheory/Math/EulerPhi.h
   requiredBy: []
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
 documentation_of: NumberTheory/Math/EulerPhi.h
