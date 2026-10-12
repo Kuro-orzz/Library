@@ -44,5 +44,11 @@
 "NumberTheory/Yosupo/Unit_test_math.test.cpp": "2026-10-13 05:42:39 +0700",
 "Sample/A_plus_B.test.cpp": "2026-10-13 05:42:39 +0700",
 "Sample/Many_A_plus_B.test.cpp": "2026-10-13 05:42:39 +0700",
-"Sample/Many_A_plus_B_128bit.test.cpp": "2026-10-13 05:42:39 +0700"
+"Sample/Many_A_plus_B_128bit.test.cpp": "2026-10-13 05:42:39 +0700",
+"String/Yosupo/Enumerate_Palindromes.test.cpp": "2026-10-13 05:42:39 +0700",
+"String/Yosupo/Z_Algorithm.test.cpp": "2026-10-13 05:42:39 +0700",
+"Tree/Yosupo/Diameter_tree.test.cpp": "2026-10-13 05:42:39 +0700",
+"Tree/Yosupo/Jump_on_tree.test.cpp": "2026-10-13 05:42:39 +0700",
+"Tree/Yosupo/Lowest_common_ancestor.test.cpp": "2026-10-13 05:42:39 +0700",
+"Tree/Yosupo/Vertex_add_subtree_sum.test.cpp": "2026-10-13 05:42:39 +0700"
 }
