@@ -23,7 +23,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/DSU/Weighted_Dsu.h
     title: DataStructure/DSU/Weighted_Dsu.h
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/Fenwick/Fenwick.h
     title: DataStructure/Fenwick/Fenwick.h
   - icon: ':warning:'
@@ -194,7 +194,7 @@ data:
   - icon: ':warning:'
     path: String/Kmp.h
     title: String/Kmp.h
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: String/Manacher.h
     title: String/Manacher.h
   - icon: ':warning:'
@@ -215,19 +215,19 @@ data:
   - icon: ':warning:'
     path: String/Trie/Trie_array_ver.h
     title: String/Trie/Trie_array_ver.h
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: String/Z_Function.h
     title: String/Z_Function.h
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tree/EulerTour.h
     title: Tree/EulerTour.h
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tree/Tree/BinaryLifting.h
     title: Tree/Tree/BinaryLifting.h
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tree/Tree/Lca.h
     title: Tree/Tree/Lca.h
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tree/Tree_diameter.h
     title: Tree/Tree_diameter.h
   _extendedVerifiedWith:
@@ -369,27 +369,27 @@ data:
   - icon: ':heavy_check_mark:'
     path: Sample/Many_A_plus_B_128bit.test.cpp
     title: Sample/Many_A_plus_B_128bit.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: String/Yosupo/Enumerate_Palindromes.test.cpp
     title: String/Yosupo/Enumerate_Palindromes.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: String/Yosupo/Z_Algorithm.test.cpp
     title: String/Yosupo/Z_Algorithm.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tree/Yosupo/Diameter_tree.test.cpp
     title: Tree/Yosupo/Diameter_tree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tree/Yosupo/Jump_on_tree.test.cpp
     title: Tree/Yosupo/Jump_on_tree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tree/Yosupo/Lowest_common_ancestor.test.cpp
     title: Tree/Yosupo/Lowest_common_ancestor.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
     title: Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -499,7 +499,7 @@ data:
   - Dp/DAG.h
   - Dp/Knapsack.h
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
   - Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp

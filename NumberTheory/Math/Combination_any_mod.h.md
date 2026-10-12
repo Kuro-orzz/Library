@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Factorization.h
     title: NumberTheory/Math/Factorization.h
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []

@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Sieve.h
     title: NumberTheory/Math/Sieve.h
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []

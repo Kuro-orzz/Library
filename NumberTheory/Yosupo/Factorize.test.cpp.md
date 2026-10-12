@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Pollard_rho.h
     title: NumberTheory/Math/Pollard_rho.h
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Big_Integer/BigInt_full.h
     title: Big_Integer/BigInt_full.h
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []

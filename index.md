@@ -30,7 +30,7 @@ data:
       title: DataStructure/DSU/Weighted_Dsu.h
   - name: DataStructure/Fenwick
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/Fenwick/Fenwick.h
       title: DataStructure/Fenwick/Fenwick.h
   - name: DataStructure/Problem
@@ -225,13 +225,13 @@ data:
     - icon: ':warning:'
       path: String/Kmp.h
       title: String/Kmp.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/Manacher.h
       title: String/Manacher.h
     - icon: ':warning:'
       path: String/Rolling_Hash.h
       title: String/Rolling_Hash.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/Z_Function.h
       title: String/Z_Function.h
   - name: String/Problem
@@ -255,18 +255,18 @@ data:
       title: String/Trie/Trie_array_ver.h
   - name: Tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/EulerTour.h
       title: Tree/EulerTour.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Tree_diameter.h
       title: Tree/Tree_diameter.h
   - name: Tree/Tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Tree/BinaryLifting.h
       title: Tree/Tree/BinaryLifting.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Tree/Lca.h
       title: Tree/Tree/Lca.h
   - name: .
@@ -274,7 +274,7 @@ data:
     - icon: ':warning:'
       path: setup.py
       title: setup.py
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template.h
       title: template.h
     - icon: ':warning:'
@@ -437,24 +437,24 @@ data:
       title: Sample/Many_A_plus_B_128bit.test.cpp
   - name: String/Yosupo
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/Yosupo/Enumerate_Palindromes.test.cpp
       title: String/Yosupo/Enumerate_Palindromes.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/Yosupo/Z_Algorithm.test.cpp
       title: String/Yosupo/Z_Algorithm.test.cpp
   - name: Tree/Yosupo
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Yosupo/Diameter_tree.test.cpp
       title: Tree/Yosupo/Diameter_tree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Yosupo/Jump_on_tree.test.cpp
       title: Tree/Yosupo/Jump_on_tree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Yosupo/Lowest_common_ancestor.test.cpp
       title: Tree/Yosupo/Lowest_common_ancestor.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
       title: Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
 layout: toppage
