@@ -1,6 +1,8 @@
 #include "../../template.h"
 
 
+ll inf = 1e18;
+
 struct Node {
     ll max1, max2, cntMax, min1, min2, cntMin, sum, lazy, sz;
 
