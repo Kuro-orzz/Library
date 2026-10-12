@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Big_Integer/BigInt_full.h
     title: Big_Integer/BigInt_full.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []
@@ -21,30 +21,31 @@ data:
     \ PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/2/NTL_2_D\"\
     \n\n#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\
     \n \r\n#define ll long long\r\n#define MOD (ll)(1e9+7)\r\n#define all(x) (x).begin(),(x).end()\r\
-    \n#define unique(x) x.erase(unique(all(x)), x.end())\r\n#define INF32 ((1ull<<31)-1)\r\
-    \n#define INF64 ((1ull<<63)-1)\r\n#define inf (ll)1e18\r\n\r\n#define vi vector<int>\r\
+    \n#define unique(x) x.erase(unique(all(x)), x.end())\r\n\r\n#define vi vector<int>\r\
     \n#define pii pair<int, int>\r\n#define pll pair<ll, ll>\r\n#define fi first\r\
     \n#define se second\r\n\r\nmt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());\r\
     \nll get_rand(ll r) { return uniform_int_distribution<ll>(0, r - 1)(rng); }\r\n\
-    \r\nconst int mod = 998244353;\r\n\r\nvoid solve();\r\n\r\nint main(){\r\n   \
-    \ ios_base::sync_with_stdio(false);cin.tie(NULL);\r\n    // cin.exceptions(cin.failbit);\r\
-    \n    // int t; cin >> t;\r\n    // while(t--)\r\n        solve();\r\n    cerr\
-    \ << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC << \"ms\" << '\\n';\r\
-    \n    return 0;\r\n}\n#line 2 \"Big_Integer/BigInt_full.h\"\n\r\n\r\n// Still\
-    \ slow ver, need optimize by FFT\r\n// This template only work for base <= 10\r\
-    \nconstexpr int pow10c(int k) { return k ? 10 * pow10c(k - 1) : 1; }\r\n\r\ntemplate<int\
-    \ D = 9>\r\nclass BigInt {\r\npublic:\r\n    static const int BASE_DIGITS = D;\r\
-    \n    static const int BASE = pow10c(D);\r\n    int sign;\r\n    vector<uint32_t>\
-    \ digit;\r\n\r\n    BigInt(): sign(1) {}\r\n\r\n    BigInt(const string &s) {\
-    \ *this = s; }\r\n\r\n    BigInt(int64_t val) { *this = val; }\r\n\r\n    BigInt\
-    \ &operator = (const string &s) {\r\n        read(s);\r\n        return *this;\r\
-    \n    }\r\n\r\n    BigInt &operator = (int64_t val) {\r\n        sign = val >=\
-    \ 0 ? 1 : -1;\r\n        val = llabs(val);\r\n        digit.clear();\r\n     \
-    \   for (; val; val /= BASE) {\r\n            digit.push_back(val % BASE);\r\n\
-    \        }\r\n        trim();\r\n        return *this;\r\n    }\r\n\r\n    BigInt\
-    \ &operator += (const BigInt &b) {\r\n        if (sign != b.sign) {\r\n      \
-    \      BigInt t = b;\r\n            t.sign *= -1;\r\n            return *this\
-    \ -= t;\r\n        }\r\n        int carry = 0, len = (int)max(size(), b.size());\r\
+    \r\nconst int mod = 998244353;\r\n\r\nvoid solve();\r\n\r\nint main() {\r\n  \
+    \  // if (FILE* f = fopen(TASK \".inp\", \"r\")) {\r\n    //     fclose(f);\r\n\
+    \    //     freopen(TASK \".inp\", \"r\", stdin);\r\n    //     freopen(TASK \"\
+    .out\", \"w\", stdout);\r\n    // }\r\n    ios_base::sync_with_stdio(false);cin.tie(NULL);\r\
+    \n    // cin.exceptions(cin.failbit);\r\n    // int t; cin >> t;\r\n    // while(t--)\r\
+    \n        solve();\r\n    cerr << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC\
+    \ << \"ms\" << '\\n';\r\n    return 0;\r\n}\n#line 2 \"Big_Integer/BigInt_full.h\"\
+    \n\r\n\r\n// Still slow ver, need optimize by FFT\r\n// This template only work\
+    \ for base <= 10\r\nconstexpr int pow10c(int k) { return k ? 10 * pow10c(k - 1)\
+    \ : 1; }\r\n\r\ntemplate<int D = 9>\r\nclass BigInt {\r\npublic:\r\n    static\
+    \ const int BASE_DIGITS = D;\r\n    static const int BASE = pow10c(D);\r\n   \
+    \ int sign;\r\n    vector<uint32_t> digit;\r\n\r\n    BigInt(): sign(1) {}\r\n\
+    \r\n    BigInt(const string &s) { *this = s; }\r\n\r\n    BigInt(int64_t val)\
+    \ { *this = val; }\r\n\r\n    BigInt &operator = (const string &s) {\r\n     \
+    \   read(s);\r\n        return *this;\r\n    }\r\n\r\n    BigInt &operator = (int64_t\
+    \ val) {\r\n        sign = val >= 0 ? 1 : -1;\r\n        val = llabs(val);\r\n\
+    \        digit.clear();\r\n        for (; val; val /= BASE) {\r\n            digit.push_back(val\
+    \ % BASE);\r\n        }\r\n        trim();\r\n        return *this;\r\n    }\r\
+    \n\r\n    BigInt &operator += (const BigInt &b) {\r\n        if (sign != b.sign)\
+    \ {\r\n            BigInt t = b;\r\n            t.sign *= -1;\r\n            return\
+    \ *this -= t;\r\n        }\r\n        int carry = 0, len = (int)max(size(), b.size());\r\
     \n        for (int i = 0; i < len; i++) {\r\n            int sum = carry;\r\n\
     \            if (i < (int)size()) sum += digit[i];\r\n            if (i < (int)b.size())\
     \ sum += b[i];\r\n            if (i < (int)size()) digit[i] = sum % BASE;\r\n\
@@ -236,7 +237,7 @@ data:
   isVerificationFile: true
   path: Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
   requiredBy: []
-  timestamp: '2026-07-26 19:50:18+07:00'
+  timestamp: '2026-10-13 05:42:39+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
