@@ -101,6 +101,12 @@ data:
   - icon: ':warning:'
     path: Dp/LCS.h
     title: Dp/LCS.h
+  - icon: ':warning:'
+    path: Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
+    title: Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
+  - icon: ':warning:'
+    path: Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
+    title: Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
   - icon: ':heavy_check_mark:'
     path: Graph/Mst/Kruskal.h
     title: Graph/Mst/Kruskal.h
@@ -474,6 +480,8 @@ data:
   - DataStructure/RMQ/RMQ.h
   - DataStructure/Yosupo/Point_set_range_composite.brute_force.cpp
   - DataStructure/Fenwick/Fenwick.h
+  - Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
+  - Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
   - Graph/Shortest_path/Floyd_warshall.h
   - Graph/Shortest_path/Bellman_ford.h
   - Graph/Shortest_path/Bfs_0-1.cpp

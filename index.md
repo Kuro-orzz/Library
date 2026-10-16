@@ -122,6 +122,22 @@ data:
     - icon: ':warning:'
       path: Dp/LCS.h
       title: Dp/LCS.h
+  - name: Graph/Aizu
+    pages:
+    - icon: ':warning:'
+      path: Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
+      title: Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
+    - icon: ':warning:'
+      path: Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
+      title: Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
+  - name: Graph/Flow
+    pages:
+    - icon: ':warning:'
+      path: Graph/Flow/MaxFlowDinic.h
+      title: Graph/Flow/MaxFlowDinic.h
+    - icon: ':warning:'
+      path: Graph/Flow/MaxFlowEdmondsKarp.h
+      title: Graph/Flow/MaxFlowEdmondsKarp.h
   - name: Graph/Mst
     pages:
     - icon: ':heavy_check_mark:'
