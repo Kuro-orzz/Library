@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
-    title: Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
-  _extendedVerifiedWith: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
+    title: Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Graph/Flow/MaxFlowEdmondsKarp.h\"\n// // vnoi version\r\n\
@@ -100,11 +100,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Graph/Flow/MaxFlowEdmondsKarp.h
-  requiredBy:
-  - Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
+  requiredBy: []
   timestamp: '2026-10-16 23:50:27+07:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
 documentation_of: Graph/Flow/MaxFlowEdmondsKarp.h
 layout: document
 redirect_from:

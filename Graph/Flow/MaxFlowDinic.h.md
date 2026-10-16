@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
-    title: Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
-  _extendedVerifiedWith: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: Graph/Aizu/aizu_grl_6_a_maximum_flow.test.cpp
+    title: Graph/Aizu/aizu_grl_6_a_maximum_flow.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Graph/Flow/MaxFlowDinic.h\"\n// // vnoi version\r\n// struct\
@@ -103,11 +103,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Graph/Flow/MaxFlowDinic.h
-  requiredBy:
-  - Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
+  requiredBy: []
   timestamp: '2026-10-16 23:50:27+07:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - Graph/Aizu/aizu_grl_6_a_maximum_flow.test.cpp
 documentation_of: Graph/Flow/MaxFlowDinic.h
 layout: document
 redirect_from:

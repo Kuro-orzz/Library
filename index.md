@@ -122,20 +122,12 @@ data:
     - icon: ':warning:'
       path: Dp/LCS.h
       title: Dp/LCS.h
-  - name: Graph/Aizu
-    pages:
-    - icon: ':warning:'
-      path: Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
-      title: Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
-    - icon: ':warning:'
-      path: Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
-      title: Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
   - name: Graph/Flow
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Graph/Flow/MaxFlowDinic.h
       title: Graph/Flow/MaxFlowDinic.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Graph/Flow/MaxFlowEdmondsKarp.h
       title: Graph/Flow/MaxFlowEdmondsKarp.h
   - name: Graph/Mst
@@ -388,6 +380,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
       title: Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Graph/Aizu/aizu_grl_6_a_maximum_flow.test.cpp
+      title: Graph/Aizu/aizu_grl_6_a_maximum_flow.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
+      title: Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
   - name: NumberTheory/Aizu
     pages:
     - icon: ':heavy_check_mark:'

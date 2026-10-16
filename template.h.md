@@ -101,12 +101,6 @@ data:
   - icon: ':warning:'
     path: Dp/LCS.h
     title: Dp/LCS.h
-  - icon: ':warning:'
-    path: Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
-    title: Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
-  - icon: ':warning:'
-    path: Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
-    title: Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
   - icon: ':heavy_check_mark:'
     path: Graph/Mst/Kruskal.h
     title: Graph/Mst/Kruskal.h
@@ -319,6 +313,12 @@ data:
     path: Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
     title: Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Graph/Aizu/aizu_grl_6_a_maximum_flow.test.cpp
+    title: Graph/Aizu/aizu_grl_6_a_maximum_flow.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
+    title: Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
     title: NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
   - icon: ':heavy_check_mark:'
@@ -480,8 +480,6 @@ data:
   - DataStructure/RMQ/RMQ.h
   - DataStructure/Yosupo/Point_set_range_composite.brute_force.cpp
   - DataStructure/Fenwick/Fenwick.h
-  - Graph/Aizu/aizu_grl_6_a_maximum_flow2.cpp
-  - Graph/Aizu/aizu_grl_6_a_maximum_flow.cpp
   - Graph/Shortest_path/Floyd_warshall.h
   - Graph/Shortest_path/Bellman_ford.h
   - Graph/Shortest_path/Bfs_0-1.cpp
@@ -541,7 +539,9 @@ data:
   - Graph/Aizu/aizu_grl_1_b_negative_cycle.test.cpp
   - Graph/Aizu/aizu_grl_1_a_dijkstra.test.cpp
   - Graph/Aizu/aizu_grl_1_c_floyd_warshall.test.cpp
+  - Graph/Aizu/aizu_grl_6_a_maximum_flow.test.cpp
   - Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
+  - Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
   - Sample/Many_A_plus_B.test.cpp
   - Sample/Many_A_plus_B_128bit.test.cpp
   - Sample/A_plus_B.test.cpp
