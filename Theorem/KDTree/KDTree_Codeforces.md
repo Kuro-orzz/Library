@@ -317,7 +317,7 @@ struct VPTree {
 ### Cách dùng
 
 ```cpp
-vector<array<ll, 2>> pts = {{2, 3}, {5, 4}, {9, 6}, {4, 7}, {8, 1}, {7, 2}};
+vector<array<ll, 2>> pts = { {2, 3}, {5, 4}, {9, 6}, {4, 7}, {8, 1}, {7, 2} };
 KDTree kd(pts);
 kd.nearest({2, 4});         // 1: điểm gần nhất là (2,3)
 kd.nearest(pts[0], 0);      // 10: điểm khác gần (2,3) nhất là (5,4)
