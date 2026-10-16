@@ -319,6 +319,9 @@ data:
     path: Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
     title: Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Graph/Aizu/aizu_grl_6_b_minimum_cost_flow.test.cpp
+    title: Graph/Aizu/aizu_grl_6_b_minimum_cost_flow.test.cpp
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
     title: NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
   - icon: ':heavy_check_mark:'
@@ -542,6 +545,7 @@ data:
   - Graph/Aizu/aizu_grl_6_a_maximum_flow.test.cpp
   - Graph/Aizu/aizu_grl_2_a_minimum_spanning_tree.test.cpp
   - Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
+  - Graph/Aizu/aizu_grl_6_b_minimum_cost_flow.test.cpp
   - Sample/Many_A_plus_B.test.cpp
   - Sample/Many_A_plus_B_128bit.test.cpp
   - Sample/A_plus_B.test.cpp

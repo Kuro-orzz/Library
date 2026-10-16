@@ -130,6 +130,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/Flow/MaxFlowEdmondsKarp.h
       title: Graph/Flow/MaxFlowEdmondsKarp.h
+    - icon: ':heavy_check_mark:'
+      path: Graph/Flow/MinCostFlow.h
+      title: Graph/Flow/MinCostFlow.h
   - name: Graph/Mst
     pages:
     - icon: ':heavy_check_mark:'
@@ -386,6 +389,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
       title: Graph/Aizu/aizu_grl_6_a_maximum_flow2.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Graph/Aizu/aizu_grl_6_b_minimum_cost_flow.test.cpp
+      title: Graph/Aizu/aizu_grl_6_b_minimum_cost_flow.test.cpp
   - name: NumberTheory/Aizu
     pages:
     - icon: ':heavy_check_mark:'
