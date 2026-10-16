@@ -206,7 +206,7 @@ struct KDTree {
 - Cách dùng:
 
 ```cpp
-vector<KDTree::Point> pts = {{2, 3}, {5, 4}, {9, 6}, {4, 7}, {8, 1}, {7, 2}};
+vector<KDTree::Point> pts = { {2, 3}, {5, 4}, {9, 6}, {4, 7}, {8, 1}, {7, 2} };
 KDTree kd(pts);
 kd.nearest({2, 4});         // 1: điểm gần nhất là (2,3), d² = 1
 kd.count({3, 1}, {8, 5});   // 3: (5,4), (7,2), (8,1)
