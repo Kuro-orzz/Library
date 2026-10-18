@@ -24,26 +24,67 @@ data:
     \n    // cin.exceptions(cin.failbit);\r\n    // int t; cin >> t;\r\n    // while(t--)\r\
     \n        solve();\r\n    cerr << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC\
     \ << \"ms\" << '\\n';\r\n    return 0;\r\n}\n#line 2 \"Misc/Prefix_sum.h\"\n\n\
-    vector<vector<ll>> prefix_2d_init(int n, int m, const vector<vector<int>> &a)\
-    \ {\n    vector<vector<ll>> pref(n+1, vector<ll>(m+1));\n    for (int i = 1; i\
-    \ <= n; i++) {\n        for (int j = 1; j <= m; j++) {\n            pref[i][j]\
+    /* ---------- 2D prefix sum (range sum query) ---------- */\nvector<vector<ll>>\
+    \ prefix_2d_init(int n, int m, const vector<vector<int>> &a) {\n    vector<vector<ll>>\
+    \ pref(n+1, vector<ll>(m+1));\n    for (int i = 1; i <= n; i++) {\n        for\
+    \ (int j = 1; j <= m; j++) {\n            pref[i][j] = pref[i-1][j] + pref[i][j-1]\
+    \ - pref[i-1][j-1] + a[i-1][j-1];\n        }\n    }\n    return pref;\n}\n\nll\
+    \ get(const vector<vector<ll>> &pref, int a, int b, int c, int d) {\n    return\
+    \ pref[c][d]-pref[c][b-1]-pref[a-1][d]+pref[a-1][b-1];\n}\n\n/* ---------- 2D\
+    \ difference (range add -> point value) ---------- */\nvector<vector<ll>> diff_2d_init(int\
+    \ n, int m) {\n    return vector<vector<ll>>(n+2, vector<ll>(m+2));\n}\n\nvoid\
+    \ diff_2d_add(vector<vector<ll>> &d, int x1, int y1, int x2, int y2, ll v) {\n\
+    \    d[x1][y1] += v;\n    d[x2+1][y1] -= v;\n    d[x1][y2+1] -= v;\n    d[x2+1][y2+1]\
+    \ += v;\n}\n\nvoid diff_2d_build(vector<vector<ll>> &d, int n, int m) {\n    for\
+    \ (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= m; j++) {\n       \
+    \     d[i][j] += d[i-1][j] + d[i][j-1] - d[i-1][j-1];\n        }\n    }\n}\n\n\
+    /* ---------- 3D difference (range add -> point value) ---------- */\nvector<vector<vector<ll>>>\
+    \ diff_3d_init(int n, int m, int p) {\n    return vector<vector<vector<ll>>>(n+2,\
+    \ vector<vector<ll>>(m+2, vector<ll>(p+2)));\n}\n\nvoid diff_3d_add(vector<vector<vector<ll>>>\
+    \ &d,\n                 int x1, int y1, int z1, int x2, int y2, int z2, ll v)\
+    \ {\n    d[x1][y1][z1]       += v;\n    d[x2+1][y1][z1]     -= v;\n    d[x1][y2+1][z1]\
+    \     -= v;\n    d[x1][y1][z2+1]     -= v;\n    d[x2+1][y2+1][z1]   += v;\n  \
+    \  d[x2+1][y1][z2+1]   += v;\n    d[x1][y2+1][z2+1]   += v;\n    d[x2+1][y2+1][z2+1]\
+    \ -= v;\n}\n\nvoid diff_3d_build(vector<vector<vector<ll>>> &d, int n, int m,\
+    \ int p) {\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= m;\
+    \ j++) {\n            for (int k = 1; k <= p; k++) {\n                d[i][j][k]\
+    \ += d[i-1][j][k] + d[i][j-1][k] + d[i][j][k-1]\n                            -\
+    \ d[i-1][j-1][k] - d[i-1][j][k-1] - d[i][j-1][k-1]\n                         \
+    \   + d[i-1][j-1][k-1];\n            }\n        }\n    }\n}\n"
+  code: "#include \"../template.h\"\n\n/* ---------- 2D prefix sum (range sum query)\
+    \ ---------- */\nvector<vector<ll>> prefix_2d_init(int n, int m, const vector<vector<int>>\
+    \ &a) {\n    vector<vector<ll>> pref(n+1, vector<ll>(m+1));\n    for (int i =\
+    \ 1; i <= n; i++) {\n        for (int j = 1; j <= m; j++) {\n            pref[i][j]\
     \ = pref[i-1][j] + pref[i][j-1] - pref[i-1][j-1] + a[i-1][j-1];\n        }\n \
     \   }\n    return pref;\n}\n\nll get(const vector<vector<ll>> &pref, int a, int\
     \ b, int c, int d) {\n    return pref[c][d]-pref[c][b-1]-pref[a-1][d]+pref[a-1][b-1];\n\
-    }\n"
-  code: "#include \"../template.h\"\n\nvector<vector<ll>> prefix_2d_init(int n, int\
-    \ m, const vector<vector<int>> &a) {\n    vector<vector<ll>> pref(n+1, vector<ll>(m+1));\n\
-    \    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= m; j++) {\n\
-    \            pref[i][j] = pref[i-1][j] + pref[i][j-1] - pref[i-1][j-1] + a[i-1][j-1];\n\
-    \        }\n    }\n    return pref;\n}\n\nll get(const vector<vector<ll>> &pref,\
-    \ int a, int b, int c, int d) {\n    return pref[c][d]-pref[c][b-1]-pref[a-1][d]+pref[a-1][b-1];\n\
-    }"
+    }\n\n/* ---------- 2D difference (range add -> point value) ---------- */\nvector<vector<ll>>\
+    \ diff_2d_init(int n, int m) {\n    return vector<vector<ll>>(n+2, vector<ll>(m+2));\n\
+    }\n\nvoid diff_2d_add(vector<vector<ll>> &d, int x1, int y1, int x2, int y2, ll\
+    \ v) {\n    d[x1][y1] += v;\n    d[x2+1][y1] -= v;\n    d[x1][y2+1] -= v;\n  \
+    \  d[x2+1][y2+1] += v;\n}\n\nvoid diff_2d_build(vector<vector<ll>> &d, int n,\
+    \ int m) {\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= m;\
+    \ j++) {\n            d[i][j] += d[i-1][j] + d[i][j-1] - d[i-1][j-1];\n      \
+    \  }\n    }\n}\n\n/* ---------- 3D difference (range add -> point value) ----------\
+    \ */\nvector<vector<vector<ll>>> diff_3d_init(int n, int m, int p) {\n    return\
+    \ vector<vector<vector<ll>>>(n+2, vector<vector<ll>>(m+2, vector<ll>(p+2)));\n\
+    }\n\nvoid diff_3d_add(vector<vector<vector<ll>>> &d,\n                 int x1,\
+    \ int y1, int z1, int x2, int y2, int z2, ll v) {\n    d[x1][y1][z1]       +=\
+    \ v;\n    d[x2+1][y1][z1]     -= v;\n    d[x1][y2+1][z1]     -= v;\n    d[x1][y1][z2+1]\
+    \     -= v;\n    d[x2+1][y2+1][z1]   += v;\n    d[x2+1][y1][z2+1]   += v;\n  \
+    \  d[x1][y2+1][z2+1]   += v;\n    d[x2+1][y2+1][z2+1] -= v;\n}\n\nvoid diff_3d_build(vector<vector<vector<ll>>>\
+    \ &d, int n, int m, int p) {\n    for (int i = 1; i <= n; i++) {\n        for\
+    \ (int j = 1; j <= m; j++) {\n            for (int k = 1; k <= p; k++) {\n   \
+    \             d[i][j][k] += d[i-1][j][k] + d[i][j-1][k] + d[i][j][k-1]\n     \
+    \                       - d[i-1][j-1][k] - d[i-1][j][k-1] - d[i][j-1][k-1]\n \
+    \                           + d[i-1][j-1][k-1];\n            }\n        }\n  \
+    \  }\n}"
   dependsOn:
   - template.h
   isVerificationFile: false
   path: Misc/Prefix_sum.h
   requiredBy: []
-  timestamp: '2026-10-13 05:42:39+07:00'
+  timestamp: '2026-10-18 23:44:08+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Misc/Prefix_sum.h
