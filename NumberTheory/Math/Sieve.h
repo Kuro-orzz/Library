@@ -1,5 +1,6 @@
 #include "../../template.h"
 
+
 vector<int> sieve(int n) {
     vector<int> nt(n+1, 1);
     nt[0] = nt[1] = 0;
@@ -36,13 +37,13 @@ vector<int> segmentSieve(ll l, ll r){
     return prime;
 }
 
-vector<int> listPrime(int l, int r) {
+vector<ll> listPrime(ll l, ll r) {
     vector<int> prime = segmentSieve(l, r);
-    vector<int> listPi;
-    for (int i = l; i <= r; i++) {
-        if (prime[i-l]) listPi.push_back(i);
+    vector<ll> listOfPrimes;
+    for (ll i = l; i <= r; i++) {
+        if (prime[i-l]) listOfPrimes.push_back(i);
     }
-    return listPi;
+    return listOfPrimes ;
 }
 
 vector<int> sieve_count_divisors(int n) {

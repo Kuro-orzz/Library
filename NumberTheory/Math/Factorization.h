@@ -1,6 +1,7 @@
 #include "../../template.h"
 
 
+// Can use for n <= 10^18
 // 360 -> [2, 2, 2, 3, 3, 5]
 vector<ll> primeFactor(ll n) {
     vector<ll> factor;
@@ -35,3 +36,4 @@ vector<pll> primeFactorPow(ll n) {
         else res.push_back({p, 1});
     return res;
 }
+

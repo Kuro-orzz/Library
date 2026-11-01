@@ -6,6 +6,19 @@ ll GCD(ll a, ll b) {
     a = llabs(a), b = llabs(b);
     return (!b ? a : GCD(b, a % b));
 }
+// Binary GCD (Stein's algorithm)
+// ll GCD(ll a, ll b) {
+//     if (!a || !b) return a | b;
+//     int shift = __builtin_ctzll(a | b);
+//     a >>= __builtin_ctzll(a);
+//     do {
+//         b >>= __builtin_ctzll(b);
+//         if (a > b)
+//             swap(a, b);
+//         b -= a;
+//     } while (b);
+//     return a << shift;
+// }
 ll LCM(ll a, ll b) { return (!a || !b) ? 0 : llabs(a / GCD(a, b) * b); }
 
 // Only positive

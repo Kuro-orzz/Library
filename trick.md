@@ -97,3 +97,8 @@ void solve(){
     // __LINE__ return number of line you write 
 }
 ```
+
+7. Some useful web for CP
+
+- https://oeis.org/
+- Your template 🐧
