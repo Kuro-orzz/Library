@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/Flow/MaxFlowEdmondsKarp.h
     title: Graph/Flow/MaxFlowEdmondsKarp.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []

@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: NumberTheory/Math/Binary_exponentiation.h
     title: NumberTheory/Math/Binary_exponentiation.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: NumberTheory/Math/MillerRabin.h
     title: NumberTheory/Math/MillerRabin.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy:
@@ -112,8 +112,8 @@ data:
   timestamp: '2026-10-13 05:42:39+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - NumberTheory/Yosupo/Primitive_root.test.cpp
   - NumberTheory/Yosupo/Factorize.test.cpp
+  - NumberTheory/Yosupo/Primitive_root.test.cpp
 documentation_of: NumberTheory/Math/Pollard_rho.h
 layout: document
 redirect_from:

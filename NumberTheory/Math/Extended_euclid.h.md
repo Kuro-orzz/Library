@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy:
@@ -60,8 +60,8 @@ data:
   timestamp: '2026-10-13 05:42:39+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
   - NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
+  - NumberTheory/Aizu/aizu_ntl_1_e_extended_euclid.test.cpp
 documentation_of: NumberTheory/Math/Extended_euclid.h
 layout: document
 redirect_from:

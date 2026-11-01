@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: DataStructure/SegTree/SegTreeBeats2.h
     title: DataStructure/SegTree/SegTreeBeats2.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []

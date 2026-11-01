@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/Manacher.h
     title: String/Manacher.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []

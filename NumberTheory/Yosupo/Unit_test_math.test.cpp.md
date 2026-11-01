@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: NumberTheory/Math/Binary_exponentiation.h
     title: NumberTheory/Math/Binary_exponentiation.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/Divisors.h
     title: NumberTheory/Math/Divisors.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/Factorial.h
     title: NumberTheory/Math/Factorial.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: NumberTheory/Math/MillerRabin.h
     title: NumberTheory/Math/MillerRabin.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: NumberTheory/Math/Misc.h
     title: NumberTheory/Math/Misc.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/Sieve.h
     title: NumberTheory/Math/Sieve.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -73,8 +73,8 @@ data:
     \ 2;\r\n        k++;\r\n    }\r\n    for (int a : {2, 3, 5, 7, 11, 13, 17, 19,\
     \ 23, 29, 31, 37}) {\r\n        if (n == a) return true;\r\n        if (!millerTest(a,\
     \ n, k, m)) return false;\r\n    }\r\n    return true;\r\n}\n#line 2 \"NumberTheory/Math/Sieve.h\"\
-    \n\r\nvector<int> sieve(int n) {\r\n    vector<int> nt(n+1, 1);\r\n    nt[0] =\
-    \ nt[1] = 0;\r\n    for (int i = 2; i * i <= n; i++) {\r\n        if (!nt[i])\
+    \n\r\n\r\nvector<int> sieve(int n) {\r\n    vector<int> nt(n+1, 1);\r\n    nt[0]\
+    \ = nt[1] = 0;\r\n    for (int i = 2; i * i <= n; i++) {\r\n        if (!nt[i])\
     \ continue;\r\n        for (int j = i * i; j <= n; j += i)\r\n            nt[j]\
     \ = 0;\r\n    }\r\n    return nt;\r\n}\r\n\r\nvector<int> segmentSieve(ll l, ll\
     \ r){\r\n    ll sq = sqrtl(r);\r\n    while (sq * sq > r) sq--;\r\n    while (sq+1\
@@ -86,10 +86,10 @@ data:
     \        for(ll j = lim; j <= r; j += p) {\r\n            prime[j-l] = 0;\r\n\
     \        }\r\n    }\r\n    if (l == 0) prime[0] = 0;\r\n    if (l == 0 && r >\
     \ l) prime[1] = 0;\r\n    if (l == 1) prime[1-l] = 0;\r\n    return prime;\r\n\
-    }\r\n\r\nvector<int> listPrime(int l, int r) {\r\n    vector<int> prime = segmentSieve(l,\
-    \ r);\r\n    vector<int> listPi;\r\n    for (int i = l; i <= r; i++) {\r\n   \
-    \     if (prime[i-l]) listPi.push_back(i);\r\n    }\r\n    return listPi;\r\n\
-    }\r\n\r\nvector<int> sieve_count_divisors(int n) {\r\n    vector<int> divisors(n+1,\
+    }\r\n\r\nvector<ll> listPrime(ll l, ll r) {\r\n    vector<int> prime = segmentSieve(l,\
+    \ r);\r\n    vector<ll> listOfPrimes;\r\n    for (ll i = l; i <= r; i++) {\r\n\
+    \        if (prime[i-l]) listOfPrimes.push_back(i);\r\n    }\r\n    return listOfPrimes\
+    \ ;\r\n}\r\n\r\nvector<int> sieve_count_divisors(int n) {\r\n    vector<int> divisors(n+1,\
     \ 0);\r\n    for (ll i = 1; i*i <= n; i++) {\r\n        for (ll j = i*i; j <=\
     \ n; j += i) {\r\n            divisors[j] += 2;\r\n        }\r\n        divisors[i*i]--;\r\
     \n    }\r\n    return divisors;\r\n}\r\n\r\nvector<int> sieve_sum_divisors(int\
@@ -142,21 +142,25 @@ data:
     \        if ((n/p) % 2) res = p - res;\r\n        res = res * f[n % p] % p;\r\n\
     \        n /= p;\r\n    }\r\n    return res;\r\n}\n#line 2 \"NumberTheory/Math/Misc.h\"\
     \n\r\n\r\n// for both negative + positive val\r\nll GCD(ll a, ll b) {\r\n    a\
-    \ = llabs(a), b = llabs(b);\r\n    return (!b ? a : GCD(b, a % b));\r\n}\r\nll\
-    \ LCM(ll a, ll b) { return (!a || !b) ? 0 : llabs(a / GCD(a, b) * b); }\r\n\r\n\
-    // Only positive\r\n// ll GCD(ll a, ll b) { return (!b ? a : GCD(b, a % b)); }\r\
-    \n// ll LCM(ll a, ll b) { return a / GCD(a, b) * b; }\r\n\r\n// logb(a)\r\ndouble\
-    \ log_base(ll a, ll b) { return log(a) / log(b); }\r\n\r\n// use for 2 <= BASE\
-    \ <= 36\r\nstring decimal_to_base(ll n, int BASE) {\r\n    if (!n) return \"0\"\
-    ;\r\n    bool neg = (n < 0 ? 1 : 0);\r\n    n = llabs(n);\r\n    string num =\
-    \ \"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\r\n    string res;\r\n    while(n)\
-    \ {\r\n        res.push_back(num[n % BASE]);\r\n        n /= BASE;\r\n    }\r\n\
-    \    if (neg) res += '-';\r\n    reverse(all(res));\r\n    return res;\r\n}\r\n\
-    \r\n// any BASE to decimal\r\n// use ctype lib\r\nll convert_decimal(string s,\
-    \ int BASE) {\r\n    auto val = [&](char c) { c = toupper(c); return (isdigit(c)\
-    \ ? c-'0' : c-'A'+10); };\r\n    ll n = s.size(), p = 1, res = 0;\r\n    for (int\
-    \ i = n-1; i >= 0; i--) {\r\n        res += val(s[i]) * p;\r\n        p = p *\
-    \ BASE;\r\n    }\r\n    return res;\r\n}\n#line 7 \"NumberTheory/Yosupo/Unit_test_math.test.cpp\"\
+    \ = llabs(a), b = llabs(b);\r\n    return (!b ? a : GCD(b, a % b));\r\n}\r\n//\
+    \ Binary GCD (Stein's algorithm)\r\n// ll GCD(ll a, ll b) {\r\n//     if (!a ||\
+    \ !b) return a | b;\r\n//     int shift = __builtin_ctzll(a | b);\r\n//     a\
+    \ >>= __builtin_ctzll(a);\r\n//     do {\r\n//         b >>= __builtin_ctzll(b);\r\
+    \n//         if (a > b)\r\n//             swap(a, b);\r\n//         b -= a;\r\n\
+    //     } while (b);\r\n//     return a << shift;\r\n// }\r\nll LCM(ll a, ll b)\
+    \ { return (!a || !b) ? 0 : llabs(a / GCD(a, b) * b); }\r\n\r\n// Only positive\r\
+    \n// ll GCD(ll a, ll b) { return (!b ? a : GCD(b, a % b)); }\r\n// ll LCM(ll a,\
+    \ ll b) { return a / GCD(a, b) * b; }\r\n\r\n// logb(a)\r\ndouble log_base(ll\
+    \ a, ll b) { return log(a) / log(b); }\r\n\r\n// use for 2 <= BASE <= 36\r\nstring\
+    \ decimal_to_base(ll n, int BASE) {\r\n    if (!n) return \"0\";\r\n    bool neg\
+    \ = (n < 0 ? 1 : 0);\r\n    n = llabs(n);\r\n    string num = \"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\"\
+    ;\r\n    string res;\r\n    while(n) {\r\n        res.push_back(num[n % BASE]);\r\
+    \n        n /= BASE;\r\n    }\r\n    if (neg) res += '-';\r\n    reverse(all(res));\r\
+    \n    return res;\r\n}\r\n\r\n// any BASE to decimal\r\n// use ctype lib\r\nll\
+    \ convert_decimal(string s, int BASE) {\r\n    auto val = [&](char c) { c = toupper(c);\
+    \ return (isdigit(c) ? c-'0' : c-'A'+10); };\r\n    ll n = s.size(), p = 1, res\
+    \ = 0;\r\n    for (int i = n-1; i >= 0; i--) {\r\n        res += val(s[i]) * p;\r\
+    \n        p = p * BASE;\r\n    }\r\n    return res;\r\n}\n#line 7 \"NumberTheory/Yosupo/Unit_test_math.test.cpp\"\
     \n\r\nvoid solve() {\r\n    const int N = 200000;\r\n\r\n    // count_divisor\
     \ vs sieve_count_divisors\r\n    auto dv = sieve_count_divisors(N);\r\n    for\
     \ (int n = 1; n <= N; n++) assert(count_divisor(n) == dv[n]);\r\n\r\n    // sum_of_divisor\
@@ -206,8 +210,8 @@ data:
   isVerificationFile: true
   path: NumberTheory/Yosupo/Unit_test_math.test.cpp
   requiredBy: []
-  timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2026-11-01 15:30:06+07:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: NumberTheory/Yosupo/Unit_test_math.test.cpp
 layout: document

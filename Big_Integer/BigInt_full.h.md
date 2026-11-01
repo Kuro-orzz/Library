@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []
@@ -442,13 +442,13 @@ data:
   timestamp: '2026-10-13 05:42:39+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Big_Integer/Yosupo/Unit_test_math.test.cpp
+  - Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
   - Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
   - Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
-  - Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
-  - Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
   - Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
-  - Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
-  - Big_Integer/Yosupo/Unit_test_math.test.cpp
+  - Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
+  - Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
 documentation_of: Big_Integer/BigInt_full.h
 layout: document
 redirect_from:

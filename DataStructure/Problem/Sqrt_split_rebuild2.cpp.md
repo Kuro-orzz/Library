@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/SqrtDecomposition/Split_Rebuild/Simplified_version.h
     title: DataStructure/SqrtDecomposition/Split_Rebuild/Simplified_version.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []

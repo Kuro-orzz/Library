@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []
@@ -181,8 +181,8 @@ data:
   timestamp: '2026-10-13 05:42:39+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
   - Sample/Many_A_plus_B_128bit.test.cpp
+  - Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
 documentation_of: Big_Integer/BigInt.h
 layout: document
 redirect_from:

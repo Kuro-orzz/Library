@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy:
@@ -61,8 +61,8 @@ data:
   isVerificationFile: false
   path: String/Rolling_Hash.h
   requiredBy:
-  - String/Problem/Rolling_Hash2.cpp
   - String/Problem/Rolling_Hash1.cpp
+  - String/Problem/Rolling_Hash2.cpp
   timestamp: '2026-10-13 05:42:39+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

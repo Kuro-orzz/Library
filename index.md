@@ -186,10 +186,10 @@ data:
       title: Misc/Small_to_large.h
   - name: NumberTheory/Math
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: NumberTheory/Math/Binary_exponentiation.h
       title: NumberTheory/Math/Binary_exponentiation.h
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: NumberTheory/Math/CheckPrime.h
       title: NumberTheory/Math/CheckPrime.h
     - icon: ':heavy_check_mark:'
@@ -198,7 +198,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Combination_any_mod.h
       title: NumberTheory/Math/Combination_any_mod.h
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: NumberTheory/Math/Divisors.h
       title: NumberTheory/Math/Divisors.h
     - icon: ':heavy_check_mark:'
@@ -207,16 +207,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Extended_euclid.h
       title: NumberTheory/Math/Extended_euclid.h
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: NumberTheory/Math/Factorial.h
       title: NumberTheory/Math/Factorial.h
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Factorization.h
       title: NumberTheory/Math/Factorization.h
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: NumberTheory/Math/MillerRabin.h
       title: NumberTheory/Math/MillerRabin.h
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: NumberTheory/Math/Misc.h
       title: NumberTheory/Math/Misc.h
     - icon: ':heavy_check_mark:'
@@ -228,7 +228,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Primitive_root.h
       title: NumberTheory/Math/Primitive_root.h
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: NumberTheory/Math/Sieve.h
       title: NumberTheory/Math/Sieve.h
   - name: String
@@ -285,7 +285,7 @@ data:
     - icon: ':warning:'
       path: setup.py
       title: setup.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template.h
       title: template.h
     - icon: ':warning:'
@@ -426,7 +426,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Counting_primes.test.cpp
       title: NumberTheory/Yosupo/Counting_primes.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: NumberTheory/Yosupo/Enumerate_primes.test.cpp
       title: NumberTheory/Yosupo/Enumerate_primes.test.cpp
     - icon: ':heavy_check_mark:'
@@ -441,7 +441,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Primitive_root.test.cpp
       title: NumberTheory/Yosupo/Primitive_root.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: NumberTheory/Yosupo/Unit_test_math.test.cpp
       title: NumberTheory/Yosupo/Unit_test_math.test.cpp
   - name: Sample

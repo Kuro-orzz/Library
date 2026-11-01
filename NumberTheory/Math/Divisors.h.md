@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: NumberTheory/Math/Binary_exponentiation.h
     title: NumberTheory/Math/Binary_exponentiation.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: NumberTheory/Math/MillerRabin.h
     title: NumberTheory/Math/MillerRabin.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/Sieve.h
     title: NumberTheory/Math/Sieve.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Yosupo/Unit_test_math.test.cpp
     title: NumberTheory/Yosupo/Unit_test_math.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: h
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://codeforces.com/gym/100753
@@ -64,8 +64,8 @@ data:
     \ 2;\r\n        k++;\r\n    }\r\n    for (int a : {2, 3, 5, 7, 11, 13, 17, 19,\
     \ 23, 29, 31, 37}) {\r\n        if (n == a) return true;\r\n        if (!millerTest(a,\
     \ n, k, m)) return false;\r\n    }\r\n    return true;\r\n}\n#line 2 \"NumberTheory/Math/Sieve.h\"\
-    \n\r\nvector<int> sieve(int n) {\r\n    vector<int> nt(n+1, 1);\r\n    nt[0] =\
-    \ nt[1] = 0;\r\n    for (int i = 2; i * i <= n; i++) {\r\n        if (!nt[i])\
+    \n\r\n\r\nvector<int> sieve(int n) {\r\n    vector<int> nt(n+1, 1);\r\n    nt[0]\
+    \ = nt[1] = 0;\r\n    for (int i = 2; i * i <= n; i++) {\r\n        if (!nt[i])\
     \ continue;\r\n        for (int j = i * i; j <= n; j += i)\r\n            nt[j]\
     \ = 0;\r\n    }\r\n    return nt;\r\n}\r\n\r\nvector<int> segmentSieve(ll l, ll\
     \ r){\r\n    ll sq = sqrtl(r);\r\n    while (sq * sq > r) sq--;\r\n    while (sq+1\
@@ -77,10 +77,10 @@ data:
     \        for(ll j = lim; j <= r; j += p) {\r\n            prime[j-l] = 0;\r\n\
     \        }\r\n    }\r\n    if (l == 0) prime[0] = 0;\r\n    if (l == 0 && r >\
     \ l) prime[1] = 0;\r\n    if (l == 1) prime[1-l] = 0;\r\n    return prime;\r\n\
-    }\r\n\r\nvector<int> listPrime(int l, int r) {\r\n    vector<int> prime = segmentSieve(l,\
-    \ r);\r\n    vector<int> listPi;\r\n    for (int i = l; i <= r; i++) {\r\n   \
-    \     if (prime[i-l]) listPi.push_back(i);\r\n    }\r\n    return listPi;\r\n\
-    }\r\n\r\nvector<int> sieve_count_divisors(int n) {\r\n    vector<int> divisors(n+1,\
+    }\r\n\r\nvector<ll> listPrime(ll l, ll r) {\r\n    vector<int> prime = segmentSieve(l,\
+    \ r);\r\n    vector<ll> listOfPrimes;\r\n    for (ll i = l; i <= r; i++) {\r\n\
+    \        if (prime[i-l]) listOfPrimes.push_back(i);\r\n    }\r\n    return listOfPrimes\
+    \ ;\r\n}\r\n\r\nvector<int> sieve_count_divisors(int n) {\r\n    vector<int> divisors(n+1,\
     \ 0);\r\n    for (ll i = 1; i*i <= n; i++) {\r\n        for (ll j = i*i; j <=\
     \ n; j += i) {\r\n            divisors[j] += 2;\r\n        }\r\n        divisors[i*i]--;\r\
     \n    }\r\n    return divisors;\r\n}\r\n\r\nvector<int> sieve_sum_divisors(int\
@@ -135,8 +135,8 @@ data:
   isVerificationFile: false
   path: NumberTheory/Math/Divisors.h
   requiredBy: []
-  timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-11-01 15:30:06+07:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - NumberTheory/Yosupo/Unit_test_math.test.cpp
 documentation_of: NumberTheory/Math/Divisors.h

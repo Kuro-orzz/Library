@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Tree/Tree/Lca.h
     title: Tree/Tree/Lca.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy:
@@ -84,8 +84,8 @@ data:
   isVerificationFile: false
   path: DataStructure/SegTree/PersistentSegTree.h
   requiredBy:
-  - DataStructure/Problem/PersistentSegTree1.cpp
   - DataStructure/Problem/PersistentSegTree2.cpp
+  - DataStructure/Problem/PersistentSegTree1.cpp
   timestamp: '2026-10-13 05:42:39+07:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

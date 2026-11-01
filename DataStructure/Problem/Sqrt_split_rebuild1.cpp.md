@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: DataStructure/SqrtDecomposition/Split_Rebuild/Full_version.h
     title: DataStructure/SqrtDecomposition/Split_Rebuild/Full_version.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []

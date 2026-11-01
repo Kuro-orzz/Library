@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy:
@@ -33,44 +33,44 @@ data:
     \n    // cin.exceptions(cin.failbit);\r\n    // int t; cin >> t;\r\n    // while(t--)\r\
     \n        solve();\r\n    cerr << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC\
     \ << \"ms\" << '\\n';\r\n    return 0;\r\n}\n#line 2 \"NumberTheory/Math/Factorization.h\"\
-    \n\r\n\r\n// 360 -> [2, 2, 2, 3, 3, 5]\r\nvector<ll> primeFactor(ll n) {\r\n \
-    \   vector<ll> factor;\r\n    for (int i : {2, 3, 5}) {\r\n        while (n %\
-    \ i == 0) {\r\n            n /= i;\r\n            factor.push_back(i);\r\n   \
-    \     }\r\n    }\r\n    int inc[] = {4, 2, 4, 2, 4, 6, 2, 6};\r\n    int j = 0;\r\
-    \n    ll lim = sqrtl(n);\r\n    while (lim > 0 && lim > n / lim) lim--;\r\n  \
-    \  for (ll i = 7; i <= lim; i += inc[j%8], j++) {\r\n        if (n % i) continue;\r\
+    \n\r\n\r\n// Can use for n <= 10^18\r\n// 360 -> [2, 2, 2, 3, 3, 5]\r\nvector<ll>\
+    \ primeFactor(ll n) {\r\n    vector<ll> factor;\r\n    for (int i : {2, 3, 5})\
+    \ {\r\n        while (n % i == 0) {\r\n            n /= i;\r\n            factor.push_back(i);\r\
+    \n        }\r\n    }\r\n    int inc[] = {4, 2, 4, 2, 4, 6, 2, 6};\r\n    int j\
+    \ = 0;\r\n    ll lim = sqrtl(n);\r\n    while (lim > 0 && lim > n / lim) lim--;\r\
+    \n    for (ll i = 7; i <= lim; i += inc[j%8], j++) {\r\n        if (n % i) continue;\r\
     \n        while(n % i == 0) {\r\n            n /= i;\r\n            factor.push_back(i);\r\
     \n        }\r\n        lim = sqrtl(n);\r\n        while (lim > 0 && lim > n /\
     \ lim) lim--;\r\n    }\r\n    if (n > 1) factor.push_back(n);\r\n    return factor;\r\
     \n}\r\n\r\n// [2, 2, 2, 3, 3, 5] -> [(2,3), (3,2), (5,1)]\r\nvector<pll> primeFactorPow(ll\
     \ n) {\r\n    vector<pll> res;\r\n    for (ll p : primeFactor(n))\r\n        if\
     \ (!res.empty() && res.back().fi == p) res.back().se++;\r\n        else res.push_back({p,\
-    \ 1});\r\n    return res;\r\n}\n"
-  code: "#include \"../../template.h\"\r\n\r\n\r\n// 360 -> [2, 2, 2, 3, 3, 5]\r\n\
-    vector<ll> primeFactor(ll n) {\r\n    vector<ll> factor;\r\n    for (int i : {2,\
-    \ 3, 5}) {\r\n        while (n % i == 0) {\r\n            n /= i;\r\n        \
-    \    factor.push_back(i);\r\n        }\r\n    }\r\n    int inc[] = {4, 2, 4, 2,\
-    \ 4, 6, 2, 6};\r\n    int j = 0;\r\n    ll lim = sqrtl(n);\r\n    while (lim >\
-    \ 0 && lim > n / lim) lim--;\r\n    for (ll i = 7; i <= lim; i += inc[j%8], j++)\
-    \ {\r\n        if (n % i) continue;\r\n        while(n % i == 0) {\r\n       \
-    \     n /= i;\r\n            factor.push_back(i);\r\n        }\r\n        lim\
-    \ = sqrtl(n);\r\n        while (lim > 0 && lim > n / lim) lim--;\r\n    }\r\n\
-    \    if (n > 1) factor.push_back(n);\r\n    return factor;\r\n}\r\n\r\n// [2,\
-    \ 2, 2, 3, 3, 5] -> [(2,3), (3,2), (5,1)]\r\nvector<pll> primeFactorPow(ll n)\
-    \ {\r\n    vector<pll> res;\r\n    for (ll p : primeFactor(n))\r\n        if (!res.empty()\
-    \ && res.back().fi == p) res.back().se++;\r\n        else res.push_back({p, 1});\r\
-    \n    return res;\r\n}"
+    \ 1});\r\n    return res;\r\n}\r\n\r\n"
+  code: "#include \"../../template.h\"\r\n\r\n\r\n// Can use for n <= 10^18\r\n//\
+    \ 360 -> [2, 2, 2, 3, 3, 5]\r\nvector<ll> primeFactor(ll n) {\r\n    vector<ll>\
+    \ factor;\r\n    for (int i : {2, 3, 5}) {\r\n        while (n % i == 0) {\r\n\
+    \            n /= i;\r\n            factor.push_back(i);\r\n        }\r\n    }\r\
+    \n    int inc[] = {4, 2, 4, 2, 4, 6, 2, 6};\r\n    int j = 0;\r\n    ll lim =\
+    \ sqrtl(n);\r\n    while (lim > 0 && lim > n / lim) lim--;\r\n    for (ll i =\
+    \ 7; i <= lim; i += inc[j%8], j++) {\r\n        if (n % i) continue;\r\n     \
+    \   while(n % i == 0) {\r\n            n /= i;\r\n            factor.push_back(i);\r\
+    \n        }\r\n        lim = sqrtl(n);\r\n        while (lim > 0 && lim > n /\
+    \ lim) lim--;\r\n    }\r\n    if (n > 1) factor.push_back(n);\r\n    return factor;\r\
+    \n}\r\n\r\n// [2, 2, 2, 3, 3, 5] -> [(2,3), (3,2), (5,1)]\r\nvector<pll> primeFactorPow(ll\
+    \ n) {\r\n    vector<pll> res;\r\n    for (ll p : primeFactor(n))\r\n        if\
+    \ (!res.empty() && res.back().fi == p) res.back().se++;\r\n        else res.push_back({p,\
+    \ 1});\r\n    return res;\r\n}\r\n\r\n"
   dependsOn:
   - template.h
   isVerificationFile: false
   path: NumberTheory/Math/Factorization.h
   requiredBy:
   - NumberTheory/Math/Combination_any_mod.h
-  timestamp: '2026-10-13 05:42:39+07:00'
+  timestamp: '2026-11-01 15:30:06+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - NumberTheory/Aizu/aizu_ntl_1_a_prime_factor.test.cpp
   - NumberTheory/Yosupo/Binomial_coefficient.test.cpp
+  - NumberTheory/Aizu/aizu_ntl_1_a_prime_factor.test.cpp
 documentation_of: NumberTheory/Math/Factorization.h
 layout: document
 redirect_from:

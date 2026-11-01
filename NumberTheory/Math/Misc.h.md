@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []
@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
     title: NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Yosupo/Unit_test_math.test.cpp
     title: NumberTheory/Yosupo/Unit_test_math.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: h
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -31,32 +31,41 @@ data:
     \n        solve();\r\n    cerr << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC\
     \ << \"ms\" << '\\n';\r\n    return 0;\r\n}\n#line 2 \"NumberTheory/Math/Misc.h\"\
     \n\r\n\r\n// for both negative + positive val\r\nll GCD(ll a, ll b) {\r\n    a\
-    \ = llabs(a), b = llabs(b);\r\n    return (!b ? a : GCD(b, a % b));\r\n}\r\nll\
-    \ LCM(ll a, ll b) { return (!a || !b) ? 0 : llabs(a / GCD(a, b) * b); }\r\n\r\n\
-    // Only positive\r\n// ll GCD(ll a, ll b) { return (!b ? a : GCD(b, a % b)); }\r\
-    \n// ll LCM(ll a, ll b) { return a / GCD(a, b) * b; }\r\n\r\n// logb(a)\r\ndouble\
-    \ log_base(ll a, ll b) { return log(a) / log(b); }\r\n\r\n// use for 2 <= BASE\
-    \ <= 36\r\nstring decimal_to_base(ll n, int BASE) {\r\n    if (!n) return \"0\"\
-    ;\r\n    bool neg = (n < 0 ? 1 : 0);\r\n    n = llabs(n);\r\n    string num =\
-    \ \"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\r\n    string res;\r\n    while(n)\
-    \ {\r\n        res.push_back(num[n % BASE]);\r\n        n /= BASE;\r\n    }\r\n\
-    \    if (neg) res += '-';\r\n    reverse(all(res));\r\n    return res;\r\n}\r\n\
-    \r\n// any BASE to decimal\r\n// use ctype lib\r\nll convert_decimal(string s,\
-    \ int BASE) {\r\n    auto val = [&](char c) { c = toupper(c); return (isdigit(c)\
-    \ ? c-'0' : c-'A'+10); };\r\n    ll n = s.size(), p = 1, res = 0;\r\n    for (int\
-    \ i = n-1; i >= 0; i--) {\r\n        res += val(s[i]) * p;\r\n        p = p *\
-    \ BASE;\r\n    }\r\n    return res;\r\n}\n"
-  code: "#include \"../../template.h\"\r\n\r\n\r\n// for both negative + positive\
-    \ val\r\nll GCD(ll a, ll b) {\r\n    a = llabs(a), b = llabs(b);\r\n    return\
-    \ (!b ? a : GCD(b, a % b));\r\n}\r\nll LCM(ll a, ll b) { return (!a || !b) ? 0\
-    \ : llabs(a / GCD(a, b) * b); }\r\n\r\n// Only positive\r\n// ll GCD(ll a, ll\
-    \ b) { return (!b ? a : GCD(b, a % b)); }\r\n// ll LCM(ll a, ll b) { return a\
-    \ / GCD(a, b) * b; }\r\n\r\n// logb(a)\r\ndouble log_base(ll a, ll b) { return\
-    \ log(a) / log(b); }\r\n\r\n// use for 2 <= BASE <= 36\r\nstring decimal_to_base(ll\
-    \ n, int BASE) {\r\n    if (!n) return \"0\";\r\n    bool neg = (n < 0 ? 1 : 0);\r\
-    \n    n = llabs(n);\r\n    string num = \"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\"\
+    \ = llabs(a), b = llabs(b);\r\n    return (!b ? a : GCD(b, a % b));\r\n}\r\n//\
+    \ Binary GCD (Stein's algorithm)\r\n// ll GCD(ll a, ll b) {\r\n//     if (!a ||\
+    \ !b) return a | b;\r\n//     int shift = __builtin_ctzll(a | b);\r\n//     a\
+    \ >>= __builtin_ctzll(a);\r\n//     do {\r\n//         b >>= __builtin_ctzll(b);\r\
+    \n//         if (a > b)\r\n//             swap(a, b);\r\n//         b -= a;\r\n\
+    //     } while (b);\r\n//     return a << shift;\r\n// }\r\nll LCM(ll a, ll b)\
+    \ { return (!a || !b) ? 0 : llabs(a / GCD(a, b) * b); }\r\n\r\n// Only positive\r\
+    \n// ll GCD(ll a, ll b) { return (!b ? a : GCD(b, a % b)); }\r\n// ll LCM(ll a,\
+    \ ll b) { return a / GCD(a, b) * b; }\r\n\r\n// logb(a)\r\ndouble log_base(ll\
+    \ a, ll b) { return log(a) / log(b); }\r\n\r\n// use for 2 <= BASE <= 36\r\nstring\
+    \ decimal_to_base(ll n, int BASE) {\r\n    if (!n) return \"0\";\r\n    bool neg\
+    \ = (n < 0 ? 1 : 0);\r\n    n = llabs(n);\r\n    string num = \"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\"\
     ;\r\n    string res;\r\n    while(n) {\r\n        res.push_back(num[n % BASE]);\r\
     \n        n /= BASE;\r\n    }\r\n    if (neg) res += '-';\r\n    reverse(all(res));\r\
+    \n    return res;\r\n}\r\n\r\n// any BASE to decimal\r\n// use ctype lib\r\nll\
+    \ convert_decimal(string s, int BASE) {\r\n    auto val = [&](char c) { c = toupper(c);\
+    \ return (isdigit(c) ? c-'0' : c-'A'+10); };\r\n    ll n = s.size(), p = 1, res\
+    \ = 0;\r\n    for (int i = n-1; i >= 0; i--) {\r\n        res += val(s[i]) * p;\r\
+    \n        p = p * BASE;\r\n    }\r\n    return res;\r\n}\n"
+  code: "#include \"../../template.h\"\r\n\r\n\r\n// for both negative + positive\
+    \ val\r\nll GCD(ll a, ll b) {\r\n    a = llabs(a), b = llabs(b);\r\n    return\
+    \ (!b ? a : GCD(b, a % b));\r\n}\r\n// Binary GCD (Stein's algorithm)\r\n// ll\
+    \ GCD(ll a, ll b) {\r\n//     if (!a || !b) return a | b;\r\n//     int shift\
+    \ = __builtin_ctzll(a | b);\r\n//     a >>= __builtin_ctzll(a);\r\n//     do {\r\
+    \n//         b >>= __builtin_ctzll(b);\r\n//         if (a > b)\r\n//        \
+    \     swap(a, b);\r\n//         b -= a;\r\n//     } while (b);\r\n//     return\
+    \ a << shift;\r\n// }\r\nll LCM(ll a, ll b) { return (!a || !b) ? 0 : llabs(a\
+    \ / GCD(a, b) * b); }\r\n\r\n// Only positive\r\n// ll GCD(ll a, ll b) { return\
+    \ (!b ? a : GCD(b, a % b)); }\r\n// ll LCM(ll a, ll b) { return a / GCD(a, b)\
+    \ * b; }\r\n\r\n// logb(a)\r\ndouble log_base(ll a, ll b) { return log(a) / log(b);\
+    \ }\r\n\r\n// use for 2 <= BASE <= 36\r\nstring decimal_to_base(ll n, int BASE)\
+    \ {\r\n    if (!n) return \"0\";\r\n    bool neg = (n < 0 ? 1 : 0);\r\n    n =\
+    \ llabs(n);\r\n    string num = \"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\r\n\
+    \    string res;\r\n    while(n) {\r\n        res.push_back(num[n % BASE]);\r\n\
+    \        n /= BASE;\r\n    }\r\n    if (neg) res += '-';\r\n    reverse(all(res));\r\
     \n    return res;\r\n}\r\n\r\n// any BASE to decimal\r\n// use ctype lib\r\nll\
     \ convert_decimal(string s, int BASE) {\r\n    auto val = [&](char c) { c = toupper(c);\
     \ return (isdigit(c) ? c-'0' : c-'A'+10); };\r\n    ll n = s.size(), p = 1, res\
@@ -67,11 +76,11 @@ data:
   isVerificationFile: false
   path: NumberTheory/Math/Misc.h
   requiredBy: []
-  timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2026-11-01 15:30:06+07:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
   - NumberTheory/Yosupo/Unit_test_math.test.cpp
+  - NumberTheory/Aizu/aizu_alds1_1_b_gcd.test.cpp
 documentation_of: NumberTheory/Math/Misc.h
 layout: document
 redirect_from:

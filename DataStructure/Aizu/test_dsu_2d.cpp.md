@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: DataStructure/DSU/Dsu_2D.h
     title: DataStructure/DSU/Dsu_2D.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []

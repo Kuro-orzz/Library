@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy:
@@ -11,10 +11,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Combination_any_mod.h
     title: NumberTheory/Math/Combination_any_mod.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Math/Divisors.h
     title: NumberTheory/Math/Divisors.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: NumberTheory/Math/MillerRabin.h
     title: NumberTheory/Math/MillerRabin.h
   - icon: ':heavy_check_mark:'
@@ -45,12 +45,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Primitive_root.test.cpp
     title: NumberTheory/Yosupo/Primitive_root.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: NumberTheory/Yosupo/Unit_test_math.test.cpp
     title: NumberTheory/Yosupo/Unit_test_math.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: h
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -95,23 +95,23 @@ data:
   isVerificationFile: false
   path: NumberTheory/Math/Binary_exponentiation.h
   requiredBy:
-  - NumberTheory/Math/Pollard_rho.h
   - NumberTheory/Math/Combination.h
   - NumberTheory/Math/Primality_test.h
-  - NumberTheory/Math/Divisors.h
-  - NumberTheory/Math/MillerRabin.h
   - NumberTheory/Math/Primitive_root.h
+  - NumberTheory/Math/MillerRabin.h
+  - NumberTheory/Math/Pollard_rho.h
+  - NumberTheory/Math/Divisors.h
   - NumberTheory/Math/Combination_any_mod.h
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - NumberTheory/Aizu/aizu_ntl_1_b_power_mod.test.cpp
-  - NumberTheory/Yosupo/Unit_test_math.test.cpp
-  - NumberTheory/Yosupo/Primitive_root.test.cpp
-  - NumberTheory/Yosupo/Factorize.test.cpp
-  - NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
-  - NumberTheory/Yosupo/Binomial_coefficient.test.cpp
   - NumberTheory/Yosupo/Primality_test.test.cpp
+  - NumberTheory/Yosupo/Binomial_coefficient.test.cpp
+  - NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
+  - NumberTheory/Yosupo/Factorize.test.cpp
+  - NumberTheory/Yosupo/Primitive_root.test.cpp
+  - NumberTheory/Yosupo/Unit_test_math.test.cpp
+  - NumberTheory/Aizu/aizu_ntl_1_b_power_mod.test.cpp
 documentation_of: NumberTheory/Math/Binary_exponentiation.h
 layout: document
 redirect_from:

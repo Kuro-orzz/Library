@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: NumberTheory/Math/Binary_exponentiation.h
     title: NumberTheory/Math/Binary_exponentiation.h
   - icon: ':heavy_check_mark:'
@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Factorization.h
     title: NumberTheory/Math/Factorization.h
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []
@@ -50,19 +50,19 @@ data:
     \ {\r\n    a %= M;\r\n    ll res = 1 % M;\r\n    while (b) {\r\n        if (b\
     \ & 1) res = (i128)res * a % M;\r\n        a = (i128)a * a % M;\r\n        b /=\
     \ 2;\r\n    }\r\n    return res;\r\n}\n#line 2 \"NumberTheory/Math/Factorization.h\"\
-    \n\r\n\r\n// 360 -> [2, 2, 2, 3, 3, 5]\r\nvector<ll> primeFactor(ll n) {\r\n \
-    \   vector<ll> factor;\r\n    for (int i : {2, 3, 5}) {\r\n        while (n %\
-    \ i == 0) {\r\n            n /= i;\r\n            factor.push_back(i);\r\n   \
-    \     }\r\n    }\r\n    int inc[] = {4, 2, 4, 2, 4, 6, 2, 6};\r\n    int j = 0;\r\
-    \n    ll lim = sqrtl(n);\r\n    while (lim > 0 && lim > n / lim) lim--;\r\n  \
-    \  for (ll i = 7; i <= lim; i += inc[j%8], j++) {\r\n        if (n % i) continue;\r\
+    \n\r\n\r\n// Can use for n <= 10^18\r\n// 360 -> [2, 2, 2, 3, 3, 5]\r\nvector<ll>\
+    \ primeFactor(ll n) {\r\n    vector<ll> factor;\r\n    for (int i : {2, 3, 5})\
+    \ {\r\n        while (n % i == 0) {\r\n            n /= i;\r\n            factor.push_back(i);\r\
+    \n        }\r\n    }\r\n    int inc[] = {4, 2, 4, 2, 4, 6, 2, 6};\r\n    int j\
+    \ = 0;\r\n    ll lim = sqrtl(n);\r\n    while (lim > 0 && lim > n / lim) lim--;\r\
+    \n    for (ll i = 7; i <= lim; i += inc[j%8], j++) {\r\n        if (n % i) continue;\r\
     \n        while(n % i == 0) {\r\n            n /= i;\r\n            factor.push_back(i);\r\
     \n        }\r\n        lim = sqrtl(n);\r\n        while (lim > 0 && lim > n /\
     \ lim) lim--;\r\n    }\r\n    if (n > 1) factor.push_back(n);\r\n    return factor;\r\
     \n}\r\n\r\n// [2, 2, 2, 3, 3, 5] -> [(2,3), (3,2), (5,1)]\r\nvector<pll> primeFactorPow(ll\
     \ n) {\r\n    vector<pll> res;\r\n    for (ll p : primeFactor(n))\r\n        if\
     \ (!res.empty() && res.back().fi == p) res.back().se++;\r\n        else res.push_back({p,\
-    \ 1});\r\n    return res;\r\n}\n#line 4 \"NumberTheory/Math/Combination_any_mod.h\"\
+    \ 1});\r\n    return res;\r\n}\r\n\r\n#line 4 \"NumberTheory/Math/Combination_any_mod.h\"\
     \n\r\n\r\n// https://codeforces.com/blog/entry/116681\r\n// https://wiki.vnoi.info/translate/he/Lucas-theorem\r\
     \n// Extended Lucas (granville theorem)\r\n// C(n, k) % m when m is NOT prime\r\
     \n//\r\n// Step 1: cut m into prime powers\r\n//    m = p1^e1 * p2^e2 * ...\r\n\
@@ -139,7 +139,7 @@ data:
   isVerificationFile: true
   path: NumberTheory/Yosupo/Binomial_coefficient.test.cpp
   requiredBy: []
-  timestamp: '2026-10-13 05:42:39+07:00'
+  timestamp: '2026-11-01 15:30:06+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: NumberTheory/Yosupo/Binomial_coefficient.test.cpp
