@@ -1,4 +1,5 @@
 #include "../template.h"
+#include "../../NumberTheory/Math/EulerPhi.h"
 
 
 // Still slow ver, need optimize by FFT
@@ -309,14 +310,45 @@ public:
         return oss.str();
     }
 
+    // ------------------- Binary Exponentiation -----------------
+    friend BigInt pow(const BigInt &a, const BigInt &b, ll mod) {
+        auto reduce = [&](ll m) {                       // *this mod m, không copy
+            return [&, m](const BigInt &x) {
+                ll r = 0;
+                for (int i = (int)x.size() - 1; i >= 0; i--) r = (r * BASE + x[i]) % m;
+                return r;
+            };
+        };
+        ll x = reduce(mod)(a) , e;
+        if (b.isZero()) return BigInt(1 % mod);
+        if (b.size() > 1 || b[0] >= 32) {
+            ll ph = eulerPhi(mod);
+            e = reduce(ph)(b) + ph;
+        } else {
+            e = b[0];
+        }
+        ll res = 1 % mod;
+        for (; e; e >>= 1, x = x * x % mod) {
+            if (e & 1) res = res * x % mod;
+        }
+        return BigInt(res);
+    }
+
     // only support b >= 0, if b < 0 need to implement modulo inverse
-    friend BigInt pow(const BigInt &a, const BigInt &b, ll mod) { return pow(a, b, BigInt(mod)); }
     friend BigInt pow(const BigInt &a, const BigInt &b, const BigInt &mod) {
-        BigInt x(a), y(b), res(1);
-        while (y != 0) {
-            if (y[0] % 2 == 1) res = res * x % mod;
-            x = x * x % mod;
-            y /= 2;
+        BigInt x = a % mod, res = BigInt(1) % mod;
+        auto pw = [&](BigInt t, uint32_t e) {           // t^e mod `mod`
+            BigInt r = BigInt(1) % mod;
+            while (e) {
+                if (e & 1) r = r * t % mod;
+                e >>= 1;
+                if (e) t = t * t % mod;
+            }
+            return r;
+        };
+        for (int i = 0; i < (int)b.size(); i++) {       // b = sum b[i] * BASE^i
+            if (b[i]) res = res * pw(x, b[i]) % mod;    // res *= x^(b[i])
+            if (i + 1 < (int)b.size()) x = pw(x, BASE); // x = x^BASE
         }
         return res;
     }

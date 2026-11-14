@@ -1,5 +1,6 @@
 #include "../../template.h"
 
+
 ll eulerPhi(ll n) {
     if (n == 0) return 0;
     ll ans = n;

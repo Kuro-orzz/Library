@@ -16,14 +16,14 @@ void solve() {
         i++;
     }
 
-    vector<int> prime = listPrime(0, lim);
+    vector<ll> prime = listPrime(0ll, (ll)lim);
     vector<int> res;
     int cnt = 0, idx = 0;
     for (int l = 2; l <= n; l += lim) {
         int r = min(l + lim - 1, n);
         vector<int> isPrime(r - l + 1, 1);
-        for (int p : prime) {
-            ll low = max(1ll*p*p, 1ll*(l+p-1)/p*p);
+        for (ll p : prime) {
+            ll low = max(p*p, (l+p-1)/p*p);
             for (ll j = low; j <= r; j += p) {
                 if (j-l >= 0) isPrime[j-l] = 0;
             }

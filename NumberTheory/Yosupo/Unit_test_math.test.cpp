@@ -4,6 +4,7 @@
 #include "../Math/Divisors.h"
 #include "../Math/Factorial.h"
 #include "../Math/Misc.h"
+#include "../Math/Sieve.h"
 
 void solve() {
     const int N = 200000;
