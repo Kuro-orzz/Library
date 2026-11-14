@@ -1,11 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.h
     title: template.h
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/BigInt_full.h
+    title: Big_Integer/BigInt_full.h
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
+    title: Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
+    title: Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
+    title: Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
+    title: Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
+    title: Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
+    title: Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Yosupo/Unit_test_math.test.cpp
+    title: Big_Integer/Yosupo/Unit_test_math.test.cpp
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
     title: NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
@@ -68,11 +92,19 @@ data:
   - template.h
   isVerificationFile: false
   path: NumberTheory/Math/EulerPhi.h
-  requiredBy: []
+  requiredBy:
+  - Big_Integer/BigInt_full.h
   timestamp: '2026-11-14 09:23:40+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp
+  - Big_Integer/Yosupo/Unit_test_math.test.cpp
+  - Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
+  - Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
 documentation_of: NumberTheory/Math/EulerPhi.h
 layout: document
 redirect_from:

@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Big_Integer/BigInt.h
       title: Big_Integer/BigInt.h
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Big_Integer/BigInt_full.h
       title: Big_Integer/BigInt_full.h
   - name: DataStructure/Aizu
@@ -186,7 +186,7 @@ data:
       title: Misc/Small_to_large.h
   - name: NumberTheory/Math
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Binary_exponentiation.h
       title: NumberTheory/Math/Binary_exponentiation.h
     - icon: ':heavy_check_mark:'
@@ -198,7 +198,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Combination_any_mod.h
       title: NumberTheory/Math/Combination_any_mod.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Divisors.h
       title: NumberTheory/Math/Divisors.h
     - icon: ':heavy_check_mark:'
@@ -207,16 +207,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Extended_euclid.h
       title: NumberTheory/Math/Extended_euclid.h
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Factorial.h
       title: NumberTheory/Math/Factorial.h
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Factorization.h
       title: NumberTheory/Math/Factorization.h
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/MillerRabin.h
       title: NumberTheory/Math/MillerRabin.h
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Misc.h
       title: NumberTheory/Math/Misc.h
     - icon: ':heavy_check_mark:'
@@ -228,7 +228,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Primitive_root.h
       title: NumberTheory/Math/Primitive_root.h
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Sieve.h
       title: NumberTheory/Math/Sieve.h
   - name: String
@@ -285,7 +285,7 @@ data:
     - icon: ':warning:'
       path: setup.py
       title: setup.py
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template.h
       title: template.h
     - icon: ':warning:'
@@ -294,22 +294,22 @@ data:
   verificationCategories:
   - name: Big_Integer/Aizu
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
       title: Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
       title: Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
       title: Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
       title: Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
       title: Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
       title: Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
   - name: Big_Integer/Yosupo
@@ -317,7 +317,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
       title: Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Big_Integer/Yosupo/Unit_test_math.test.cpp
       title: Big_Integer/Yosupo/Unit_test_math.test.cpp
   - name: DataStructure/Aizu
@@ -441,7 +441,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Primitive_root.test.cpp
       title: NumberTheory/Yosupo/Primitive_root.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Unit_test_math.test.cpp
       title: NumberTheory/Yosupo/Unit_test_math.test.cpp
   - name: Sample

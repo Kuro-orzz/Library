@@ -70,3 +70,7 @@ $$
 ## 3. [Binary Exponentation](https://wiki.vnoi.info/vi/algo/algebra/binary_exponentation)
 
 - Ứng dụng: tính số fibonanci <= 10^18
+
+
+## 4. [Modular inverse](https://wiki.vnoi.info/vi/algo/math/modular-inverse)
+

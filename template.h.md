@@ -5,6 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Big_Integer/BigInt.h
     title: Big_Integer/BigInt.h
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/BigInt_full.h
+    title: Big_Integer/BigInt_full.h
   - icon: ':warning:'
     path: DataStructure/Aizu/test_dsu_2d.cpp
     title: DataStructure/Aizu/test_dsu_2d.cpp
@@ -143,7 +146,7 @@ data:
   - icon: ':warning:'
     path: Misc/Small_to_large.h
     title: Misc/Small_to_large.h
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Binary_exponentiation.h
     title: NumberTheory/Math/Binary_exponentiation.h
   - icon: ':heavy_check_mark:'
@@ -155,7 +158,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Combination_any_mod.h
     title: NumberTheory/Math/Combination_any_mod.h
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Divisors.h
     title: NumberTheory/Math/Divisors.h
   - icon: ':heavy_check_mark:'
@@ -164,16 +167,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Extended_euclid.h
     title: NumberTheory/Math/Extended_euclid.h
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Factorial.h
     title: NumberTheory/Math/Factorial.h
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Factorization.h
     title: NumberTheory/Math/Factorization.h
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/MillerRabin.h
     title: NumberTheory/Math/MillerRabin.h
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Misc.h
     title: NumberTheory/Math/Misc.h
   - icon: ':heavy_check_mark:'
@@ -185,7 +188,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Primitive_root.h
     title: NumberTheory/Math/Primitive_root.h
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/Sieve.h
     title: NumberTheory/Math/Sieve.h
   - icon: ':warning:'
@@ -229,8 +232,29 @@ data:
     title: Tree/Tree_diameter.h
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
+    title: Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
+    title: Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
+    title: Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
+    title: Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
+    title: Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
+    title: Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
     title: Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Big_Integer/Yosupo/Unit_test_math.test.cpp
+    title: Big_Integer/Yosupo/Unit_test_math.test.cpp
   - icon: ':heavy_check_mark:'
     path: DataStructure/Aizu/aizu_dsl_1_b_weighted_dsu.test.cpp
     title: DataStructure/Aizu/aizu_dsl_1_b_weighted_dsu.test.cpp
@@ -342,7 +366,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Primitive_root.test.cpp
     title: NumberTheory/Yosupo/Primitive_root.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Unit_test_math.test.cpp
     title: NumberTheory/Yosupo/Unit_test_math.test.cpp
   - icon: ':heavy_check_mark:'
@@ -372,9 +396,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
     title: Tree/Yosupo/Vertex_add_subtree_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -455,6 +479,7 @@ data:
   - Tree/Tree/Lca.h
   - Tree/Tree_diameter.h
   - Big_Integer/BigInt.h
+  - Big_Integer/BigInt_full.h
   - Dp/Knapsack.h
   - Dp/DAG.h
   - Dp/LCS.h
@@ -483,7 +508,7 @@ data:
   - Misc/ModInt.h
   - Misc/LIS.h
   timestamp: '2026-10-13 05:42:39+07:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - NumberTheory/Yosupo/Primality_test.test.cpp
   - NumberTheory/Yosupo/Counting_primes.test.cpp
@@ -524,6 +549,13 @@ data:
   - Sample/A_plus_B.test.cpp
   - Sample/Many_A_plus_B.test.cpp
   - Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
+  - Big_Integer/Yosupo/Unit_test_math.test.cpp
+  - Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
+  - Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
+  - Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
   - Graph/Aizu/aizu_grl_1_b_negative_cycle.test.cpp
   - Graph/Aizu/aizu_grl_6_b_minimum_cost_flow.test.cpp
   - Graph/Aizu/aizu_grl_6_a_maximum_flow.test.cpp

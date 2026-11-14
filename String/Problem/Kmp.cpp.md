@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: String/Kmp.h
     title: String/Kmp.h
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.h
     title: template.h
   _extendedRequiredBy: []
