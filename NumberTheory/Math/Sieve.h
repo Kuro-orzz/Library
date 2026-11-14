@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../../template.h"
 
 
@@ -43,7 +45,7 @@ vector<ll> listPrime(ll l, ll r) {
     for (ll i = l; i <= r; i++) {
         if (prime[i-l]) listOfPrimes.push_back(i);
     }
-    return listOfPrimes ;
+    return listOfPrimes;
 }
 
 vector<int> sieve_count_divisors(int n) {

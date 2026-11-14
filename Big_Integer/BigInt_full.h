@@ -1,5 +1,5 @@
 #include "../template.h"
-#include "../../NumberTheory/Math/EulerPhi.h"
+#include "../NumberTheory/Math/EulerPhi.h"
 
 
 // Still slow ver, need optimize by FFT
