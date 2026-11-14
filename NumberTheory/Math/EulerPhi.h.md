@@ -27,10 +27,10 @@ data:
     \n    // cin.exceptions(cin.failbit);\r\n    // int t; cin >> t;\r\n    // while(t--)\r\
     \n        solve();\r\n    cerr << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC\
     \ << \"ms\" << '\\n';\r\n    return 0;\r\n}\n#line 2 \"NumberTheory/Math/EulerPhi.h\"\
-    \n\r\nll eulerPhi(ll n) {\r\n    if (n == 0) return 0;\r\n    ll ans = n;\r\n\
-    \    for (ll i = 2; i*i <= n; i++) {\r\n        if (n % i == 0) {\r\n        \
-    \    ans -= ans / i;\r\n            while (n % i == 0) n /= i;\r\n        }\r\n\
-    \    }\r\n    if (n > 1) ans -= ans / n;\r\n    return ans;\r\n}\r\n\r\n// optimize\
+    \n\r\n\r\nll eulerPhi(ll n) {\r\n    if (n == 0) return 0;\r\n    ll ans = n;\r\
+    \n    for (ll i = 2; i*i <= n; i++) {\r\n        if (n % i == 0) {\r\n       \
+    \     ans -= ans / i;\r\n            while (n % i == 0) n /= i;\r\n        }\r\
+    \n    }\r\n    if (n > 1) ans -= ans / n;\r\n    return ans;\r\n}\r\n\r\n// optimize\
     \ version using wheel 6k+1\r\nll eulerPhi2(ll n) {\r\n    if (n == 0) return 0;\r\
     \n    ll ans = n;\r\n    for (ll p : {2, 3}) {\r\n        if (n % p == 0) { \r\
     \n            ans -= ans/p;\r\n            while (n % p == 0) n /= p;\r\n    \
@@ -45,9 +45,9 @@ data:
     \n            }\r\n        }\r\n    }\r\n    return phi;\r\n}\r\n\r\n// phi(a\
     \ * b) = phi(a) * phi(b) / phi(gcd(a, b)) * gcd(a, b)\r\n// int gcd = __gcd(a,\
     \ b);\r\n// int phi[a*b] = (1ull * phi[a] * phi[b] / phi[gcd] * gcd) % mod;\n"
-  code: "#include \"../../template.h\"\r\n\r\nll eulerPhi(ll n) {\r\n    if (n ==\
-    \ 0) return 0;\r\n    ll ans = n;\r\n    for (ll i = 2; i*i <= n; i++) {\r\n \
-    \       if (n % i == 0) {\r\n            ans -= ans / i;\r\n            while\
+  code: "#include \"../../template.h\"\r\n\r\n\r\nll eulerPhi(ll n) {\r\n    if (n\
+    \ == 0) return 0;\r\n    ll ans = n;\r\n    for (ll i = 2; i*i <= n; i++) {\r\n\
+    \        if (n % i == 0) {\r\n            ans -= ans / i;\r\n            while\
     \ (n % i == 0) n /= i;\r\n        }\r\n    }\r\n    if (n > 1) ans -= ans / n;\r\
     \n    return ans;\r\n}\r\n\r\n// optimize version using wheel 6k+1\r\nll eulerPhi2(ll\
     \ n) {\r\n    if (n == 0) return 0;\r\n    ll ans = n;\r\n    for (ll p : {2,\
@@ -69,7 +69,7 @@ data:
   isVerificationFile: false
   path: NumberTheory/Math/EulerPhi.h
   requiredBy: []
-  timestamp: '2026-10-13 05:42:39+07:00'
+  timestamp: '2026-11-14 09:23:40+07:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - NumberTheory/Aizu/aizu_ntl_1_d_euler_phi.test.cpp

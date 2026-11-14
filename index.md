@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Big_Integer/BigInt.h
       title: Big_Integer/BigInt.h
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: Big_Integer/BigInt_full.h
       title: Big_Integer/BigInt_full.h
   - name: DataStructure/Aizu
@@ -189,7 +189,7 @@ data:
     - icon: ':question:'
       path: NumberTheory/Math/Binary_exponentiation.h
       title: NumberTheory/Math/Binary_exponentiation.h
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/CheckPrime.h
       title: NumberTheory/Math/CheckPrime.h
     - icon: ':heavy_check_mark:'
@@ -228,7 +228,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Math/Primitive_root.h
       title: NumberTheory/Math/Primitive_root.h
-    - icon: ':x:'
+    - icon: ':question:'
       path: NumberTheory/Math/Sieve.h
       title: NumberTheory/Math/Sieve.h
   - name: String
@@ -294,22 +294,22 @@ data:
   verificationCategories:
   - name: Big_Integer/Aizu
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
       title: Big_Integer/Aizu/Addition_of_Big_Integers.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
       title: Big_Integer/Aizu/Difference_of_Big_Integers.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
       title: Big_Integer/Aizu/Division_of_Big_Integers.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
       title: Big_Integer/Aizu/Multiplication_of_Big_Integers.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
       title: Big_Integer/Aizu/Multiplication_of_Big_Integers_II.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
       title: Big_Integer/Aizu/Remainder_of_Big_Integers.test.cpp
   - name: Big_Integer/Yosupo
@@ -317,7 +317,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
       title: Big_Integer/Yosupo/Addition_of_Big_Integers.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Big_Integer/Yosupo/Unit_test_math.test.cpp
       title: Big_Integer/Yosupo/Unit_test_math.test.cpp
   - name: DataStructure/Aizu
@@ -426,7 +426,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Counting_primes.test.cpp
       title: NumberTheory/Yosupo/Counting_primes.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: NumberTheory/Yosupo/Enumerate_primes.test.cpp
       title: NumberTheory/Yosupo/Enumerate_primes.test.cpp
     - icon: ':heavy_check_mark:'

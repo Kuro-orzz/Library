@@ -91,37 +91,44 @@ data:
     \ const ModInt &p) { return out << p.x; }\n\n    int32_t get() const { return\
     \ x; }\n    static constexpr int32_t get_mod() { return mod; }\n};\n#line 2 \"\
     NumberTheory/Math/Binary_exponentiation.h\"\n\r\nusing u128 = __uint128_t;\r\n\
-    using i128 = __int128;\r\n\r\nll binMul(ll a, ll b, ll M) { return (i128)a * b\
-    \ % M; }\r\n\r\n// long double trick\r\n// require: mantissa 64 bit, x86 gcc/clang\r\
-    \nll binMul2(ll a, ll b, ll M) {\r\n    ll q = (ll)((long double)a * b / M);\r\
-    \n    ll r = (ll)((unsigned ll)a * b - (unsigned ll)q * M);\r\n    return r <\
-    \ 0 ? r + M : (r >= M ? r - M : r);\r\n}\r\n\r\nll binMul3(ll a, ll b, ll M) {\r\
-    \n    unsigned long long ua = a % M, um = M, res = 0;\r\n    while (b) {\r\n \
-    \       if (b & 1) { res += ua; if (res >= um) res -= um; }\r\n        ua <<=\
-    \ 1; if (ua >= um) ua -= um;\r\n        b >>= 1;\r\n    }\r\n    return res;\r\
-    \n}\r\n\r\nll binPow(ll a, ll b, ll M) {\r\n    a %= M;\r\n    ll res = 1 % M;\r\
-    \n    while (b) {\r\n        if (b & 1) res = (i128)res * a % M;\r\n        a\
-    \ = (i128)a * a % M;\r\n        b /= 2;\r\n    }\r\n    return res;\r\n}\n#line\
-    \ 2 \"NumberTheory/Math/Extended_euclid.h\"\n\r\n\r\nll extended1(ll a, ll b,\
-    \ ll &x, ll &y) {\r\n    if (b == 0) {\r\n        x = 1, y = 0;\r\n        return\
-    \ a;\r\n    }\r\n    ll x1, y1;\r\n    ll d = extended1(b, a%b, x1, y1);\r\n \
-    \   x = y1;\r\n    y = x1-y1*(a/b);\r\n    return d;\r\n}\r\n\r\n// Iterative\
-    \ version\r\nll extended2(ll a, ll b, ll &x, ll &y) {\r\n    x = 1, y = 0;\r\n\
-    \    ll x1 = 0, y1 = 1;\r\n    ll a1 = a, b1 = b;\r\n    while (b1) {\r\n    \
-    \    ll q = a1 / b1;\r\n        tie(x, x1) = make_tuple(x1, x - q * x1);\r\n \
-    \       tie(y, y1) = make_tuple(y1, y - q * y1);\r\n        tie(a1, b1) = make_tuple(b1,\
-    \ a1 - q * b1);\r\n    }\r\n    return a1;\r\n}\n#line 5 \"NumberTheory/Math/Combination.h\"\
-    \n\r\n// This modint only work for MOD is prime cuz using modulo inverse\r\n//\
-    \ using mint = ModInt<MOD>;\r\n\r\n// vector<mint> fact;\r\n\r\n// void preprocess()\
-    \ {\r\n//     fact[0] = 1;\r\n//     for (int i = 1; i < (int)fact.size(); i++)\
-    \ {\r\n//         fact[i] = fact[i-1] * i;\r\n//     }\r\n// }\r\n\r\n// mint\
-    \ comb(int n, int k) {\r\n//     if (k < 0 || k > n) return 0; \r\n//     return\
-    \ fact[n] / (fact[n-k] * fact[k]);\r\n// }\r\n// -----------------------------------------------------\r\
-    \n\r\n// Using for n, k <= 1e6, m is prime and n < m < 2^31\r\nstruct Comb {\r\
-    \n    ll m;\r\n    vector<int> fact, invFact;\r\n\r\n    Comb() {}\r\n    Comb(int\
-    \ maxn, ll _m) : m(_m), fact(maxn+1), invFact(maxn+1) {\r\n        fact[0] = 1;\r\
-    \n        for (int i = 1; i <= maxn; i++) fact[i] = (ll)fact[i-1] * i % m;\r\n\
-    \        invFact[maxn] = binPow(fact[maxn], m-2, m);\r\n        for (int i = maxn;\
+    using i128 = __int128;\r\n\r\n// require: gcc/clang 64-bit, M < 10^18\r\n// a,\
+    \ b \xE2m th\xEC k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 \xE2m\r\nll binMul(ll a, ll\
+    \ b, ll M) { return (i128)a * b % M; }\r\n\r\n// long double trick\r\n// require:\
+    \ mantissa 64 bit, x86 gcc/clang, M < 10^18\r\n// d\xF9ng khi c\u1EA7n t\u1ED1\
+    c \u0111\u1ED9\r\nll binMul2(ll a, ll b, ll M) {\r\n    ll q = (ll)((long double)a\
+    \ * b / M);\r\n    ll r = (ll)((unsigned ll)a * b - (unsigned ll)q * M);\r\n \
+    \   return r < 0 ? r + M : (r >= M ? r - M : r);\r\n}\r\n\r\n// nh\xE2n \u1EA4\
+    n \u0110\u1ED9\r\n// require: M < 10^18, b >= 0\r\nll binMul3(ll a, ll b, ll M)\
+    \ {\r\n    unsigned ll ua = ((a % M) + M) % M, ub = b, um = M, res = 0;\r\n  \
+    \  while (ub) {\r\n        if (ub & 1) { res += ua; if (res >= um) res -= um;\
+    \ }\r\n        ua <<= 1; if (ua >= um) ua -= um;\r\n        ub >>= 1;\r\n    }\r\
+    \n    return res;\r\n}\r\n\r\n// nh\xE2n \u1EA4n \u0110\u1ED9 \u0111\u1EC7 quy\r\
+    \n// require: M < 10^18\r\nll binMul4(ll a, ll b, ll M) {\r\n    if (!b) return\
+    \ 0;\r\n    ll x = binMul4(a, b / 2, M);\r\n    if (b & 1) return (2 * x + a)\
+    \ % M;\r\n    return 2 * x % M;\r\n}\r\n\r\nll binPow(ll a, ll b, ll M) {\r\n\
+    \    a %= M;\r\n    ll res = 1 % M;\r\n    while (b) {\r\n        if (b & 1) res\
+    \ = (i128)res * a % M;\r\n        a = (i128)a * a % M;\r\n        b /= 2;\r\n\
+    \    }\r\n    return res;\r\n}\n#line 2 \"NumberTheory/Math/Extended_euclid.h\"\
+    \n\r\n\r\nll extended1(ll a, ll b, ll &x, ll &y) {\r\n    if (b == 0) {\r\n  \
+    \      x = 1, y = 0;\r\n        return a;\r\n    }\r\n    ll x1, y1;\r\n    ll\
+    \ d = extended1(b, a%b, x1, y1);\r\n    x = y1;\r\n    y = x1-y1*(a/b);\r\n  \
+    \  return d;\r\n}\r\n\r\n// Iterative version\r\nll extended2(ll a, ll b, ll &x,\
+    \ ll &y) {\r\n    x = 1, y = 0;\r\n    ll x1 = 0, y1 = 1;\r\n    ll a1 = a, b1\
+    \ = b;\r\n    while (b1) {\r\n        ll q = a1 / b1;\r\n        tie(x, x1) =\
+    \ make_tuple(x1, x - q * x1);\r\n        tie(y, y1) = make_tuple(y1, y - q * y1);\r\
+    \n        tie(a1, b1) = make_tuple(b1, a1 - q * b1);\r\n    }\r\n    return a1;\r\
+    \n}\n#line 5 \"NumberTheory/Math/Combination.h\"\n\r\n// This modint only work\
+    \ for MOD is prime cuz using modulo inverse\r\n// using mint = ModInt<MOD>;\r\n\
+    \r\n// vector<mint> fact;\r\n\r\n// void preprocess() {\r\n//     fact[0] = 1;\r\
+    \n//     for (int i = 1; i < (int)fact.size(); i++) {\r\n//         fact[i] =\
+    \ fact[i-1] * i;\r\n//     }\r\n// }\r\n\r\n// mint comb(int n, int k) {\r\n//\
+    \     if (k < 0 || k > n) return 0; \r\n//     return fact[n] / (fact[n-k] * fact[k]);\r\
+    \n// }\r\n// -----------------------------------------------------\r\n\r\n// Using\
+    \ for n, k <= 1e6, m is prime and n < m < 2^31\r\nstruct Comb {\r\n    ll m;\r\
+    \n    vector<int> fact, invFact;\r\n\r\n    Comb() {}\r\n    Comb(int maxn, ll\
+    \ _m) : m(_m), fact(maxn+1), invFact(maxn+1) {\r\n        fact[0] = 1;\r\n   \
+    \     for (int i = 1; i <= maxn; i++) fact[i] = (ll)fact[i-1] * i % m;\r\n   \
+    \     invFact[maxn] = binPow(fact[maxn], m-2, m);\r\n        for (int i = maxn;\
     \ i >= 1; i--) invFact[i-1] = (ll)invFact[i] * i % m;\r\n    }\r\n\r\n    // C(n,\
     \ k) = n! / (k! * (n-k)!)\r\n    ll comb(int n, int k) {\r\n        if (k < 0\
     \ || k > n) return 0;\r\n        return 1ll * fact[n] * invFact[k] % m * invFact[n-k]\
@@ -160,7 +167,7 @@ data:
   isVerificationFile: true
   path: NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2026-10-13 05:42:39+07:00'
+  timestamp: '2026-11-14 09:23:40+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: NumberTheory/Yosupo/Binomial_coefficient_prime_mod.test.cpp

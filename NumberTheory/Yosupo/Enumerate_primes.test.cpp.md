@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Math/CheckPrime.h
     title: NumberTheory/Math/CheckPrime.h
-  - icon: ':x:'
+  - icon: ':question:'
     path: NumberTheory/Math/Sieve.h
     title: NumberTheory/Math/Sieve.h
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template.h
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/enumerate_primes
@@ -84,11 +84,11 @@ data:
     \n\nvoid solve() {\n    int n, a, b; cin >> n >> a >> b;\n    ll cnt_pi = Meissel(n);\n\
     \    \n    int lim = 1e6;\n    vector<int> need;\n    int i = 0;\n    while (a*i\
     \ + b <= n && (int)need.size() < lim) {\n        need.push_back(a*i+b);\n    \
-    \    i++;\n    }\n\n    vector<int> prime = listPrime(0, lim);\n    vector<int>\
+    \    i++;\n    }\n\n    vector<ll> prime = listPrime(0ll, (ll)lim);\n    vector<int>\
     \ res;\n    int cnt = 0, idx = 0;\n    for (int l = 2; l <= n; l += lim) {\n \
     \       int r = min(l + lim - 1, n);\n        vector<int> isPrime(r - l + 1, 1);\n\
-    \        for (int p : prime) {\n            ll low = max(1ll*p*p, 1ll*(l+p-1)/p*p);\n\
-    \            for (ll j = low; j <= r; j += p) {\n                if (j-l >= 0)\
+    \        for (ll p : prime) {\n            ll low = max(p*p, (l+p-1)/p*p);\n \
+    \           for (ll j = low; j <= r; j += p) {\n                if (j-l >= 0)\
     \ isPrime[j-l] = 0;\n            }\n        }\n        // vector<int> isPrime\
     \ = segmentSieve(l, r);\n\n        for (int p = l; p <= min(r, n); p++) {\n  \
     \          if (!isPrime[p-l]) continue;\n            if (cnt == need[idx]) {\n\
@@ -101,19 +101,18 @@ data:
     ../Math/Sieve.h\"\n\nvoid solve() {\n    int n, a, b; cin >> n >> a >> b;\n  \
     \  ll cnt_pi = Meissel(n);\n    \n    int lim = 1e6;\n    vector<int> need;\n\
     \    int i = 0;\n    while (a*i + b <= n && (int)need.size() < lim) {\n      \
-    \  need.push_back(a*i+b);\n        i++;\n    }\n\n    vector<int> prime = listPrime(0,\
-    \ lim);\n    vector<int> res;\n    int cnt = 0, idx = 0;\n    for (int l = 2;\
-    \ l <= n; l += lim) {\n        int r = min(l + lim - 1, n);\n        vector<int>\
-    \ isPrime(r - l + 1, 1);\n        for (int p : prime) {\n            ll low =\
-    \ max(1ll*p*p, 1ll*(l+p-1)/p*p);\n            for (ll j = low; j <= r; j += p)\
-    \ {\n                if (j-l >= 0) isPrime[j-l] = 0;\n            }\n        }\n\
-    \        // vector<int> isPrime = segmentSieve(l, r);\n\n        for (int p =\
-    \ l; p <= min(r, n); p++) {\n            if (!isPrime[p-l]) continue;\n      \
-    \      if (cnt == need[idx]) {\n                res.push_back(p);\n          \
-    \      idx++;\n            }\n            cnt++;\n            if (idx == (int)need.size())\
-    \ break;\n        }\n\n        if (idx == (int)need.size()) break;\n    }\n\n\
-    \    cout << cnt_pi << ' ' << res.size() << '\\n';\n    for (int x : res) cout\
-    \ << x << ' ';\n}"
+    \  need.push_back(a*i+b);\n        i++;\n    }\n\n    vector<ll> prime = listPrime(0ll,\
+    \ (ll)lim);\n    vector<int> res;\n    int cnt = 0, idx = 0;\n    for (int l =\
+    \ 2; l <= n; l += lim) {\n        int r = min(l + lim - 1, n);\n        vector<int>\
+    \ isPrime(r - l + 1, 1);\n        for (ll p : prime) {\n            ll low = max(p*p,\
+    \ (l+p-1)/p*p);\n            for (ll j = low; j <= r; j += p) {\n            \
+    \    if (j-l >= 0) isPrime[j-l] = 0;\n            }\n        }\n        // vector<int>\
+    \ isPrime = segmentSieve(l, r);\n\n        for (int p = l; p <= min(r, n); p++)\
+    \ {\n            if (!isPrime[p-l]) continue;\n            if (cnt == need[idx])\
+    \ {\n                res.push_back(p);\n                idx++;\n            }\n\
+    \            cnt++;\n            if (idx == (int)need.size()) break;\n       \
+    \ }\n\n        if (idx == (int)need.size()) break;\n    }\n\n    cout << cnt_pi\
+    \ << ' ' << res.size() << '\\n';\n    for (int x : res) cout << x << ' ';\n}"
   dependsOn:
   - template.h
   - NumberTheory/Math/CheckPrime.h
@@ -121,8 +120,8 @@ data:
   isVerificationFile: true
   path: NumberTheory/Yosupo/Enumerate_primes.test.cpp
   requiredBy: []
-  timestamp: '2026-11-01 15:30:06+07:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2026-11-14 09:23:40+07:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: NumberTheory/Yosupo/Enumerate_primes.test.cpp
 layout: document

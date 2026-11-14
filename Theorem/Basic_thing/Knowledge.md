@@ -65,3 +65,8 @@ $$
 
 - **Độ phức tạp thời gian: $\boldsymbol{\mathcal{O}\left(\frac{4}{15} n \log \log n \right)}$**
 - **Độ phức tạp không gian: $\boldsymbol{\mathcal{O}\left(\frac{4}{15} n \right)}$**
+
+
+## 3. [Binary Exponentation](https://wiki.vnoi.info/vi/algo/algebra/binary_exponentation)
+
+- Ứng dụng: tính số fibonanci <= 10^18

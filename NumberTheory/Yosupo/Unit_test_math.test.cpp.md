@@ -16,7 +16,10 @@ data:
   - icon: ':question:'
     path: NumberTheory/Math/Misc.h
     title: NumberTheory/Math/Misc.h
-  - icon: ':x:'
+  - icon: ':question:'
+    path: NumberTheory/Math/Sieve.h
+    title: NumberTheory/Math/Sieve.h
+  - icon: ':question:'
     path: NumberTheory/Math/Sieve.h
     title: NumberTheory/Math/Sieve.h
   - icon: ':question:'
@@ -47,18 +50,24 @@ data:
     \n    // cin.exceptions(cin.failbit);\r\n    // int t; cin >> t;\r\n    // while(t--)\r\
     \n        solve();\r\n    cerr << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC\
     \ << \"ms\" << '\\n';\r\n    return 0;\r\n}\n#line 2 \"NumberTheory/Math/Binary_exponentiation.h\"\
-    \n\r\nusing u128 = __uint128_t;\r\nusing i128 = __int128;\r\n\r\nll binMul(ll\
-    \ a, ll b, ll M) { return (i128)a * b % M; }\r\n\r\n// long double trick\r\n//\
-    \ require: mantissa 64 bit, x86 gcc/clang\r\nll binMul2(ll a, ll b, ll M) {\r\n\
-    \    ll q = (ll)((long double)a * b / M);\r\n    ll r = (ll)((unsigned ll)a *\
-    \ b - (unsigned ll)q * M);\r\n    return r < 0 ? r + M : (r >= M ? r - M : r);\r\
-    \n}\r\n\r\nll binMul3(ll a, ll b, ll M) {\r\n    unsigned long long ua = a % M,\
-    \ um = M, res = 0;\r\n    while (b) {\r\n        if (b & 1) { res += ua; if (res\
-    \ >= um) res -= um; }\r\n        ua <<= 1; if (ua >= um) ua -= um;\r\n       \
-    \ b >>= 1;\r\n    }\r\n    return res;\r\n}\r\n\r\nll binPow(ll a, ll b, ll M)\
-    \ {\r\n    a %= M;\r\n    ll res = 1 % M;\r\n    while (b) {\r\n        if (b\
-    \ & 1) res = (i128)res * a % M;\r\n        a = (i128)a * a % M;\r\n        b /=\
-    \ 2;\r\n    }\r\n    return res;\r\n}\n#line 3 \"NumberTheory/Math/MillerRabin.h\"\
+    \n\r\nusing u128 = __uint128_t;\r\nusing i128 = __int128;\r\n\r\n// require: gcc/clang\
+    \ 64-bit, M < 10^18\r\n// a, b \xE2m th\xEC k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 \xE2\
+    m\r\nll binMul(ll a, ll b, ll M) { return (i128)a * b % M; }\r\n\r\n// long double\
+    \ trick\r\n// require: mantissa 64 bit, x86 gcc/clang, M < 10^18\r\n// d\xF9ng\
+    \ khi c\u1EA7n t\u1ED1c \u0111\u1ED9\r\nll binMul2(ll a, ll b, ll M) {\r\n   \
+    \ ll q = (ll)((long double)a * b / M);\r\n    ll r = (ll)((unsigned ll)a * b -\
+    \ (unsigned ll)q * M);\r\n    return r < 0 ? r + M : (r >= M ? r - M : r);\r\n\
+    }\r\n\r\n// nh\xE2n \u1EA4n \u0110\u1ED9\r\n// require: M < 10^18, b >= 0\r\n\
+    ll binMul3(ll a, ll b, ll M) {\r\n    unsigned ll ua = ((a % M) + M) % M, ub =\
+    \ b, um = M, res = 0;\r\n    while (ub) {\r\n        if (ub & 1) { res += ua;\
+    \ if (res >= um) res -= um; }\r\n        ua <<= 1; if (ua >= um) ua -= um;\r\n\
+    \        ub >>= 1;\r\n    }\r\n    return res;\r\n}\r\n\r\n// nh\xE2n \u1EA4n\
+    \ \u0110\u1ED9 \u0111\u1EC7 quy\r\n// require: M < 10^18\r\nll binMul4(ll a, ll\
+    \ b, ll M) {\r\n    if (!b) return 0;\r\n    ll x = binMul4(a, b / 2, M);\r\n\
+    \    if (b & 1) return (2 * x + a) % M;\r\n    return 2 * x % M;\r\n}\r\n\r\n\
+    ll binPow(ll a, ll b, ll M) {\r\n    a %= M;\r\n    ll res = 1 % M;\r\n    while\
+    \ (b) {\r\n        if (b & 1) res = (i128)res * a % M;\r\n        a = (i128)a\
+    \ * a % M;\r\n        b /= 2;\r\n    }\r\n    return res;\r\n}\n#line 3 \"NumberTheory/Math/MillerRabin.h\"\
     \n\r\n\r\nbool millerTest(ll a, ll n, ll k, ll m) {\r\n    ll mod = binPow(a,\
     \ m, n);\r\n    if (mod == 1 || mod == n - 1) return true;\r\n    for (int l =\
     \ 1; l < k; l++) {\r\n        mod = (u128)mod * mod % n;\r\n        if (mod ==\
@@ -160,7 +169,39 @@ data:
     \ convert_decimal(string s, int BASE) {\r\n    auto val = [&](char c) { c = toupper(c);\
     \ return (isdigit(c) ? c-'0' : c-'A'+10); };\r\n    ll n = s.size(), p = 1, res\
     \ = 0;\r\n    for (int i = n-1; i >= 0; i--) {\r\n        res += val(s[i]) * p;\r\
-    \n        p = p * BASE;\r\n    }\r\n    return res;\r\n}\n#line 7 \"NumberTheory/Yosupo/Unit_test_math.test.cpp\"\
+    \n        p = p * BASE;\r\n    }\r\n    return res;\r\n}\n#line 2 \"NumberTheory/Math/Sieve.h\"\
+    \n\r\n\r\nvector<int> sieve(int n) {\r\n    vector<int> nt(n+1, 1);\r\n    nt[0]\
+    \ = nt[1] = 0;\r\n    for (int i = 2; i * i <= n; i++) {\r\n        if (!nt[i])\
+    \ continue;\r\n        for (int j = i * i; j <= n; j += i)\r\n            nt[j]\
+    \ = 0;\r\n    }\r\n    return nt;\r\n}\r\n\r\nvector<int> segmentSieve(ll l, ll\
+    \ r){\r\n    ll sq = sqrtl(r);\r\n    while (sq * sq > r) sq--;\r\n    while (sq+1\
+    \ <= r/(sq+1)) sq++;\r\n    vector<int> small(sq+1, 1);\r\n    for (ll i = 2;\
+    \ i*i <= sq; i++) {\r\n        if (!small[i]) continue;\r\n        for (ll j =\
+    \ i*i; j <= sq; j += i) {\r\n            small[j] = 0;\r\n        }\r\n    }\r\
+    \n    vector<int> prime(r-l+1, 1);\r\n    for(ll p = 2; p <= sq; p++){\r\n   \
+    \     if (!small[p]) continue;\r\n        ll lim = max(p*p, (l+p-1)/p*p);\r\n\
+    \        for(ll j = lim; j <= r; j += p) {\r\n            prime[j-l] = 0;\r\n\
+    \        }\r\n    }\r\n    if (l == 0) prime[0] = 0;\r\n    if (l == 0 && r >\
+    \ l) prime[1] = 0;\r\n    if (l == 1) prime[1-l] = 0;\r\n    return prime;\r\n\
+    }\r\n\r\nvector<ll> listPrime(ll l, ll r) {\r\n    vector<int> prime = segmentSieve(l,\
+    \ r);\r\n    vector<ll> listOfPrimes;\r\n    for (ll i = l; i <= r; i++) {\r\n\
+    \        if (prime[i-l]) listOfPrimes.push_back(i);\r\n    }\r\n    return listOfPrimes\
+    \ ;\r\n}\r\n\r\nvector<int> sieve_count_divisors(int n) {\r\n    vector<int> divisors(n+1,\
+    \ 0);\r\n    for (ll i = 1; i*i <= n; i++) {\r\n        for (ll j = i*i; j <=\
+    \ n; j += i) {\r\n            divisors[j] += 2;\r\n        }\r\n        divisors[i*i]--;\r\
+    \n    }\r\n    return divisors;\r\n}\r\n\r\nvector<int> sieve_sum_divisors(int\
+    \ n) {\r\n    vector<int> sumDiv(n+1, 0);\r\n    for (int i = 1; i*i <= n; i++)\
+    \ {\r\n        for (int j = i*i; j <= n; j += i) {\r\n            sumDiv[j] +=\
+    \ i;\r\n            if (i*i != j) sumDiv[j] += j/i;\r\n        }\r\n    }\r\n\
+    \    return sumDiv;\r\n}\r\n\r\nvector<int> segmentSieveDivisors(int l, int r){\r\
+    \n    vector<int> div(r-l+1, 0);\r\n    for(ll i = 1; i*i <= r; i++){\r\n    \
+    \    ll lim = max(i*i, (l+i-1)/i*i);\r\n        for(ll j = lim; j <= r; j += i)\
+    \ {\r\n            div[j-l] += 2;\r\n        }\r\n        if (i * i >= l) div[i*i-l]--;\r\
+    \n    }\r\n    if (l == 0) div[0] = 0;\r\n    return div;\r\n}\r\n\r\nvector<vector<int>>\
+    \ sieve_prime_divisors(int n) {\r\n    vector<int> prime = sieve(n);\r\n    vector<vector<int>>\
+    \ div(n+1);\r\n    for (int i = 2; i <= n; i++) {\r\n        if (!prime[i]) continue;\r\
+    \n        for (int j = i; j <= n; j += i) {\r\n            div[j].push_back(i);\r\
+    \n        }\r\n    }\r\n    return div;\r\n}\n#line 8 \"NumberTheory/Yosupo/Unit_test_math.test.cpp\"\
     \n\r\nvoid solve() {\r\n    const int N = 200000;\r\n\r\n    // count_divisor\
     \ vs sieve_count_divisors\r\n    auto dv = sieve_count_divisors(N);\r\n    for\
     \ (int n = 1; n <= N; n++) assert(count_divisor(n) == dv[n]);\r\n\r\n    // sum_of_divisor\
@@ -181,24 +222,25 @@ data:
     \    ll a, b; cin >> a >> b;\r\n    cout << a + b << '\\n';\r\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\r\n\r\n#include\
     \ \"../../template.h\"\r\n#include \"../Math/Divisors.h\"\r\n#include \"../Math/Factorial.h\"\
-    \r\n#include \"../Math/Misc.h\"\r\n\r\nvoid solve() {\r\n    const int N = 200000;\r\
-    \n\r\n    // count_divisor vs sieve_count_divisors\r\n    auto dv = sieve_count_divisors(N);\r\
-    \n    for (int n = 1; n <= N; n++) assert(count_divisor(n) == dv[n]);\r\n\r\n\
-    \    // sum_of_divisor vs prefix sum of sieve_sum_divisors\r\n    auto sd = sieve_sum_divisors(N);\r\
-    \n    ll acc = 0;\r\n    for (int n = 1; n <= N; n++) {\r\n        acc = (acc\
-    \ + sd[n]) % MOD;\r\n        if (n % 4096 == 0 || n == N) assert(sum_of_divisor(n)\
-    \ == acc);\r\n    }\r\n\r\n    // factmod vs brute force\r\n    for (ll p : {2LL,\
-    \ 3LL, 97LL, 9973LL}) {\r\n        ll r = 1;\r\n        for (ll n = 1; n <= 5000;\
-    \ n++) {\r\n            ll x = n;\r\n            while (x % p == 0) x /= p;\r\n\
-    \            r = r * (x % p) % p;\r\n            assert(factmod(n, p) == r);\r\
-    \n        }\r\n    }\r\n\r\n    // GCD, LCM\r\n    for (ll a = -60; a <= 60; a++)\
-    \ for (ll b = -60; b <= 60; b++) {\r\n        ll g = GCD(a, b), l = LCM(a, b);\r\
-    \n        if (a && b) {\r\n            assert(llabs(a) % g == 0 && llabs(b) %\
-    \ g == 0);\r\n            assert(l == llabs(a * b) / g);\r\n        } else assert(l\
-    \ == 0);\r\n    }\r\n\r\n    // base conversion round trip\r\n    for (int base\
-    \ = 2; base <= 36; base++)\r\n        for (ll v = 0; v <= 3000; v++)\r\n     \
-    \       assert(convert_decimal(decimal_to_base(v, base), base) == v);\r\n\r\n\
-    \    ll a, b; cin >> a >> b;\r\n    cout << a + b << '\\n';\r\n}"
+    \r\n#include \"../Math/Misc.h\"\r\n#include \"../Math/Sieve.h\"\r\n\r\nvoid solve()\
+    \ {\r\n    const int N = 200000;\r\n\r\n    // count_divisor vs sieve_count_divisors\r\
+    \n    auto dv = sieve_count_divisors(N);\r\n    for (int n = 1; n <= N; n++) assert(count_divisor(n)\
+    \ == dv[n]);\r\n\r\n    // sum_of_divisor vs prefix sum of sieve_sum_divisors\r\
+    \n    auto sd = sieve_sum_divisors(N);\r\n    ll acc = 0;\r\n    for (int n =\
+    \ 1; n <= N; n++) {\r\n        acc = (acc + sd[n]) % MOD;\r\n        if (n % 4096\
+    \ == 0 || n == N) assert(sum_of_divisor(n) == acc);\r\n    }\r\n\r\n    // factmod\
+    \ vs brute force\r\n    for (ll p : {2LL, 3LL, 97LL, 9973LL}) {\r\n        ll\
+    \ r = 1;\r\n        for (ll n = 1; n <= 5000; n++) {\r\n            ll x = n;\r\
+    \n            while (x % p == 0) x /= p;\r\n            r = r * (x % p) % p;\r\
+    \n            assert(factmod(n, p) == r);\r\n        }\r\n    }\r\n\r\n    //\
+    \ GCD, LCM\r\n    for (ll a = -60; a <= 60; a++) for (ll b = -60; b <= 60; b++)\
+    \ {\r\n        ll g = GCD(a, b), l = LCM(a, b);\r\n        if (a && b) {\r\n \
+    \           assert(llabs(a) % g == 0 && llabs(b) % g == 0);\r\n            assert(l\
+    \ == llabs(a * b) / g);\r\n        } else assert(l == 0);\r\n    }\r\n\r\n   \
+    \ // base conversion round trip\r\n    for (int base = 2; base <= 36; base++)\r\
+    \n        for (ll v = 0; v <= 3000; v++)\r\n            assert(convert_decimal(decimal_to_base(v,\
+    \ base), base) == v);\r\n\r\n    ll a, b; cin >> a >> b;\r\n    cout << a + b\
+    \ << '\\n';\r\n}"
   dependsOn:
   - template.h
   - NumberTheory/Math/Divisors.h
@@ -207,10 +249,11 @@ data:
   - NumberTheory/Math/Sieve.h
   - NumberTheory/Math/Factorial.h
   - NumberTheory/Math/Misc.h
+  - NumberTheory/Math/Sieve.h
   isVerificationFile: true
   path: NumberTheory/Yosupo/Unit_test_math.test.cpp
   requiredBy: []
-  timestamp: '2026-11-01 15:30:06+07:00'
+  timestamp: '2026-11-14 09:23:40+07:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: NumberTheory/Yosupo/Unit_test_math.test.cpp

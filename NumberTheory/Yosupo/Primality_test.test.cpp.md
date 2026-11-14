@@ -35,18 +35,24 @@ data:
     \n    // cin.exceptions(cin.failbit);\r\n    // int t; cin >> t;\r\n    // while(t--)\r\
     \n        solve();\r\n    cerr << \"\\nTime run: \" << 1000 * clock() / CLOCKS_PER_SEC\
     \ << \"ms\" << '\\n';\r\n    return 0;\r\n}\n#line 2 \"NumberTheory/Math/Binary_exponentiation.h\"\
-    \n\r\nusing u128 = __uint128_t;\r\nusing i128 = __int128;\r\n\r\nll binMul(ll\
-    \ a, ll b, ll M) { return (i128)a * b % M; }\r\n\r\n// long double trick\r\n//\
-    \ require: mantissa 64 bit, x86 gcc/clang\r\nll binMul2(ll a, ll b, ll M) {\r\n\
-    \    ll q = (ll)((long double)a * b / M);\r\n    ll r = (ll)((unsigned ll)a *\
-    \ b - (unsigned ll)q * M);\r\n    return r < 0 ? r + M : (r >= M ? r - M : r);\r\
-    \n}\r\n\r\nll binMul3(ll a, ll b, ll M) {\r\n    unsigned long long ua = a % M,\
-    \ um = M, res = 0;\r\n    while (b) {\r\n        if (b & 1) { res += ua; if (res\
-    \ >= um) res -= um; }\r\n        ua <<= 1; if (ua >= um) ua -= um;\r\n       \
-    \ b >>= 1;\r\n    }\r\n    return res;\r\n}\r\n\r\nll binPow(ll a, ll b, ll M)\
-    \ {\r\n    a %= M;\r\n    ll res = 1 % M;\r\n    while (b) {\r\n        if (b\
-    \ & 1) res = (i128)res * a % M;\r\n        a = (i128)a * a % M;\r\n        b /=\
-    \ 2;\r\n    }\r\n    return res;\r\n}\n#line 3 \"NumberTheory/Math/MillerRabin.h\"\
+    \n\r\nusing u128 = __uint128_t;\r\nusing i128 = __int128;\r\n\r\n// require: gcc/clang\
+    \ 64-bit, M < 10^18\r\n// a, b \xE2m th\xEC k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 \xE2\
+    m\r\nll binMul(ll a, ll b, ll M) { return (i128)a * b % M; }\r\n\r\n// long double\
+    \ trick\r\n// require: mantissa 64 bit, x86 gcc/clang, M < 10^18\r\n// d\xF9ng\
+    \ khi c\u1EA7n t\u1ED1c \u0111\u1ED9\r\nll binMul2(ll a, ll b, ll M) {\r\n   \
+    \ ll q = (ll)((long double)a * b / M);\r\n    ll r = (ll)((unsigned ll)a * b -\
+    \ (unsigned ll)q * M);\r\n    return r < 0 ? r + M : (r >= M ? r - M : r);\r\n\
+    }\r\n\r\n// nh\xE2n \u1EA4n \u0110\u1ED9\r\n// require: M < 10^18, b >= 0\r\n\
+    ll binMul3(ll a, ll b, ll M) {\r\n    unsigned ll ua = ((a % M) + M) % M, ub =\
+    \ b, um = M, res = 0;\r\n    while (ub) {\r\n        if (ub & 1) { res += ua;\
+    \ if (res >= um) res -= um; }\r\n        ua <<= 1; if (ua >= um) ua -= um;\r\n\
+    \        ub >>= 1;\r\n    }\r\n    return res;\r\n}\r\n\r\n// nh\xE2n \u1EA4n\
+    \ \u0110\u1ED9 \u0111\u1EC7 quy\r\n// require: M < 10^18\r\nll binMul4(ll a, ll\
+    \ b, ll M) {\r\n    if (!b) return 0;\r\n    ll x = binMul4(a, b / 2, M);\r\n\
+    \    if (b & 1) return (2 * x + a) % M;\r\n    return 2 * x % M;\r\n}\r\n\r\n\
+    ll binPow(ll a, ll b, ll M) {\r\n    a %= M;\r\n    ll res = 1 % M;\r\n    while\
+    \ (b) {\r\n        if (b & 1) res = (i128)res * a % M;\r\n        a = (i128)a\
+    \ * a % M;\r\n        b /= 2;\r\n    }\r\n    return res;\r\n}\n#line 3 \"NumberTheory/Math/MillerRabin.h\"\
     \n\r\n\r\nbool millerTest(ll a, ll n, ll k, ll m) {\r\n    ll mod = binPow(a,\
     \ m, n);\r\n    if (mod == 1 || mod == n - 1) return true;\r\n    for (int l =\
     \ 1; l < k; l++) {\r\n        mod = (u128)mod * mod % n;\r\n        if (mod ==\
@@ -76,7 +82,7 @@ data:
   isVerificationFile: true
   path: NumberTheory/Yosupo/Primality_test.test.cpp
   requiredBy: []
-  timestamp: '2026-10-13 05:42:39+07:00'
+  timestamp: '2026-11-14 09:23:40+07:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: NumberTheory/Yosupo/Primality_test.test.cpp

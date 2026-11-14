@@ -9,15 +9,18 @@ data:
     path: NumberTheory/Math/Divisors.h
     title: NumberTheory/Math/Divisors.h
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: NumberTheory/Yosupo/Enumerate_primes.test.cpp
     title: NumberTheory/Yosupo/Enumerate_primes.test.cpp
   - icon: ':x:'
     path: NumberTheory/Yosupo/Unit_test_math.test.cpp
     title: NumberTheory/Yosupo/Unit_test_math.test.cpp
+  - icon: ':x:'
+    path: NumberTheory/Yosupo/Unit_test_math.test.cpp
+    title: NumberTheory/Yosupo/Unit_test_math.test.cpp
   _isVerificationFailed: true
   _pathExtension: h
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.h\"\n\r\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -105,9 +108,10 @@ data:
   requiredBy:
   - NumberTheory/Math/Divisors.h
   timestamp: '2026-11-01 15:30:06+07:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - NumberTheory/Yosupo/Enumerate_primes.test.cpp
+  - NumberTheory/Yosupo/Unit_test_math.test.cpp
   - NumberTheory/Yosupo/Unit_test_math.test.cpp
 documentation_of: NumberTheory/Math/Sieve.h
 layout: document
